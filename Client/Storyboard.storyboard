@@ -160,7 +160,8 @@
         <scene sceneID="9YC-Dl-luH">
             <objects>
                 <navigationController id="RSP-6D-F3G" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gJK-9r-szA">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" largeTitles="YES" id="gJK-9r-szA">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -177,7 +178,7 @@
             <objects>
                 <tabBarController id="SH3-c7-1Qf" customClass="MainTabBarController" customModule="Hackers" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Hacker News" id="JKk-fv-gH7"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gQk-hf-Llh">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="gQk-hf-Llh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

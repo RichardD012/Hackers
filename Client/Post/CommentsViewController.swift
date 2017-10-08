@@ -39,7 +39,6 @@ class CommentsViewController : UIViewController, UITableViewDelegate, UITableVie
         tableView.backgroundColor = .white
         
         navigationItem.largeTitleDisplayMode = .never
-        Theme.setupNavigationBar(navigationController!.navigationBar)
 
         loadComments()
     }

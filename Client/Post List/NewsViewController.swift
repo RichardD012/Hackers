@@ -37,7 +37,6 @@ class NewsViewController : UITableViewController, UISplitViewControllerDelegate,
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
 
-        refreshControl!.tintColor = Theme.purpleColour
         refreshControl!.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
         
         splitViewController!.delegate = self

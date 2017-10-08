@@ -49,7 +49,6 @@ class MainTabBarController: UITabBarController {
             }
         }
         
-        Theme.setupNavigationBar(self.navigationController!.navigationBar)
         tabBar.clipsToBounds = true
     }
 }
