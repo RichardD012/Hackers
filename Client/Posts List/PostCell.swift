@@ -17,7 +17,6 @@ class PostCell : UITableViewCell {
     var delegate: PostCellDelegate?
     
     @IBOutlet weak var postTitleView: PostTitleView!
-    @IBOutlet weak var thumbnailImageView: UIImageView!
     
     var cancelThumbnailTask: (() -> Void)?
     
@@ -42,18 +41,13 @@ class PostCell : UITableViewCell {
     }
     
     func setSelectedBackground() {
-        backgroundColor = Theme.backgroundPurpleColour
+        backgroundColor = Theme.backgroundOrangeColour
     }
     
     func setUnselectedBackground() {
         backgroundColor = UIColor.clear
     }
-    
-    func clearImage() {
-        let placeholder = UIImage(named: "ThumbnailPlaceholderIcon")?.withRenderingMode(.alwaysTemplate)
-        thumbnailImageView.image = placeholder
-    }
-    
+        
     /*@objc func didTapThumbnail(_ sender: Any) {
         delegate?.didTapThumbnail(sender)
     }*/

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0250DE182017B8A300CA8F2E /* ColoredHairlineTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250DE172017B8A300CA8F2E /* ColoredHairlineTabBar.swift */; };
 		240C5BE018D267C70011177A /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 240C5BDF18D267C70011177A /* Icons.xcassets */; };
 		24191F8D1944C991003C0D98 /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24191F8C1944C991003C0D98 /* CommentsController.swift */; };
 		241E8DAA1944AF870004F457 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241E8DA91944AF870004F457 /* CommentModel.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0250DE172017B8A300CA8F2E /* ColoredHairlineTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColoredHairlineTabBar.swift; path = Client/ColoredHairlineTabBar.swift; sourceTree = SOURCE_ROOT; };
 		240C5BDF18D267C70011177A /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		241387A51945A6E100D71220 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		24191F8C1944C991003C0D98 /* CommentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				24CC0DB6193D1935005AD417 /* Hackers2-Bridging-Header.h */,
 				24CE5FEC19434BDC009D2677 /* AppDelegate.swift */,
+				0250DE172017B8A300CA8F2E /* ColoredHairlineTabBar.swift */,
 				24F39F9018AFB1150055F8DC /* Hackers-Info.plist */,
 			);
 			path = "Supporting Files";
@@ -372,6 +375,7 @@
 				24E4F26119B4DA9900574B52 /* CommentDelegate.swift in Sources */,
 				2454B9041F655426005A98C7 /* EmptyViewController.swift in Sources */,
 				24D811A51FF90A58000951C3 /* TouchableTextView.swift in Sources */,
+				0250DE182017B8A300CA8F2E /* ColoredHairlineTabBar.swift in Sources */,
 				24CEAA9B1F8916970050DEDF /* UIView+Extensions.swift in Sources */,
 				24D6B8CA1C1EDBFC00618422 /* Theme.swift in Sources */,
 				245DCAB01CD4DA2A00152AA3 /* SFSafariViewController+PreviewActionItems.swift in Sources */,

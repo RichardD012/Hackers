@@ -17,7 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         HNManager.shared().startSession()
         UITextView.appearance().tintColor = Theme.orangeColor
         UITabBar.appearance().tintColor = Theme.orangeColor
-       //ReviewController.incrementLaunchCounter()
-        //ReviewController.requestReview()
+        
+        //UITabBar.appearance().backgroundImage = getImageWithColor(color: Theme.backgroundTintColor)
+        //UITabBar.appearance().shadowImage = getImageWithColor(color: .red)
+    }
+    
+    func getImageWithColor(color: UIColor) -> UIImage
+    {
+        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 1.0, height: 1.0))
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
+        color.setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
     }
 }

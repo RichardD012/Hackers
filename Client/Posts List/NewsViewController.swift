@@ -162,12 +162,10 @@ extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         cell.delegate = self
-        cell.clearImage()
         
         let post = posts[indexPath.row]
         cell.postTitleView.post = post
         cell.postTitleView.delegate = self
-        cell.thumbnailImageView.setImageWithPlaceholder(urlString: post.urlString)
         
         return cell
     }

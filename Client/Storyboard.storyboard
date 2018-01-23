@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,51 +22,36 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="XDA-kn-4Rw">
-                                    <rect key="frame" x="0.0" y="189" width="375" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="172" width="375" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="77" id="5Oo-dV-rYZ" customClass="PostCell" customModule="Hackers" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="375" height="77"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="70" id="5Oo-dV-rYZ" customClass="PostCell" customModule="Hackers" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="22" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Oo-dV-rYZ" id="DOg-MR-2gO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Jw8-Bv-Kjy">
-                                                    <rect key="frame" x="15" y="8.5" width="345" height="60"/>
+                                                    <rect key="frame" x="15" y="8.5" width="345" height="53"/>
                                                     <subviews>
-                                                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThumbnailPlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="4PS-aO-5AM">
-                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <gestureRecognizers/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="4PS-aO-5AM" secondAttribute="height" multiplier="1:1" id="44w-iS-Nhh"/>
-                                                                <constraint firstAttribute="width" constant="60" id="ZDd-zs-yhU"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="9"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83f-Rp-OBU" customClass="PostTitleView" customModule="Hackers" customModuleProvider="target">
-                                                            <rect key="frame" x="72" y="8.5" width="273" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="7" width="345" height="39"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cgB-hV-Qol">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="39"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Title Text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sv-5D-DDE">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="273" height="21.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1 point" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxp-Sn-WDt">
-                                                                            <rect key="frame" x="0.0" y="26.5" width="273" height="17"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                            <rect key="frame" x="0.0" y="24.5" width="345" height="14.5"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -101,34 +85,17 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="postTitleView" destination="83f-Rp-OBU" id="mmT-Vv-694"/>
-                                            <outlet property="thumbnailImageView" destination="4PS-aO-5AM" id="X1l-D8-yc4"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SkeletonCell" rowHeight="90" id="vCE-2L-VVA" customClass="PostCell" customModule="Hackers" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="99" width="375" height="90"/>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SkeletonCell" rowHeight="80" id="vCE-2L-VVA" customClass="PostCell" customModule="Hackers" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vCE-2L-VVA" id="Os8-j0-rRI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThumbnailPlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bEJ-i4-YUp">
-                                                    <rect key="frame" x="15" y="15" width="60" height="60"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <gestureRecognizers/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="bEJ-i4-YUp" secondAttribute="height" multiplier="1:1" id="L8W-EY-SOj"/>
-                                                        <constraint firstAttribute="width" constant="60" id="gxS-oN-Rsa"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="9"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPp-uV-FUC">
-                                                    <rect key="frame" x="87" y="11" width="273" height="68"/>
+                                                    <rect key="frame" x="360" y="11" width="0.0" height="58"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -139,9 +106,6 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="VPp-uV-FUC" firstAttribute="bottom" secondItem="Os8-j0-rRI" secondAttribute="bottomMargin" id="0fd-Ic-0cx"/>
-                                                <constraint firstItem="VPp-uV-FUC" firstAttribute="leading" secondItem="bEJ-i4-YUp" secondAttribute="trailing" constant="12" id="23w-rh-nY3"/>
-                                                <constraint firstItem="bEJ-i4-YUp" firstAttribute="leading" secondItem="Os8-j0-rRI" secondAttribute="leading" constant="15" id="2LE-FQ-pDL"/>
-                                                <constraint firstItem="bEJ-i4-YUp" firstAttribute="centerY" secondItem="Os8-j0-rRI" secondAttribute="centerY" id="S9f-3v-K50"/>
                                                 <constraint firstItem="VPp-uV-FUC" firstAttribute="top" secondItem="Os8-j0-rRI" secondAttribute="topMargin" id="lVy-Iw-g98"/>
                                                 <constraint firstItem="VPp-uV-FUC" firstAttribute="trailing" secondItem="Os8-j0-rRI" secondAttribute="trailingMargin" id="r4m-9e-cwr"/>
                                             </constraints>
@@ -155,9 +119,6 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outlet property="thumbnailImageView" destination="bEJ-i4-YUp" id="ZYr-Id-NqL"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <userDefinedRuntimeAttributes>
@@ -209,7 +170,7 @@
             <objects>
                 <tabBarController id="SH3-c7-1Qf" customClass="MainTabBarController" customModule="Hackers" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Hacker News" id="JKk-fv-gH7"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gQk-hf-Llh">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gQk-hf-Llh" customClass="LNColoredHairlineTabBar">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -288,26 +249,8 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="t7J-jh-8Aa">
                                             <rect key="frame" x="16" y="8" width="375" height="104"/>
                                             <subviews>
-                                                <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThumbnailPlaceholderIcon" highlightedImage="ThumbnailPlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="iAv-PR-2eT">
-                                                    <rect key="frame" x="0.0" y="22" width="60" height="60"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <gestureRecognizers/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="5tV-mV-Ekf"/>
-                                                        <constraint firstAttribute="width" secondItem="iAv-PR-2eT" secondAttribute="height" multiplier="1:1" id="Rxu-5d-Fu3"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="9"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="Dsc-cG-qQn" appends="YES" id="iQA-Y8-Xf2"/>
-                                                    </connections>
-                                                </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Riz-Wu-ppP" customClass="PostTitleView" customModule="Hackers" customModuleProvider="target">
-                                                    <rect key="frame" x="72" y="30.5" width="375" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="30.5" width="375" height="43.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="o2r-N1-LLh">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -555,7 +498,6 @@
                     <connections>
                         <outlet property="postTitleView" destination="Riz-Wu-ppP" id="GGk-2o-ouJ"/>
                         <outlet property="tableView" destination="QBD-8Q-H2S" id="4vJ-qJ-PA1"/>
-                        <outlet property="thumbnailImageView" destination="iAv-PR-2eT" id="DWA-8m-Ehq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcn-3b-TpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -596,7 +538,6 @@
     <resources>
         <image name="HackersIcon" width="128" height="128"/>
         <image name="ShareIcon" width="16" height="22"/>
-        <image name="ThumbnailPlaceholderIcon" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5Ke-QG-Zfe"/>

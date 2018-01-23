@@ -25,7 +25,6 @@ class CommentsViewController : UIViewController {
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet weak var postTitleView: PostTitleView!
-    @IBOutlet weak var thumbnailImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +89,6 @@ class CommentsViewController : UIViewController {
         postTitleView.post = post
         postTitleView.delegate = self
         postTitleView.isTitleTapEnabled = true
-        thumbnailImageView.setImageWithPlaceholder(urlString: post.urlString)
     }
     
     @IBAction func didTapThumbnail(_ sender: Any) {
@@ -108,7 +106,7 @@ extension CommentsViewController: PostTitleViewDelegate {
     func didPressLinkButton(_ post: HNPost) {
         if verifyLink(post.urlString), let url = URL(string: post.urlString) {
             // animate background colour for tap
-            self.tableView.tableHeaderView?.backgroundColor = Theme.backgroundPurpleColour
+            self.tableView.tableHeaderView?.backgroundColor = Theme.backgroundOrangeColour
             UIView.animate(withDuration: 0.3, animations: {
                 self.tableView.tableHeaderView?.backgroundColor = .white
             })
@@ -148,8 +146,9 @@ extension CommentsViewController: UITableViewDataSource {
 
 extension CommentsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = Bundle.main.loadNibNamed("CommentsHeader", owner: nil, options: nil)?.first as? UIView
-        return view
+        /*let view = Bundle.main.loadNibNamed("CommentsHeader", owner: nil, options: nil)?.first as? UIView
+        return view*/
+        return nil;
     }
 }
 
