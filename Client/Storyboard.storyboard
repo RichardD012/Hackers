@@ -286,11 +286,6 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </stackView>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MOc-E4-ltp">
-                                            <rect key="frame" x="0.0" y="120" width="375" height="1"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.86923338619538537" green="0.86923338619538537" blue="0.86923338619538537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -502,6 +497,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="postContainerView" destination="ApK-ej-h7a" id="W9v-fJ-PKn"/>
                         <outlet property="postTitleView" destination="Riz-Wu-ppP" id="GGk-2o-ouJ"/>
                         <outlet property="tableView" destination="QBD-8Q-H2S" id="4vJ-qJ-PA1"/>
                     </connections>

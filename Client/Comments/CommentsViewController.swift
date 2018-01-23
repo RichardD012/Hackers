@@ -15,7 +15,7 @@ import SkeletonView
 
 class CommentsViewController : UIViewController {
     var post: HNPost?
-    
+    private var hairline : UIView?
     var comments: [CommentModel]? {
         didSet { commentsController.comments = comments! }
     }
@@ -23,7 +23,7 @@ class CommentsViewController : UIViewController {
     let commentsController = CommentsController()
     
     @IBOutlet var tableView: UITableView!
-
+    @IBOutlet weak var postContainerView: UIView!
     @IBOutlet weak var postTitleView: PostTitleView!
     
     override func viewDidLoad() {
@@ -48,7 +48,7 @@ class CommentsViewController : UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        
         if let headerView = tableView.tableHeaderView {
             let height = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
             var headerFrame = headerView.frame
@@ -60,6 +60,13 @@ class CommentsViewController : UIViewController {
                 tableView.tableHeaderView = headerView
             }
         }
+        
+        if hairline == nil {
+            hairline = UIView()
+            hairline?.backgroundColor = UIColor.lightGray
+            postContainerView.addSubview(hairline!)
+        }
+        hairline?.frame = CGRect(origin: CGPoint(x: 0, y: postContainerView.bounds.height), size: CGSize(width: postContainerView.bounds.width, height: 1 / UIScreen.main.scale))
     }
     
     func loadComments() {
