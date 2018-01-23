@@ -17,7 +17,7 @@ class MainTabBarController: UITabBarController {
         
         for (index, viewController) in viewControllers.enumerated() {
             guard let navController = viewController as? UINavigationController else { continue }
-            Theme.setupNavigationBar(navController.navigationBar)
+            //Theme.setupNavigationBar(navController.navigationBar)
             if let newsVC = navController.viewControllers.first as? NewsViewController {
                 var postType: PostFilterType?
                 var typeName: String?

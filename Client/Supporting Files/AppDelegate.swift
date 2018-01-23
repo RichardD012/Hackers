@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         HNManager.shared().startSession()
-        UITextView.appearance().tintColor = Theme.purpleColour
-        UITabBar.appearance().tintColor = Theme.purpleColour
+        UITextView.appearance().tintColor = Theme.orangeColor
+        UITabBar.appearance().tintColor = Theme.orangeColor
        //ReviewController.incrementLaunchCounter()
         //ReviewController.requestReview()
     }

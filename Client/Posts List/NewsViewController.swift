@@ -35,7 +35,7 @@ class NewsViewController : UIViewController {
         registerForPreviewing(with: self, sourceView: tableView)
 
         let refreshControl = UIRefreshControl()
-        refreshControl.tintColor = Theme.purpleColour
+        refreshControl.tintColor = Theme.orangeColor
         refreshControl.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
         tableView.refreshControl = refreshControl
         
