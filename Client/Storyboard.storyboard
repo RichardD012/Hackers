@@ -48,12 +48,18 @@
                                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                            </userDefinedRuntimeAttributes>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1 point" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxp-Sn-WDt">
                                                                             <rect key="frame" x="0.0" y="24.5" width="345" height="14.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                            </userDefinedRuntimeAttributes>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
@@ -80,9 +86,15 @@
                                                 <constraint firstItem="Jw8-Bv-Kjy" firstAttribute="leading" secondItem="DOg-MR-2gO" secondAttribute="leading" constant="15" id="mDw-0I-Y5Z"/>
                                             </constraints>
                                             <edgeInsets key="layoutMargins" top="8" left="15" bottom="8" right="8"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="postTitleView" destination="83f-Rp-OBU" id="mmT-Vv-694"/>
                                         </connections>
@@ -95,7 +107,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPp-uV-FUC">
-                                                    <rect key="frame" x="360" y="11" width="0.0" height="58"/>
+                                                    <rect key="frame" x="15" y="11" width="360" height="58"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -106,8 +118,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="VPp-uV-FUC" firstAttribute="bottom" secondItem="Os8-j0-rRI" secondAttribute="bottomMargin" id="0fd-Ic-0cx"/>
+                                                <constraint firstItem="VPp-uV-FUC" firstAttribute="trailing" secondItem="Os8-j0-rRI" secondAttribute="trailing" id="cIg-df-q8t"/>
                                                 <constraint firstItem="VPp-uV-FUC" firstAttribute="top" secondItem="Os8-j0-rRI" secondAttribute="topMargin" id="lVy-Iw-g98"/>
-                                                <constraint firstItem="VPp-uV-FUC" firstAttribute="trailing" secondItem="Os8-j0-rRI" secondAttribute="trailingMargin" id="r4m-9e-cwr"/>
+                                                <constraint firstItem="VPp-uV-FUC" firstAttribute="leading" secondItem="Os8-j0-rRI" secondAttribute="leadingMargin" id="r4m-9e-cwr"/>
                                             </constraints>
                                             <edgeInsets key="layoutMargins" top="8" left="15" bottom="8" right="8"/>
                                             <userDefinedRuntimeAttributes>

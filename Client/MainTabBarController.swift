@@ -47,8 +47,7 @@ class MainTabBarController: UITabBarController {
                 }
                 newsVC.postType = postType
                 newsVC.tabBarItem.title = typeName
-                //newsVC.tabBarItem.image = UIImage(named: iconName!)
-                newsVC.tabBarItem.image = UIImage(named: "TopIcon")
+                newsVC.tabBarItem.image = UIImage(named: iconName!)
             }
         }
         
