@@ -16,7 +16,8 @@ protocol PostTitleViewDelegate {
 class PostTitleView: UIView, UIGestureRecognizerDelegate {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var metadataLabel: UILabel!
-    
+    private var hairline : UIView?
+    var isHairlineEnabled = false
     var isTitleTapEnabled = false
     
     var delegate: PostTitleViewDelegate?
@@ -31,7 +32,13 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        /*if hairline == nil {
+            hairline = UIView()
+            hairline?.backgroundColor = UIColor.lightGray
+            hairline?.frame = CGRect(origin: CGPoint(x: 0, y: 120), size: CGSize(width: bounds.width, height: 1 / UIScreen.main.scale))
+            addSubview(hairline!)
+        }
+        hairline?.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: bounds.width, height: 1 / UIScreen.main.scale))*/
         let titleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didPressTitleText(_:)))
         titleLabel.addGestureRecognizer(titleTapGestureRecognizer)
     }

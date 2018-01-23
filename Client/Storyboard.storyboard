@@ -239,9 +239,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="115" estimatedRowHeight="100" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="60" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="QBD-8Q-H2S">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="115" estimatedRowHeight="100" sectionHeaderHeight="28" estimatedSectionHeaderHeight="60" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QBD-8Q-H2S">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="ApK-ej-h7a">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -271,7 +271,7 @@
                                                             <gestureRecognizers/>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="o2r-N1-LLh" secondAttribute="trailing" id="C4B-XQ-6t4"/>
                                                         <constraint firstItem="o2r-N1-LLh" firstAttribute="leading" secondItem="Riz-Wu-ppP" secondAttribute="leading" id="E3s-qu-6wZ"/>
@@ -284,9 +284,15 @@
                                                     </connections>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </stackView>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MOc-E4-ltp">
+                                            <rect key="frame" x="0.0" y="120" width="375" height="1"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.86923338619538537" green="0.86923338619538537" blue="0.86923338619538537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="t7J-jh-8Aa" firstAttribute="leading" secondItem="ApK-ej-h7a" secondAttribute="leadingMargin" constant="8" id="35D-Gb-BxM"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="t7J-jh-8Aa" secondAttribute="trailing" constant="8" id="Rt1-OU-5MX"/>
@@ -296,7 +302,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OpenCommentCell" rowHeight="144" id="Ku3-Ww-ybh" userLabel="Open Comment Cell" customClass="CommentTableViewCell" customModule="Hackers" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="175.5" width="375" height="144"/>
+                                        <rect key="frame" x="0.0" y="148" width="375" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ku3-Ww-ybh" id="oE5-2d-406">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="144"/>
@@ -366,7 +372,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClosedCommentCell" rowHeight="44" id="JRG-v5-Z5m" userLabel="Closed Comment Cell" customClass="CommentTableViewCell" customModule="Hackers" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="319.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="292" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JRG-v5-Z5m" id="P7B-gi-IKd">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -420,7 +426,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SkeletonCell" rowHeight="115" id="lP7-Ee-gTu" userLabel="Skeleton Cell" customClass="CommentTableViewCell" customModule="Hackers" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="363.5" width="375" height="115"/>
+                                        <rect key="frame" x="0.0" y="336" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lP7-Ee-gTu" id="UVs-jZ-gsT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>

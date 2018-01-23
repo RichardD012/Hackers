@@ -23,7 +23,7 @@ class CommentsViewController : UIViewController {
     let commentsController = CommentsController()
     
     @IBOutlet var tableView: UITableView!
-    
+
     @IBOutlet weak var postTitleView: PostTitleView!
     
     override func viewDidLoad() {
@@ -144,13 +144,12 @@ extension CommentsViewController: UITableViewDataSource {
     }
 }
 
-extension CommentsViewController: UITableViewDelegate {
+/*extension CommentsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        /*let view = Bundle.main.loadNibNamed("CommentsHeader", owner: nil, options: nil)?.first as? UIView
-        return view*/
-        return nil;
+        let view = Bundle.main.loadNibNamed("CommentsHeader", owner: nil, options: nil)?.first as? UIView
+        return view
     }
-}
+}*/
 
 extension CommentsViewController: CommentDelegate {
     func commentTapped(_ sender: UITableViewCell) {
