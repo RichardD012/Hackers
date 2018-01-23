@@ -21,11 +21,6 @@
                             <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VEY-Xo-crR">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="XDA-kn-4Rw">
-                                    <rect key="frame" x="0.0" y="172" width="375" height="0.0"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="70" id="5Oo-dV-rYZ" customClass="PostCell" customModule="Hackers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="375" height="70"/>
@@ -99,15 +94,15 @@
                                             <outlet property="postTitleView" destination="83f-Rp-OBU" id="mmT-Vv-694"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SkeletonCell" rowHeight="80" id="vCE-2L-VVA" customClass="PostCell" customModule="Hackers" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="80"/>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SkeletonCell" rowHeight="60" id="vCE-2L-VVA" customClass="PostCell" customModule="Hackers" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vCE-2L-VVA" id="Os8-j0-rRI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPp-uV-FUC">
-                                                    <rect key="frame" x="15" y="11" width="360" height="58"/>
+                                                    <rect key="frame" x="15" y="15" width="345" height="29.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -118,11 +113,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="VPp-uV-FUC" firstAttribute="bottom" secondItem="Os8-j0-rRI" secondAttribute="bottomMargin" id="0fd-Ic-0cx"/>
-                                                <constraint firstItem="VPp-uV-FUC" firstAttribute="trailing" secondItem="Os8-j0-rRI" secondAttribute="trailing" id="cIg-df-q8t"/>
+                                                <constraint firstItem="VPp-uV-FUC" firstAttribute="trailing" secondItem="Os8-j0-rRI" secondAttribute="trailingMargin" id="cIg-df-q8t"/>
                                                 <constraint firstItem="VPp-uV-FUC" firstAttribute="top" secondItem="Os8-j0-rRI" secondAttribute="topMargin" id="lVy-Iw-g98"/>
                                                 <constraint firstItem="VPp-uV-FUC" firstAttribute="leading" secondItem="Os8-j0-rRI" secondAttribute="leadingMargin" id="r4m-9e-cwr"/>
                                             </constraints>
-                                            <edgeInsets key="layoutMargins" top="8" left="15" bottom="8" right="8"/>
+                                            <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="8"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                             </userDefinedRuntimeAttributes>
