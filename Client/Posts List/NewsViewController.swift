@@ -35,7 +35,7 @@ class NewsViewController : UIViewController {
         registerForPreviewing(with: self, sourceView: tableView)
 
         let refreshControl = UIRefreshControl()
-        refreshControl.tintColor = Theme.orangeColor
+        refreshControl.tintColor = .black
         refreshControl.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
         tableView.refreshControl = refreshControl
         
@@ -166,7 +166,10 @@ extension NewsViewController: UITableViewDataSource {
         let post = posts[indexPath.row]
         cell.postTitleView.post = post
         cell.postTitleView.delegate = self
-        
+        if(post.hasVisited)
+        {
+            cell.postTitleView.titleLabel.textColor = Theme.visitedLinkColor
+        }
         return cell
     }
 }
@@ -177,8 +180,10 @@ extension NewsViewController: UITableViewDelegate {
         
         guard let navController = storyboard?.instantiateViewController(withIdentifier: "PostViewNavigationController") as? UINavigationController else { return }
         guard let commentsViewController = navController.viewControllers.first as? CommentsViewController else { return }
+        guard let postCell = tableView.cellForRow(at: indexPath) as? PostCell else {return }
         commentsViewController.post = posts[indexPath.row]
-        
+        posts[indexPath.row].hasVisited = true
+        postCell.postTitleView.titleLabel.textColor = Theme.visitedLinkColor
         if UIDevice.current.userInterfaceIdiom == .phone {
             // for iPhone we want to push the view controller instead of presenting it as the detail
             self.navigationController?.pushViewController(commentsViewController, animated: true)

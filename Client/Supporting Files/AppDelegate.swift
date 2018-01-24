@@ -15,11 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         HNManager.shared().startSession()
-        UITextView.appearance().tintColor = Theme.orangeColor
-        UITabBar.appearance().tintColor = Theme.orangeColor
+        UITextView.appearance().tintColor = .black
         
-        //UITabBar.appearance().backgroundImage = getImageWithColor(color: Theme.backgroundTintColor)
-        //UITabBar.appearance().shadowImage = getImageWithColor(color: .red)
+        UITabBar.appearance().tintColor = Theme.primaryOrangeColour
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().backgroundColor = Theme.tabBarBackgroundColour
+
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barTintColor = Theme.primaryOrangeColour
+        UINavigationBar.appearance().tintColor = .black
+
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
+        
     }
     
     func getImageWithColor(color: UIColor) -> UIImage

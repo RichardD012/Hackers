@@ -113,7 +113,7 @@ extension CommentsViewController: PostTitleViewDelegate {
     func didPressLinkButton(_ post: HNPost) {
         if verifyLink(post.urlString), let url = URL(string: post.urlString) {
             // animate background colour for tap
-            self.tableView.tableHeaderView?.backgroundColor = Theme.backgroundOrangeColour
+            self.tableView.tableHeaderView?.backgroundColor = Theme.selectedCellBackgroundColor
             UIView.animate(withDuration: 0.3, animations: {
                 self.tableView.tableHeaderView?.backgroundColor = .white
             })
