@@ -18,6 +18,7 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
     @IBOutlet var metadataLabel: UILabel!
     private var hairline : UIView?
     var isHairlineEnabled = false
+    
     var isTitleTapEnabled = false
     
     var delegate: PostTitleViewDelegate?
@@ -64,16 +65,27 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
     fileprivate func metadataText(for post: HNPost) -> NSAttributedString {
         let string = NSMutableAttributedString()
         
-        let pointsIconAttachment = textAttachment(for: "PointsIcon")
-        let pointsIconAttributedString = NSAttributedString(attachment: pointsIconAttachment)
+        //let pointsIconAttachment = textAttachment(for: "PointsIcon")
+        //let pointsIconAttributedString = NSAttributedString(attachment: pointsIconAttachment)
         
-        let commentsIconAttachment = textAttachment(for: "CommentsIcon")
-        let commentsIconAttributedString = NSAttributedString(attachment: commentsIconAttachment)
+       //let commentsIconAttachment = textAttachment(for: "CommentsIcon")
+       // let commentsIconAttributedString = NSAttributedString(attachment: commentsIconAttachment)
         
-        string.append(NSAttributedString(string: "\(post.points)"))
-        string.append(pointsIconAttributedString)
-        string.append(NSAttributedString(string: "• \(post.commentCount)"))
-        string.append(commentsIconAttributedString)
+        //string.append(NSAttributedString(string: "\(post.points)"))
+        //string.append(pointsIconAttributedString)
+        //string.append(NSAttributedString(string: "• \(post.commentCount)"))
+        //string.append(commentsIconAttributedString)
+        string.append(NSAttributedString(string: "\(post.points) points"))
+        if let name = post.username {
+            if(name.isEmpty==false){
+                string.append(NSAttributedString(string: " by \(name)"))
+            }
+            
+        }
+        /*if(post.username.isEmpty == false)
+        {
+         
+        }*/
         string.append(NSAttributedString(string: " • \(domainLabelText(for: post))"))
         
         return string

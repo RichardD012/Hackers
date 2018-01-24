@@ -165,6 +165,18 @@ extension NewsViewController: UITableViewDataSource {
         
         let post = posts[indexPath.row]
         cell.postTitleView.post = post
+        if(post.commentCount>0)
+        {
+            cell.postCommentsImage.isHidden = false
+            cell.postCommentsCount.text = String(post.commentCount)
+            cell.postCommentsCount.isHidden = false
+            cell.postCommentsCount.textColor = Theme.commentTextColor
+            cell.postCommentsImage.tintColor = Theme.commentImageColor
+        }else{
+            cell.postCommentsImage.isHidden = true
+            cell.postCommentsCount.isHidden = true
+        }
+        
         cell.postTitleView.delegate = self
         if(post.hasVisited)
         {

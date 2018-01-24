@@ -17,6 +17,8 @@ class PostCell : UITableViewCell {
     var delegate: PostCellDelegate?
     
     @IBOutlet weak var postTitleView: PostTitleView!
+    @IBOutlet weak var postCommentsCount: UILabel!
+    @IBOutlet weak var postCommentsImage: UIImageView!
     
     var cancelThumbnailTask: (() -> Void)?
     

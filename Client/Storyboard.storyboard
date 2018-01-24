@@ -29,17 +29,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Jw8-Bv-Kjy">
+                                                <stackView opaque="NO" contentMode="scaleAspectFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Jw8-Bv-Kjy" userLabel="Cell Stack View">
                                                     <rect key="frame" x="15" y="8.5" width="345" height="53"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83f-Rp-OBU" customClass="PostTitleView" customModule="Hackers" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="7" width="345" height="39"/>
+                                                            <rect key="frame" x="0.0" y="7" width="283" height="39"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cgB-hV-Qol">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="39"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cgB-hV-Qol" userLabel="Post Stack View">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="283" height="39"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Title Text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sv-5D-DDE">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="19.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="283" height="19.5"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1 point" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxp-Sn-WDt">
-                                                                            <rect key="frame" x="0.0" y="24.5" width="345" height="14.5"/>
+                                                                            <rect key="frame" x="0.0" y="24.5" width="283" height="14.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
@@ -61,17 +61,44 @@
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="cgB-hV-Qol" secondAttribute="trailing" id="Ab2-7E-km4"/>
-                                                                <constraint firstItem="cgB-hV-Qol" firstAttribute="leading" secondItem="83f-Rp-OBU" secondAttribute="leading" id="J8a-qC-6RM"/>
-                                                                <constraint firstAttribute="bottom" secondItem="cgB-hV-Qol" secondAttribute="bottom" id="QsM-7q-K7q"/>
-                                                                <constraint firstItem="cgB-hV-Qol" firstAttribute="top" secondItem="83f-Rp-OBU" secondAttribute="top" id="cFp-Lc-Pxi"/>
+                                                                <constraint firstItem="cgB-hV-Qol" firstAttribute="bottom" secondItem="83f-Rp-OBU" secondAttribute="bottom" id="J4c-ZN-bZo"/>
+                                                                <constraint firstItem="cgB-hV-Qol" firstAttribute="top" secondItem="83f-Rp-OBU" secondAttribute="top" id="WKP-R4-FNZ"/>
+                                                                <constraint firstItem="cgB-hV-Qol" firstAttribute="trailing" secondItem="83f-Rp-OBU" secondAttribute="trailing" id="daw-Gg-6kn"/>
+                                                                <constraint firstItem="cgB-hV-Qol" firstAttribute="leading" secondItem="83f-Rp-OBU" secondAttribute="leading" id="nHD-uu-X9H"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="metadataLabel" destination="pxp-Sn-WDt" id="iCP-Iu-2iE"/>
                                                                 <outlet property="titleLabel" destination="7sv-5D-DDE" id="CYE-OL-N6o"/>
                                                             </connections>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4L0-ob-tW9">
+                                                            <rect key="frame" x="295" y="0.0" width="50" height="53"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CommentBig" translatesAutoresizingMaskIntoConstraints="NO" id="hoi-BX-238">
+                                                                    <rect key="frame" x="11" y="12" width="28" height="28"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JqB-gL-FLO" userLabel="CommentCount">
+                                                                    <rect key="frame" x="14" y="19" width="22" height="12"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="22" id="pjt-UV-IDk"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="435-wc-Uds"/>
+                                                                <constraint firstItem="JqB-gL-FLO" firstAttribute="top" secondItem="4L0-ob-tW9" secondAttribute="top" constant="19" id="KsJ-Cx-qWV"/>
+                                                                <constraint firstItem="JqB-gL-FLO" firstAttribute="centerX" secondItem="4L0-ob-tW9" secondAttribute="centerX" id="jTy-ph-UG5"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="4L0-ob-tW9" firstAttribute="top" secondItem="Jw8-Bv-Kjy" secondAttribute="top" id="3yw-M2-4rd"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -91,6 +118,8 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="postCommentsCount" destination="JqB-gL-FLO" id="Z3l-NH-153"/>
+                                            <outlet property="postCommentsImage" destination="hoi-BX-238" id="i85-rA-yFH"/>
                                             <outlet property="postTitleView" destination="83f-Rp-OBU" id="mmT-Vv-694"/>
                                         </connections>
                                     </tableViewCell>
@@ -546,6 +575,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CommentBig" width="28" height="28"/>
         <image name="HackersIcon" width="128" height="128"/>
         <image name="ShareIcon" width="16" height="22"/>
     </resources>
