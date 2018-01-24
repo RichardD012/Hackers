@@ -64,13 +64,10 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
     
     fileprivate func metadataText(for post: HNPost) -> NSAttributedString {
         let string = NSMutableAttributedString()
-        
         //let pointsIconAttachment = textAttachment(for: "PointsIcon")
         //let pointsIconAttributedString = NSAttributedString(attachment: pointsIconAttachment)
-        
        //let commentsIconAttachment = textAttachment(for: "CommentsIcon")
        // let commentsIconAttributedString = NSAttributedString(attachment: commentsIconAttachment)
-        
         //string.append(NSAttributedString(string: "\(post.points)"))
         //string.append(pointsIconAttributedString)
         //string.append(NSAttributedString(string: "• \(post.commentCount)"))
@@ -82,11 +79,12 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
             }
             
         }
-        /*if(post.username.isEmpty == false)
-        {
-         
-        }*/
-        string.append(NSAttributedString(string: " • \(domainLabelText(for: post))"))
+        if let date = post.timeCreatedString {
+            if(date.isEmpty == false){
+                string.append(NSAttributedString(string: " \(date)"))
+            }
+        }
+        //string.append(NSAttributedString(string: " • \(domainLabelText(for: post))"))
         
         return string
     }
