@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol PostCellDelegate {
-    func didTapThumbnail(_ sender: Any)
+    func didTapComment(_ sender: Any)
 }
 
 class PostCell : UITableViewCell {
@@ -19,18 +19,19 @@ class PostCell : UITableViewCell {
     @IBOutlet weak var postTitleView: PostTitleView!
     @IBOutlet weak var postCommentsCount: UILabel!
     @IBOutlet weak var postCommentsImage: UIImageView!
+    @IBOutlet weak var commentView: UIView!
     
     var cancelThumbnailTask: (() -> Void)?
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        //setupThumbnailGesture()
+        setupCommentGesture()
     }
     
-    /*private func setupThumbnailGesture() {
+    private func setupCommentGesture() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapThumbnail(_:)))
-        thumbnailImageView.addGestureRecognizer(tapGestureRecognizer)
-    }*/
+        commentView?.addGestureRecognizer(tapGestureRecognizer)
+    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -50,7 +51,9 @@ class PostCell : UITableViewCell {
         backgroundColor = UIColor.clear
     }
         
-    /*@objc func didTapThumbnail(_ sender: Any) {
-        delegate?.didTapThumbnail(sender)
-    }*/
+    @objc func didTapThumbnail(_ sender: Any) {
+        //NSLog("Tapped comments")
+        delegate?.didTapComment(sender)
+        
+    }
 }
