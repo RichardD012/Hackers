@@ -83,8 +83,8 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JqB-gL-FLO" userLabel="CommentCount">
-                                                                    <rect key="frame" x="10" y="16" width="30" height="14.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <rect key="frame" x="12" y="15.5" width="26" height="13.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -92,8 +92,8 @@
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="435-wc-Uds"/>
-                                                                <constraint firstItem="JqB-gL-FLO" firstAttribute="centerY" secondItem="4L0-ob-tW9" secondAttribute="centerY" constant="-1" id="7bL-Nw-oA3"/>
-                                                                <constraint firstItem="JqB-gL-FLO" firstAttribute="width" secondItem="hoi-BX-238" secondAttribute="width" constant="-2" id="Ed8-kL-XRD"/>
+                                                                <constraint firstItem="JqB-gL-FLO" firstAttribute="centerY" secondItem="4L0-ob-tW9" secondAttribute="centerY" constant="-2" id="7bL-Nw-oA3"/>
+                                                                <constraint firstItem="JqB-gL-FLO" firstAttribute="width" secondItem="hoi-BX-238" secondAttribute="width" constant="-6" id="Ed8-kL-XRD"/>
                                                                 <constraint firstItem="hoi-BX-238" firstAttribute="centerY" secondItem="4L0-ob-tW9" secondAttribute="centerY" id="Jlh-YJ-6xo"/>
                                                                 <constraint firstItem="hoi-BX-238" firstAttribute="centerX" secondItem="4L0-ob-tW9" secondAttribute="centerX" id="frm-kO-seh"/>
                                                                 <constraint firstItem="JqB-gL-FLO" firstAttribute="centerX" secondItem="4L0-ob-tW9" secondAttribute="centerX" id="jTy-ph-UG5"/>
@@ -581,7 +581,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CommentBig" width="28" height="28"/>
+        <image name="CommentBig" width="35" height="35"/>
         <image name="HackersIcon" width="128" height="128"/>
         <image name="ShareIcon" width="16" height="22"/>
     </resources>

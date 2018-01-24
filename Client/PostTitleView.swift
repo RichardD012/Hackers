@@ -26,7 +26,27 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
     var post: HNPost? {
         didSet {
             guard let post = post else { return }
-            titleLabel.text = post.title
+            let domainString = domainLabelText(for: post)
+            let attributedTitle = NSMutableAttributedString()
+            var titleColor = UIColor.black
+            var titleString = "(No Title) "
+            if(post.hasVisited){
+                titleColor = Theme.visitedLinkColor
+            }
+            if let title = post.title {
+                if(title.isEmpty == false){
+                    titleString = "\(title) ";
+                }
+            }
+             attributedTitle.append(NSAttributedString(string: titleString, attributes: [NSAttributedStringKey.foregroundColor: titleColor]))
+            let domainAttrs = [
+                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12),
+                NSAttributedStringKey.foregroundColor: Theme.postTitleDomainColor
+            ]
+            let attrStr = NSMutableAttributedString(string: "(\(domainString))", attributes: domainAttrs)
+            attributedTitle.append(attrStr)
+            titleLabel.attributedText = attributedTitle
+
             metadataLabel.attributedText = metadataText(for: post)
         }
     }

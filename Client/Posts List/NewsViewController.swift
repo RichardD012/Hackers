@@ -178,23 +178,12 @@ extension NewsViewController: UITableViewDataSource {
         
         let post = posts[indexPath.row]
         cell.postTitleView.post = post
-        //if(post.commentCount>0)
-        //{
-            cell.postCommentsImage.isHidden = false
-            cell.postCommentsCount.text = String(post.commentCount)
-            cell.postCommentsCount.isHidden = false
-            cell.postCommentsCount.textColor = Theme.commentTextColor
-            cell.postCommentsImage.tintColor = Theme.commentImageColor
-        /*}else{
-            cell.postCommentsImage.isHidden = true
-            cell.postCommentsCount.isHidden = true
-        }*/
-        
+        cell.postCommentsImage.isHidden = false
+        cell.postCommentsCount.text = String(post.commentCount)
+        cell.postCommentsCount.isHidden = false
+        cell.postCommentsCount.textColor = Theme.commentTextColor
+        cell.postCommentsImage.tintColor = Theme.commentImageColor
         cell.postTitleView.delegate = self
-        if(post.hasVisited)
-        {
-            cell.postTitleView.titleLabel.textColor = Theme.visitedLinkColor
-        }
         return cell
     }
 }
@@ -204,21 +193,9 @@ extension NewsViewController: UITableViewDelegate {
         guard let postCell = tableView.cellForRow(at: indexPath) as? PostCell else {return }
         collapseDetailViewController = false
         posts[indexPath.row].hasVisited = true
-        postCell.postTitleView.titleLabel.textColor = Theme.visitedLinkColor
+        postCell.postTitleView.post = posts[indexPath.row]
         didPressLinkButton(posts[indexPath.row])
-        /*guard let navController = storyboard?.instantiateViewController(withIdentifier: "PostViewNavigationController") as? UINavigationController else { return }
-        guard let commentsViewController = navController.viewControllers.first as? CommentsViewController else { return }
-        guard let postCell = tableView.cellForRow(at: indexPath) as? PostCell else {return }
-        commentsViewController.post = posts[indexPath.row]
-        posts[indexPath.row].hasVisited = true
-        postCell.postTitleView.titleLabel.textColor = Theme.visitedLinkColor
         
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            // for iPhone we want to push the view controller instead of presenting it as the detail
-            self.navigationController?.pushViewController(commentsViewController, animated: true)
-        } else {
-            showDetailViewController(navController, sender: self)
-        }*/
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
