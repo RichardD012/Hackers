@@ -60,7 +60,7 @@
 		24DFD28B19436E51007F61E7 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		24E4F26019B4DA9900574B52 /* CommentDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentDelegate.swift; sourceTree = "<group>"; };
 		24EF5BF31C393D110012AA8A /* LaunchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchStoryboard.storyboard; sourceTree = "<group>"; };
-		24F39F8518AFB1150055F8DC /* Hackers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F39F8518AFB1150055F8DC /* YC: News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YC: News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F39F8818AFB1150055F8DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24F39F8A18AFB1150055F8DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		24F39F8C18AFB1150055F8DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -150,7 +150,7 @@
 		24F39F8618AFB1150055F8DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24F39F8518AFB1150055F8DC /* Hackers.app */,
+				24F39F8518AFB1150055F8DC /* YC: News.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,7 +227,7 @@
 			);
 			name = Hackers;
 			productName = Hackers2;
-			productReference = 24F39F8518AFB1150055F8DC /* Hackers.app */;
+			productReference = 24F39F8518AFB1150055F8DC /* YC: News.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -491,8 +491,8 @@
 				GCC_PREFIX_HEADER = "Client/Supporting Files/Hackers2-Prefix.pch";
 				INFOPLIST_FILE = "Client/Supporting Files/Hackers-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.r7development.Hackers;
-				PRODUCT_NAME = Hackers;
+				PRODUCT_BUNDLE_IDENTIFIER = com.r7development.YCNews;
+				PRODUCT_NAME = "YC: News";
 				SWIFT_OBJC_BRIDGING_HEADER = "Client/Supporting Files/Hackers2-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
@@ -515,8 +515,8 @@
 				GCC_PREFIX_HEADER = "Client/Supporting Files/Hackers2-Prefix.pch";
 				INFOPLIST_FILE = "Client/Supporting Files/Hackers-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.r7development.Hackers;
-				PRODUCT_NAME = Hackers;
+				PRODUCT_BUNDLE_IDENTIFIER = com.r7development.YCNews;
+				PRODUCT_NAME = "YC: News";
 				SWIFT_OBJC_BRIDGING_HEADER = "Client/Supporting Files/Hackers2-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;

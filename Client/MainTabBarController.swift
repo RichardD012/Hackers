@@ -38,6 +38,11 @@ class MainTabBarController: UITabBarController {
                     typeName = "New"
                     iconName = "NewIcon"
                     break
+                case 4:
+                    postType = .top
+                    typeName = "Settings"
+                    iconName = "SettingsIcon"
+                    break
                 case 0:
                     fallthrough
                 default:
