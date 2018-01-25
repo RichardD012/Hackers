@@ -114,8 +114,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8Zp-sz-VCk">
-                                                    <rect key="frame" x="40" y="7" width="296" height="31"/>
+                                                <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" minimumValueImage="Moon" maximumValueImage="Sun" translatesAutoresizingMaskIntoConstraints="NO" id="8Zp-sz-VCk">
+                                                    <rect key="frame" x="18" y="7" width="339" height="31"/>
                                                     <color key="minimumTrackTintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <connections>
                                                         <action selector="darkModeSliderChanged:" destination="ACC-mi-0F9" eventType="valueChanged" id="roB-VW-nfL"/>
@@ -125,8 +125,8 @@
                                         </tableViewCellContentView>
                                         <constraints>
                                             <constraint firstItem="8Zp-sz-VCk" firstAttribute="centerY" secondItem="Lgr-F9-fDZ" secondAttribute="centerY" id="7XQ-g2-5Oy"/>
-                                            <constraint firstAttribute="trailing" secondItem="8Zp-sz-VCk" secondAttribute="trailing" constant="41" id="o6A-8t-EWj"/>
-                                            <constraint firstItem="8Zp-sz-VCk" firstAttribute="leading" secondItem="Lgr-F9-fDZ" secondAttribute="leading" constant="42" id="rfb-og-cWk"/>
+                                            <constraint firstAttribute="trailing" secondItem="8Zp-sz-VCk" secondAttribute="trailing" constant="20" id="o6A-8t-EWj"/>
+                                            <constraint firstItem="8Zp-sz-VCk" firstAttribute="leading" secondItem="Lgr-F9-fDZ" secondAttribute="leading" constant="20" id="rfb-og-cWk"/>
                                         </constraints>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
@@ -760,7 +760,9 @@
     <resources>
         <image name="CommentBig" width="35" height="35"/>
         <image name="HackersIcon" width="128" height="128"/>
+        <image name="Moon" width="30" height="30"/>
         <image name="ShareIcon" width="16" height="22"/>
+        <image name="Sun" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="p5b-CF-ii3"/>
