@@ -19,6 +19,32 @@ class DataPersistenceManager {
         let date = Date()
         userDefaults.set(date, forKey: "post-\(post.postId)" )
         userDefaults.synchronize()
-        
+    }
+    
+    static func setIsDarkTheme(darkMode: Bool){
+        userDefaults.set(darkMode, forKey: "setting-darkTheme")
+        userDefaults.synchronize()
+    }
+    
+    static func setIsAutoTheme(autoTheme: Bool){
+        userDefaults.set(autoTheme, forKey: "setting-autoTheme")
+        userDefaults.synchronize()
+    }
+    
+    static func setAutoTheme(threshold: Float){
+        userDefaults.set(threshold, forKey: "setting-autoThreshold")
+        userDefaults.synchronize()
+    }
+    
+    static func autoThemeThreshold() -> Float {
+        return userDefaults.float(forKey: "setting-autoThreshold" )
+    }
+    
+    static func isDarkTheme() -> Bool {
+        return userDefaults.bool(forKey: "setting-darkTheme" )
+    }
+    
+    static func isAutoTheme() -> Bool {
+        return userDefaults.bool(forKey: "setting-autoTheme" )
     }
 }

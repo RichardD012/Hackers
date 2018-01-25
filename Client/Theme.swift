@@ -53,6 +53,8 @@ struct Theme {
         }
     }
     
+    
+    
     static var postTitleDomainColor: UIColor {
         get {
             if(isDarkMode)
@@ -226,9 +228,102 @@ struct Theme {
         }
     }
     
+    //Generic Table Settings values
+    static var tableBackgroundColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor(red: 250/255.0, green: 250/255.0, blue: 250/255.0, alpha: 1)
+            }
+            else{
+                return UIColor(red: 250/255.0, green: 250/255.0, blue: 250/255.0, alpha: 1)
+            }
+            
+        }
+    }
+    
+    static var tableSectionHeading: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1)
+            }
+            else{
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1)
+            }
+            
+        }
+    }
+    
+    //Settings values
+    static var darkSliderMinimumTintColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return primaryOrangeColor
+            }
+            else{
+                return primaryOrangeColor
+            }
+            
+        }
+    }
+    
+    static var themeCheckTintColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return primaryOrangeColor
+            }
+            else{
+                return primaryOrangeColor
+            }
+            
+        }
+    }
+    
+    static var darkSliderMaximumTintColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
+            }
+            else{
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
+            }
+            
+        }
+    }
+    
+    static var darkViewSwitchOnColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return primaryOrangeColor
+            }
+            else{
+                return primaryOrangeColor
+            }
+            
+        }
+    }
+    
+    static var settingsTextColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.white
+            }
+            else{
+                return UIColor.black
+            }
+            
+        }
+    }
+    
+    
     static func setupUIColors() {
-        //UITabBar.appearance().imageTint
-        
+
         
         UITabBar.appearance().tintColor = Theme.tabBarSelectedTextColor
         UITabBar.appearance().isTranslucent = false
@@ -243,6 +338,8 @@ struct Theme {
         UINavigationBar.appearance().tintColor = Theme.navigationBarTextColor
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.navigationBarTextColor]
         UIRefreshControl.appearance().tintColor = Theme.navigationBarTextColor
+        
+        UITableView.appearance().backgroundColor = Theme.tableBackgroundColor
         
     }
 }

@@ -68,7 +68,7 @@ class MainTabBarController: UITabBarController {
         if(firstLaunch)
         {
             firstLaunch=false
-            self.selectedIndex = 2
+            self.selectedIndex = 4 //default is 2/Top
         }
     }
 }
