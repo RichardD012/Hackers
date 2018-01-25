@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0239FFC1201A3DAD002084FA /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239FFC0201A3DAD002084FA /* DataPersistenceManager.swift */; };
 		0250DE182017B8A300CA8F2E /* ColoredHairlineTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250DE172017B8A300CA8F2E /* ColoredHairlineTabBar.swift */; };
 		240C5BE018D267C70011177A /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 240C5BDF18D267C70011177A /* Icons.xcassets */; };
 		24191F8D1944C991003C0D98 /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24191F8C1944C991003C0D98 /* CommentsController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0239FFC0201A3DAD002084FA /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		0250DE172017B8A300CA8F2E /* ColoredHairlineTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColoredHairlineTabBar.swift; path = Client/ColoredHairlineTabBar.swift; sourceTree = SOURCE_ROOT; };
 		240C5BDF18D267C70011177A /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		241387A51945A6E100D71220 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				24CEAA9A1F8916970050DEDF /* UIView+Extensions.swift */,
 				243271941F95EDA9008196DB /* StringExtensions.swift */,
 				24D811A41FF90A58000951C3 /* TouchableTextView.swift */,
+				0239FFC0201A3DAD002084FA /* DataPersistenceManager.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				0250DE182017B8A300CA8F2E /* ColoredHairlineTabBar.swift in Sources */,
 				24CEAA9B1F8916970050DEDF /* UIView+Extensions.swift in Sources */,
 				24D6B8CA1C1EDBFC00618422 /* Theme.swift in Sources */,
+				0239FFC1201A3DAD002084FA /* DataPersistenceManager.swift in Sources */,
 				245DCAB01CD4DA2A00152AA3 /* SFSafariViewController+PreviewActionItems.swift in Sources */,
 				242A00D31D086927003D915B /* UIViewControllerSmoothlyDeselectCellExtension.swift in Sources */,
 				24B5BFEF1B52CE8900328C62 /* PostTitleView.swift in Sources */,

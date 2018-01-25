@@ -10,22 +10,222 @@ import Foundation
 import UIKit
 
 struct Theme {
-    //static let orangeColour = UIColor(red: 229/255.0, green: 149/255.0, blue: 59/255.0, alpha: 1)
-    static let visitedLinkColor = UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
-    static let metaDataColor = UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
-    static let postTitleDomainColor = UIColor(red: 180/255.0, green: 180/255.0, blue: 180/255.0, alpha: 1)
-    
-    static let selectedCellBackgroundColor = UIColor(red: 245/255.0, green: 245/255.0, blue: 242/255.0, alpha: 1)
-    static let primaryOrangeColour = UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1)//#ff6600
-    static let tabBarBackgroundColour = UIColor(red: 246/255.0, green: 246/255.0, blue: 239/255.0, alpha: 1)//#f6f6ef
+    static var isDarkMode = false
+    static let primaryOrangeColor = UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1)//#ff6600
     
     
-    static let commentTextColor = primaryOrangeColour
-    static let commentImageColor = UIColor(red: 230/255.0, green: 230/255.0, blue: 230/255.0, alpha: 1)
+    static var metaDataColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.blue
+            }
+            else{
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
+            }
+            
+        }
+    }
     
-    static func setupNavigationBar(_ navigationBar: UINavigationBar) {
-        //navigationBar.barTintColor = primaryOrangeColour
-        //navigationBar.tintColor = primaryOrangeColour
-        //navigationBar.setValue(false, forKey: "hidesShadow")
+    static var visitedLinkColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.green
+            }
+            else{
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
+            }
+            
+        }
+    }
+    
+    static var unvisitedLinkColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.white
+            }
+            else{
+                return UIColor.black
+            }
+            
+        }
+    }
+    
+    static var postTitleDomainColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.red
+            }
+            else{
+                return UIColor(red: 180/255.0, green: 180/255.0, blue: 180/255.0, alpha: 1)
+            }
+            
+        }
+    }
+    
+    static var navigationBarBackgroundColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return primaryOrangeColor
+            }
+            else{
+                return primaryOrangeColor
+            }
+            
+        }
+    }
+    
+    
+    static var navigationBarTextColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.black
+            }
+            else{
+                return UIColor.black
+            }
+            
+        }
+    }
+    
+    static var tabBarHairlineColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.lightGray
+            }
+            else{
+                return UIColor.lightGray
+            }
+            
+        }
+    }
+    
+   
+    static var tabBarBackgroundColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.black
+            }
+            else{
+                return UIColor(red: 246/255.0, green: 246/255.0, blue: 239/255.0, alpha: 1)
+            }
+            
+        }
+    }
+    
+    
+    static var tabBarTextColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return primaryOrangeColor
+            }
+            else{
+                return primaryOrangeColor
+            }
+            
+        }
+    }
+    
+    static var commentsViewPostSeparatorColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.lightGray
+            }
+            else{
+                return UIColor.lightGray
+            }
+            
+        }
+    }
+    
+    static var commentsTextColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.darkGray
+            }
+            else{
+                return UIColor.darkGray
+            }
+            
+        }
+    }
+    
+    
+    static var commentIconTextColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.red
+            }
+            else{
+                return primaryOrangeColor
+            }
+            
+        }
+    }
+    
+    static var commentIconImageColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.red
+            }
+            else{
+                return UIColor(red: 230/255.0, green: 230/255.0, blue: 230/255.0, alpha: 1)
+            }
+            
+        }
+    }
+    
+    static var selectedCellBackgroundColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.red
+            }
+            else{
+                return UIColor(red: 245/255.0, green: 245/255.0, blue: 242/255.0, alpha: 1)
+            }
+            
+        }
+    }
+    
+    static var unselectedCellBackgroundColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.black
+            }
+            else{
+                return UIColor.white
+            }
+            
+        }
+    }
+    
+    static func setupUIColors() {
+        UITabBar.appearance().tintColor = Theme.tabBarTextColor
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().isOpaque = true
+        UITabBar.appearance().barTintColor = Theme.tabBarBackgroundColor
+        
+        
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().isOpaque = true
+        UINavigationBar.appearance().barTintColor = Theme.navigationBarBackgroundColor
+        UINavigationBar.appearance().tintColor = Theme.navigationBarTextColor
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.navigationBarTextColor]
+        UIRefreshControl.appearance().tintColor = Theme.navigationBarTextColor
+        
     }
 }

@@ -32,10 +32,9 @@ class CommentsViewController : UIViewController {
         setupPostTitleView()
         
         tableView.backgroundView = nil
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = Theme.unselectedCellBackgroundColor
         
         navigationItem.largeTitleDisplayMode = .never
-        Theme.setupNavigationBar(navigationController!.navigationBar)
 
         view.showAnimatedSkeleton()
         loadComments()
@@ -63,7 +62,7 @@ class CommentsViewController : UIViewController {
         
         if hairline == nil {
             hairline = UIView()
-            hairline?.backgroundColor = UIColor.lightGray
+            hairline?.backgroundColor = Theme.commentsViewPostSeparatorColor
             postContainerView.addSubview(hairline!)
         }
         hairline?.frame = CGRect(origin: CGPoint(x: 0, y: postContainerView.bounds.height), size: CGSize(width: postContainerView.bounds.width, height: 1 / UIScreen.main.scale))

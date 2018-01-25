@@ -53,7 +53,7 @@ class CommentTableViewCell : UITableViewCell {
         if let commentTextView = commentTextView {
             // only for expanded comments
             let commentFont = UIFont.systemFont(ofSize: 15)
-            let commentTextColor = UIColor.darkGray
+            let commentTextColor = Theme.commentsTextColor
             let lineSpacing = 4 as CGFloat
             
             let commentAttributedString = NSMutableAttributedString(string: comment.text)

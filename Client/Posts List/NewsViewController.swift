@@ -35,7 +35,7 @@ class NewsViewController : UIViewController {
         registerForPreviewing(with: self, sourceView: tableView)
 
         let refreshControl = UIRefreshControl()
-        refreshControl.tintColor = .black
+
         refreshControl.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
         tableView.refreshControl = refreshControl
         
@@ -90,6 +90,11 @@ class NewsViewController : UIViewController {
 
 extension NewsViewController { // post fetching
     @objc func loadPosts() {
+        if(isProcessing)
+        {
+            return
+        }
+    
         isProcessing = true
         
         // cancel existing fetches
@@ -102,12 +107,21 @@ extension NewsViewController { // post fetching
         let (fetchPromise, cancel) = fetch()
         fetchPromise
             .then { (posts, nextPageIdentifier) -> Void in
+                self.cancelFetch = nil
                 self.posts = posts ?? [HNPost]()
+                //check if any of the new posts have been read already
+                for post in self.posts {
+                    if(DataPersistenceManager.hasVisited(post: post))
+                    {
+                        post.hasVisited=true
+                    }
+                }
                 self.nextPageIdentifier = nextPageIdentifier
                 self.view.hideSkeleton()
                 self.tableView.rowHeight = UITableViewAutomaticDimension
                 self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
                 self.tableView.reloadData()
+                
             }
             .always {
                 self.view.hideSkeleton()
@@ -181,8 +195,8 @@ extension NewsViewController: UITableViewDataSource {
         cell.postCommentsImage.isHidden = false
         cell.postCommentsCount.text = String(post.commentCount)
         cell.postCommentsCount.isHidden = false
-        cell.postCommentsCount.textColor = Theme.commentTextColor
-        cell.postCommentsImage.tintColor = Theme.commentImageColor
+        cell.postCommentsCount.textColor = Theme.commentIconTextColor
+        cell.postCommentsImage.tintColor = Theme.commentIconImageColor
         cell.postTitleView.delegate = self
         return cell
     }
@@ -193,6 +207,7 @@ extension NewsViewController: UITableViewDelegate {
         guard let postCell = tableView.cellForRow(at: indexPath) as? PostCell else {return }
         collapseDetailViewController = false
         posts[indexPath.row].hasVisited = true
+        DataPersistenceManager.setVisited(post: posts[indexPath.row])
         postCell.postTitleView.post = posts[indexPath.row]
         didPressLinkButton(posts[indexPath.row])
         

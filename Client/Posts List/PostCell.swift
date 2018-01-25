@@ -48,7 +48,7 @@ class PostCell : UITableViewCell {
     }
     
     func setUnselectedBackground() {
-        backgroundColor = UIColor.clear
+        backgroundColor = Theme.unselectedCellBackgroundColor
     }
         
     @objc func didTapThumbnail(_ sender: Any) {
