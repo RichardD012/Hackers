@@ -35,10 +35,10 @@ class NewsViewController : UIViewController {
         registerForPreviewing(with: self, sourceView: tableView)
 
         let refreshControl = UIRefreshControl()
-
-        refreshControl.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
-        tableView.refreshControl = refreshControl
         
+        refreshControl.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
+        
+        tableView.refreshControl = refreshControl
         splitViewController!.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(NewsViewController.viewDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)

@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
-        HNManager.shared().startSession()        
+        HNManager.shared().startSession()
+        self.window?.backgroundColor = Theme.navigationBarBackgroundColor
         Theme.setupUIColors()
         
     }

@@ -60,7 +60,7 @@ struct Theme {
                 return UIColor.red
             }
             else{
-                return UIColor(red: 180/255.0, green: 180/255.0, blue: 180/255.0, alpha: 1)
+                return UIColor(red: 170/255.0, green: 170/255.0, blue: 170/255.0, alpha: 1)
             }
             
         }
@@ -222,6 +222,7 @@ struct Theme {
         
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().isOpaque = true
+        UINavigationBar.appearance().backgroundColor = Theme.navigationBarBackgroundColor
         UINavigationBar.appearance().barTintColor = Theme.navigationBarBackgroundColor
         UINavigationBar.appearance().tintColor = Theme.navigationBarTextColor
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.navigationBarTextColor]
