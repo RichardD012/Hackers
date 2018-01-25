@@ -120,8 +120,21 @@ struct Theme {
         }
     }
     
-    
     static var tabBarTextColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
+            }
+            else{
+                return UIColor(red: 190/255.0, green: 190/255.0, blue: 190/255.0, alpha: 1) //#828282
+            }
+            
+        }
+    }
+    
+    
+    static var tabBarSelectedTextColor: UIColor {
         get {
             if(isDarkMode)
             {
@@ -214,11 +227,14 @@ struct Theme {
     }
     
     static func setupUIColors() {
-        UITabBar.appearance().tintColor = Theme.tabBarTextColor
+        //UITabBar.appearance().imageTint
+        
+        
+        UITabBar.appearance().tintColor = Theme.tabBarSelectedTextColor
         UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().isOpaque = true
         UITabBar.appearance().barTintColor = Theme.tabBarBackgroundColor
-        
+        UITabBar.appearance().unselectedItemTintColor = Theme.tabBarTextColor
         
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().isOpaque = true

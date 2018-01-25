@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021CDD6C201A6B0A0086532F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021CDD6B201A6B0A0086532F /* ProfileViewController.swift */; };
+		021CDD6E201A72A90086532F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021CDD6D201A72A90086532F /* SettingsViewController.swift */; };
 		0239FFC1201A3DAD002084FA /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239FFC0201A3DAD002084FA /* DataPersistenceManager.swift */; };
 		0250DE182017B8A300CA8F2E /* ColoredHairlineTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250DE172017B8A300CA8F2E /* ColoredHairlineTabBar.swift */; };
 		240C5BE018D267C70011177A /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 240C5BDF18D267C70011177A /* Icons.xcassets */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		021CDD6B201A6B0A0086532F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		021CDD6D201A72A90086532F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0239FFC0201A3DAD002084FA /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		0250DE172017B8A300CA8F2E /* ColoredHairlineTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColoredHairlineTabBar.swift; path = Client/ColoredHairlineTabBar.swift; sourceTree = SOURCE_ROOT; };
 		240C5BDF18D267C70011177A /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -89,6 +93,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		021CDD69201A6AD30086532F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				021CDD6B201A6B0A0086532F /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		021CDD6A201A6ADB0086532F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				021CDD6D201A72A90086532F /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		2489068919B74CAC009F591E /* HackerSwifter */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +192,8 @@
 		24F39F8E18AFB1150055F8DC /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				021CDD69201A6AD30086532F /* Profile */,
+				021CDD6A201A6ADB0086532F /* Settings */,
 				24F39FB718AFB2AF0055F8DC /* Storyboard.storyboard */,
 				24EF5BF31C393D110012AA8A /* LaunchStoryboard.storyboard */,
 				24C20D381A7E42D5005B759B /* MainSplitViewController.swift */,
@@ -375,11 +397,13 @@
 				245DCAB01CD4DA2A00152AA3 /* SFSafariViewController+PreviewActionItems.swift in Sources */,
 				242A00D31D086927003D915B /* UIViewControllerSmoothlyDeselectCellExtension.swift in Sources */,
 				24B5BFEF1B52CE8900328C62 /* PostTitleView.swift in Sources */,
+				021CDD6E201A72A90086532F /* SettingsViewController.swift in Sources */,
 				241E8DAA1944AF870004F457 /* CommentModel.swift in Sources */,
 				24191F8D1944C991003C0D98 /* CommentsController.swift in Sources */,
 				24C20D391A7E42D5005B759B /* MainSplitViewController.swift in Sources */,
 				24CE5FF819435A90009D2677 /* PostCell.swift in Sources */,
 				24DFD28C19436E51007F61E7 /* CommentsViewController.swift in Sources */,
+				021CDD6C201A6B0A0086532F /* ProfileViewController.swift in Sources */,
 				2454B9021F654DB2005A98C7 /* MainTabBarController.swift in Sources */,
 				243271951F95EDA9008196DB /* StringExtensions.swift in Sources */,
 			);

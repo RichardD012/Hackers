@@ -10,6 +10,7 @@ import UIKit
 import libHN
 
 class MainTabBarController: UITabBarController {
+    var firstLaunch = true
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,45 +18,57 @@ class MainTabBarController: UITabBarController {
         
         for (index, viewController) in viewControllers.enumerated() {
             guard let navController = viewController as? UINavigationController else { continue }
+            var iconName: String?
+            switch index {
+            case 1:
+                iconName = "NewIcon"
+                break
+            case 2:
+                iconName = "TopIcon"
+                break
+            case 3:
+                iconName = "ProfileIcon"
+                break
+            case 4:
+                iconName = "SettingsIcon"
+                break
+            case 0:
+                fallthrough
+            default:
+                iconName = "AskIcon"
+            }
+            navController.tabBarItem.title = ""
+            navController.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+            navController.tabBarItem.image = UIImage(named: iconName!)
             //Theme.setupNavigationBar(navController.navigationBar)
             if let newsVC = navController.viewControllers.first as? NewsViewController {
+                var viewTitle: String?
                 var postType: PostFilterType?
-                var typeName: String?
-                var iconName: String?
                 switch index {
                 case 1:
-                    postType = .ask
-                    typeName = "Ask"
-                    iconName = "AskIcon"
+                    postType = .new
+                    viewTitle = "HN: Latest"
                     break
                 case 2:
-                    postType = .jobs
-                    typeName = "Jobs"
-                    iconName = "JobsIcon"
-                    break
-                case 3:
-                    postType = .new
-                    typeName = "New"
-                    iconName = "NewIcon"
-                    break
-                case 4:
+                    viewTitle = "Hacker News"
                     postType = .top
-                    typeName = "Settings"
-                    iconName = "SettingsIcon"
                     break
                 case 0:
                     fallthrough
                 default:
-                    postType = .top
-                    typeName = "Top"
-                    iconName = "TopIcon"
+                    viewTitle = "Ask HN"
+                    postType = .ask
                 }
+                newsVC.navigationItem.title = viewTitle
+                //newsVC.tabBarItem.title = ""
                 newsVC.postType = postType
-                newsVC.tabBarItem.title = typeName
-                newsVC.tabBarItem.image = UIImage(named: iconName!)
             }
         }
-        
         tabBar.clipsToBounds = true
+        if(firstLaunch)
+        {
+            firstLaunch=false
+            self.selectedIndex = 2
+        }
     }
 }

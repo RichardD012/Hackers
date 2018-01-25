@@ -33,11 +33,9 @@ class NewsViewController : UIViewController {
         super.viewDidLoad()
         
         registerForPreviewing(with: self, sourceView: tableView)
-
         let refreshControl = UIRefreshControl()
         
         refreshControl.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
-        
         tableView.refreshControl = refreshControl
         splitViewController!.delegate = self
         
