@@ -11,6 +11,7 @@ import Foundation
 class SettingsViewController : UITableViewController {
     
     var autoTheme = false
+    
     @IBOutlet weak var darkModeSlider: UISlider!
     @IBOutlet weak var darkViewSwitch: UISwitch!
     @IBOutlet weak var lightCell: UITableViewCell!
@@ -18,6 +19,7 @@ class SettingsViewController : UITableViewController {
     
     @IBOutlet weak var lightCellLabel: UILabel!
     @IBOutlet weak var darkCellLabel: UILabel!
+    @IBOutlet weak var sliderCell: UITableViewCell!
     
     @IBOutlet weak var autoThemeLabel: UILabel!
     
@@ -28,7 +30,31 @@ class SettingsViewController : UITableViewController {
         darkCell?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapDarkThemeButton(_:))))
         lightCell?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapLightThemeButton(_:))))
         //NotificationCenter.default.addObserver(self, selector: #selector(NewsViewController.viewDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        setupBrightness()
         
+    }
+    
+    func setupBrightness()
+    {
+        let currentBrightness = UIScreen.main.brightness
+        let radius: Float = 4.0
+        let strokeWidth: Float = 1.0
+        let lineWidth = darkModeSlider.frame.width - 80
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 40 + (lineWidth * currentBrightness),y: (sliderCell.frame.height/2) + CGFloat(strokeWidth)), radius: CGFloat(radius), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        
+        //change the fill color
+        shapeLayer.fillColor = Theme.settingsBrightnessIndicatorColor.cgColor
+        //you can change the stroke color
+        shapeLayer.strokeColor = Theme.settingsBrightnessIndicatorStroke.cgColor
+        //you can change the line width
+        shapeLayer.lineWidth = CGFloat(strokeWidth*1.0)
+        if let layerCount = sliderCell.layer.sublayers?.count {
+            sliderCell.layer.insertSublayer(shapeLayer, at: UInt32(layerCount))
+        }
+        
+
     }
     func setupDefaults()
     {
@@ -42,6 +68,8 @@ class SettingsViewController : UITableViewController {
     }
     
     func setupTheme(){
+        self.darkModeSlider.setMinimumTrackImage( UIImage(named: Theme.settingsMinimumSliderImage), for: UIControlState.normal)
+        self.darkModeSlider.setMaximumTrackImage( UIImage(named: Theme.settingsMaximumSliderImage), for: UIControlState.normal)
         self.lightCellLabel.textColor = Theme.settingsTextColor
         self.darkCellLabel.textColor = Theme.settingsTextColor
         self.autoThemeLabel.textColor = Theme.settingsTextColor

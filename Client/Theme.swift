@@ -295,6 +295,59 @@ struct Theme {
         }
     }
     
+
+    static var settingsBrightnessIndicatorColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return primaryOrangeColor
+            }
+            else{
+                return primaryOrangeColor
+            }
+            
+        }
+    }
+    
+    static var settingsBrightnessIndicatorStroke: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.white
+            }
+            else{
+                return UIColor.white
+            }
+            
+        }
+    }
+    
+    static var settingsMinimumSliderImage: String {
+        get {
+            if(isDarkMode)
+            {
+                return "MoonDark"
+            }
+            else{
+                return "Moon"
+            }
+            
+        }
+    }
+    
+    static var settingsMaximumSliderImage: String {
+        get {
+            if(isDarkMode)
+            {
+                return "SunDark"
+            }
+            else{
+                return "Sun"
+            }
+            
+        }
+    }
+    
     static var darkViewSwitchOnColor: UIColor {
         get {
             if(isDarkMode)

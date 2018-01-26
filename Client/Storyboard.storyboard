@@ -107,15 +107,15 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Lgr-F9-fDZ">
-                                        <rect key="frame" x="0.0" y="243.5" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="70" id="Lgr-F9-fDZ">
+                                        <rect key="frame" x="0.0" y="243.5" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lgr-F9-fDZ" id="hPD-2p-Akh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" minimumValueImage="Moon" maximumValueImage="Sun" translatesAutoresizingMaskIntoConstraints="NO" id="8Zp-sz-VCk">
-                                                    <rect key="frame" x="18" y="7" width="339" height="31"/>
+                                                    <rect key="frame" x="18" y="21" width="339" height="31"/>
                                                     <color key="minimumTrackTintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <connections>
                                                         <action selector="darkModeSliderChanged:" destination="ACC-mi-0F9" eventType="valueChanged" id="roB-VW-nfL"/>
@@ -147,6 +147,7 @@
                         <outlet property="darkViewSwitch" destination="mhf-cw-8hm" id="e9q-LX-We4"/>
                         <outlet property="lightCell" destination="DbV-9a-b9c" id="00B-Us-q6O"/>
                         <outlet property="lightCellLabel" destination="FWm-CD-JMP" id="euV-YJ-KR3"/>
+                        <outlet property="sliderCell" destination="Lgr-F9-fDZ" id="JS9-As-ePE"/>
                         <outlet property="tableView" destination="agW-5s-08k" id="eQr-JQ-kkQ"/>
                     </connections>
                 </tableViewController>
