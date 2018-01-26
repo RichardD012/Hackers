@@ -96,6 +96,9 @@ class NewsViewController : UIViewController {
 }
 
 extension NewsViewController { // post fetching
+    @objc func test() {
+        NSLog("FETCH")
+    }
     @objc func loadPosts() {
         if(isProcessing)
         {

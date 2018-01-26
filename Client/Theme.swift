@@ -476,7 +476,7 @@ struct Theme {
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.navigationBarTextColor]
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.navigationBarTextColor]
         
-        UIRefreshControl.appearance().tintColor = Theme.navigationBarTextColor
+        //UIRefreshControl.appearance().tintColor = Theme.navigationBarTextColor
         
         UITableView.appearance().backgroundColor = Theme.tableBackgroundColor
         UITableView.appearance().separatorColor = Theme.tableSeparatorColor
