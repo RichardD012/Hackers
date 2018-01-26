@@ -11,7 +11,7 @@ import UIKit
 
 struct Theme {
     static var isDarkMode = false
-    static let primaryOrangeColor = UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1)//#ff6600
+    static let primaryOrangeColor = UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1)
     static let primaryDarkModeText = UIColor(red: 204/255.0, green: 204/255.0, blue: 204/255.0, alpha: 1)
     
     static var metaDataColor: UIColor {
@@ -128,7 +128,7 @@ struct Theme {
                 return primaryDarkModeText
             }
             else{
-                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1)
             }
             
         }
@@ -138,7 +138,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor(red: 115/255.0, green: 115/255.0, blue: 115/255.0, alpha: 1)//primaryDarkModeText
+                return UIColor(red: 115/255.0, green: 115/255.0, blue: 115/255.0, alpha: 1)
             }
             else{
                 return UIColor.lightGray
@@ -336,10 +336,10 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1)
             }
             else{
-                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1)
             }
             
         }
@@ -453,7 +453,14 @@ struct Theme {
     
     static func setupUIColors() {
 
-        
+        if(isDarkMode)
+        {
+            UIApplication.shared.statusBarStyle = .lightContent
+        }
+        else
+        {
+            UIApplication.shared.statusBarStyle = .default
+        }
         UITabBar.appearance().tintColor = Theme.tabBarSelectedTextColor
         UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().isOpaque = true
@@ -462,6 +469,7 @@ struct Theme {
         
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().isOpaque = true
+        
         UINavigationBar.appearance().backgroundColor = Theme.navigationBarBackgroundColor
         UINavigationBar.appearance().barTintColor = Theme.navigationBarBackgroundColor
         UINavigationBar.appearance().tintColor = Theme.navigationBarTextColor
@@ -476,6 +484,7 @@ struct Theme {
     }
     
     static func setupUIColors(tableView: UITableView) {
+        
         tableView.backgroundColor = Theme.tableBackgroundColor
         tableView.separatorColor = Theme.tableSeparatorColor
         
@@ -483,7 +492,14 @@ struct Theme {
     
     static func setupUIColors(navigationBar: UINavigationBar, tabBar: UITabBar) {
         
-        
+        if(isDarkMode)
+        {
+            UIApplication.shared.statusBarStyle = .lightContent
+        }
+        else
+        {
+            UIApplication.shared.statusBarStyle = .default
+        }
         tabBar.tintColor = Theme.tabBarSelectedTextColor
         tabBar.isTranslucent = false
         tabBar.isOpaque = true

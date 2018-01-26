@@ -13,9 +13,9 @@ class MainTabBarController: UITabBarController {
     var firstLaunch = true
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
         guard let viewControllers = self.viewControllers else { return }
-        
+        self.view.backgroundColor = Theme.navigationBarBackgroundColor
         for (index, viewController) in viewControllers.enumerated() {
             guard let navController = viewController as? UINavigationController else { continue }
             var iconName: String?
@@ -67,7 +67,15 @@ class MainTabBarController: UITabBarController {
         if(firstLaunch)
         {
             firstLaunch=false
-            self.selectedIndex = 4 //default is 2/Top
+            self.selectedIndex = 2 //default is 2/Top
         }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .themeChanged, object: nil)
+    }
+    
+    @objc private func themeChanged(_ notification: Notification) {
+        self.view.backgroundColor = Theme.navigationBarBackgroundColor
     }
 }

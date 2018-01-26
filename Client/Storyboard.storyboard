@@ -195,7 +195,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VEY-Xo-crR">
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VEY-Xo-crR">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -349,11 +349,11 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.36466929809999998" green="0.088822782360000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="VEY-Xo-crR" firstAttribute="leading" secondItem="xeY-ui-l8u" secondAttribute="leading" id="Lly-nC-Cym"/>
                             <constraint firstAttribute="bottom" secondItem="VEY-Xo-crR" secondAttribute="bottom" id="apI-CI-IPP"/>
-                            <constraint firstItem="VEY-Xo-crR" firstAttribute="top" secondItem="r0n-mx-XvO" secondAttribute="top" id="sWu-i5-yrz"/>
+                            <constraint firstAttribute="top" secondItem="VEY-Xo-crR" secondAttribute="top" id="sWu-i5-yrz"/>
                             <constraint firstItem="xeY-ui-l8u" firstAttribute="trailing" secondItem="VEY-Xo-crR" secondAttribute="trailing" id="t4L-wm-vHt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xeY-ui-l8u"/>
@@ -462,6 +462,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="115" estimatedRowHeight="100" sectionHeaderHeight="28" estimatedSectionHeaderHeight="60" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QBD-8Q-H2S">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="0.042454821990000002" green="0.033874347409999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="ApK-ej-h7a">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -749,7 +750,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.042454821990000002" green="0.033874347409999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QBD-8Q-H2S" firstAttribute="top" secondItem="x2d-ID-isb" secondAttribute="top" id="9oE-vC-aJ0"/>
                             <constraint firstItem="QBD-8Q-H2S" firstAttribute="leading" secondItem="x2d-ID-isb" secondAttribute="leading" id="FSo-0t-ypF"/>
@@ -789,9 +790,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="T7A-bH-qPa">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
+                        <color key="backgroundColor" red="0.042454821990000002" green="0.033874347409999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="MCt-Nd-rPQ">
                         <autoresizingMask key="autoresizingMask"/>

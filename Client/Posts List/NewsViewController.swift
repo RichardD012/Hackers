@@ -31,20 +31,25 @@ class NewsViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.superview?.backgroundColor = UIColor.red
         registerForPreviewing(with: self, sourceView: tableView)
+        
         let refreshControl = UIRefreshControl()
-        NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
         refreshControl.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
         tableView.refreshControl = refreshControl
+        
         splitViewController!.delegate = self
-        self.view.backgroundColor = UIColor.yellow
+        
+        self.view.backgroundColor = Theme.navigationBarBackgroundColor
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(NewsViewController.viewDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
         view.showAnimatedSkeleton(usingColor: Theme.skeletonBaseColor)
         loadPosts()
     }
     
     deinit {
+        NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.removeObserver(self, name: .themeChanged, object: nil)
     }
     
@@ -62,6 +67,7 @@ class NewsViewController : UIViewController {
     }
     
     @objc private func themeChanged(_ notification: Notification) {
+        self.view.backgroundColor = Theme.navigationBarBackgroundColor
         tableView.reloadData()
     }
     

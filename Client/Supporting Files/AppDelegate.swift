@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             Theme.isDarkMode = true
         }
-        self.window?.backgroundColor = Theme.navigationBarBackgroundColor
+        self.window?.backgroundColor = UIColor.red
         Theme.setupUIColors()
         
     }
