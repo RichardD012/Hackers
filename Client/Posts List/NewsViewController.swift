@@ -68,6 +68,7 @@ class NewsViewController : UIViewController {
     
     @objc private func themeChanged(_ notification: Notification) {
         self.view.backgroundColor = Theme.navigationBarBackgroundColor
+        tableView.refreshControl?.tintColor = Theme.navigationBarTextColor
         tableView.reloadData()
     }
     
@@ -96,9 +97,6 @@ class NewsViewController : UIViewController {
 }
 
 extension NewsViewController { // post fetching
-    @objc func test() {
-        NSLog("FETCH")
-    }
     @objc func loadPosts() {
         if(isProcessing)
         {
