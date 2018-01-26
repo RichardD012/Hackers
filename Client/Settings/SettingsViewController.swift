@@ -27,11 +27,15 @@ class SettingsViewController : UITableViewController {
         super.viewDidLoad()
         setupTheme()
         setupDefaults()
+        NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
         darkCell?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapDarkThemeButton(_:))))
         lightCell?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapLightThemeButton(_:))))
-        //NotificationCenter.default.addObserver(self, selector: #selector(NewsViewController.viewDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         setupBrightness()
         
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .themeChanged, object: nil)
     }
     
     func setupBrightness()
@@ -53,49 +57,54 @@ class SettingsViewController : UITableViewController {
         if let layerCount = sliderCell.layer.sublayers?.count {
             sliderCell.layer.insertSublayer(shapeLayer, at: UInt32(layerCount))
         }
-        
-
     }
+    
+    @objc private func themeChanged(_ notification: Notification) {
+        setupTheme()
+    }
+
+    
     func setupDefaults()
     {
         let isAutoTheme = DataPersistenceManager.isAutoTheme()
         setAutoTheme(enabled: isAutoTheme)
         darkViewSwitch.isOn = isAutoTheme
         let isDarkTheme = DataPersistenceManager.isDarkTheme()
-        setDarkTheme(darkTheme: isDarkTheme)
+        setDarkTheme(darkTheme: isDarkTheme, globalRefresh: false)
         let sliderValue = DataPersistenceManager.autoThemeThreshold()
         darkModeSlider.value = sliderValue
     }
     
     func setupTheme(){
-        //self.darkModeSlider.setMinimumTrackImage( UIImage(named: Theme.settingsMinimumSliderImage), for: UIControlState.normal)
-        //self.darkModeSlider.setMaximumTrackImage( UIImage(named: Theme.settingsMaximumSliderImage), for: UIControlState.normal)
+        self.darkViewSwitch.tintColor = Theme.darkViewSwitchThumbTintColor
+        self.darkViewSwitch.thumbTintColor = Theme.darkViewSwitchThumbTintColor
+        self.darkViewSwitch.onTintColor = Theme.darkViewSwitchOnColor
         self.lightCellLabel.textColor = Theme.settingsTextColor
         self.darkCellLabel.textColor = Theme.settingsTextColor
         self.autoThemeLabel.textColor = Theme.settingsTextColor
         self.darkModeSlider.minimumTrackTintColor = Theme.darkSliderMinimumTintColor
         self.darkModeSlider.maximumTrackTintColor = Theme.darkSliderMaximumTintColor
-        self.darkViewSwitch.onTintColor = Theme.darkViewSwitchOnColor
+        
         self.lightCell.tintColor = Theme.themeCheckTintColor
         self.darkCell.tintColor = Theme.themeCheckTintColor
-        
+        Theme.setupUIColors(navigationBar: self.navigationController!.navigationBar, tabBar:self.tabBarController!.tabBar)
+        Theme.setupUIColors(tableView: tableView)
+        tableView.reloadData()
     }
     
     
     @objc func didTapLightThemeButton(_ sender: Any) {
-        //guard let tapGestureRecognizer = sender as? UITapGestureRecognizer else { return }
         if(autoTheme == false)
         {
-            setDarkTheme(darkTheme: false)
+            setDarkTheme(darkTheme: false, globalRefresh: true)
             DataPersistenceManager.setIsDarkTheme(darkMode: false)
         }
     }
     
     @objc func didTapDarkThemeButton(_ sender: Any) {
-        //guard let tapGestureRecognizer = sender as? UITapGestureRecognizer else { return }
         if(autoTheme == false)
         {
-            setDarkTheme(darkTheme: true)
+            setDarkTheme(darkTheme: true, globalRefresh: true)
             DataPersistenceManager.setIsDarkTheme(darkMode: true)
         }
     }
@@ -138,16 +147,26 @@ class SettingsViewController : UITableViewController {
         DataPersistenceManager.setAutoTheme(threshold: sender.value)
     }
     
-    func setDarkTheme( darkTheme: Bool)
+    func setDarkTheme( darkTheme: Bool, globalRefresh: Bool)
     {
         if(darkTheme)
         {
+            Theme.isDarkMode = true
             lightCell.accessoryType = UITableViewCellAccessoryType.none
             darkCell.accessoryType = UITableViewCellAccessoryType.checkmark
         }else{
+            Theme.isDarkMode = false
             lightCell.accessoryType = UITableViewCellAccessoryType.checkmark
             darkCell.accessoryType = UITableViewCellAccessoryType.none
         }
+        if(globalRefresh)
+        {
+            Theme.setupUIColors()
+            //Send notification
+            NotificationCenter.default.post(name: .themeChanged, object: nil)
+        }
+        
+        
     }
     
     func setAutoTheme( enabled: Bool)

@@ -32,17 +32,28 @@ class CommentsViewController : UIViewController {
         setupPostTitleView()
         
         tableView.backgroundView = nil
-        tableView.backgroundColor = Theme.unselectedCellBackgroundColor
-        
-        navigationItem.largeTitleDisplayMode = .never
+        tableView.backgroundColor = Theme.tableBackgroundColor
+        NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
 
-        view.showAnimatedSkeleton()
+        navigationItem.largeTitleDisplayMode = .never
+        postContainerView.backgroundColor = Theme.unselectedCellBackgroundColor
+        
+        view.showAnimatedSkeleton(usingColor: Theme.skeletonBaseColor)
         loadComments()
         
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func themeChanged(_ notification: Notification) {
+        guard let post = post else { return }
+        postContainerView.backgroundColor = Theme.unselectedCellBackgroundColor
+        postTitleView.post = post //this will redraw the postTitleView
+        hairline?.backgroundColor = Theme.commentsViewPostSeparatorColor
+        Theme.setupUIColors(tableView:tableView)
+        tableView.reloadData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -142,7 +153,7 @@ extension CommentsViewController: UITableViewDataSource {
         let cellIdentifier = comment.visibility == CommentVisibilityType.visible ? "OpenCommentCell" : "ClosedCommentCell"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CommentTableViewCell
-        
+        cell.backgroundColor = Theme.unselectedCellBackgroundColor
         cell.comment = comment
         cell.delegate = self
         
@@ -223,6 +234,12 @@ extension CommentsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
 
 extension CommentsViewController: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return "SkeletonCell"
+        if(Theme.isDarkMode)
+        {
+            return "SkeletonCellDark"
+        }else{
+            return "SkeletonCell"
+        }
+        
     }
 }

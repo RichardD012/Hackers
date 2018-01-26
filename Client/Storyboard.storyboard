@@ -148,7 +148,6 @@
                         <outlet property="lightCell" destination="DbV-9a-b9c" id="00B-Us-q6O"/>
                         <outlet property="lightCellLabel" destination="FWm-CD-JMP" id="euV-YJ-KR3"/>
                         <outlet property="sliderCell" destination="Lgr-F9-fDZ" id="JS9-As-ePE"/>
-                        <outlet property="tableView" destination="agW-5s-08k" id="eQr-JQ-kkQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBp-Yl-66m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -317,7 +316,7 @@
                                                     <rect key="frame" x="15" y="15" width="345" height="37.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <color key="highlightedColor" red="1" green="0.22915081640000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
@@ -585,6 +584,7 @@
                                             <outlet property="commentTextView" destination="tun-W7-IKd" id="1mJ-1A-HoZ"/>
                                             <outlet property="datePostedLabel" destination="mqP-h7-8O8" id="h4D-G7-1og"/>
                                             <outlet property="leftPaddingConstraint" destination="09f-J2-cQW" id="jm3-bG-TyH"/>
+                                            <outlet property="separatorView" destination="Gcz-gx-lot" id="Ene-kT-6ep"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClosedCommentCell" rowHeight="44" id="JRG-v5-Z5m" userLabel="Closed Comment Cell" customClass="CommentTableViewCell" customModule="YC__News" customModuleProvider="target">
@@ -639,6 +639,7 @@
                                             <outlet property="authorLabel" destination="FuN-fr-gXk" id="qWx-vB-i2K"/>
                                             <outlet property="datePostedLabel" destination="omF-SG-ryw" id="cOz-sb-9A6"/>
                                             <outlet property="leftPaddingConstraint" destination="LN8-MB-g3c" id="kKo-J7-37s"/>
+                                            <outlet property="separatorView" destination="mhi-fb-DmS" id="BND-wU-Hpv"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SkeletonCell" rowHeight="115" id="lP7-Ee-gTu" userLabel="Skeleton Cell" customClass="CommentTableViewCell" customModule="YC__News" customModuleProvider="target">
@@ -650,7 +651,6 @@
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHj-0F-XKf">
                                                     <rect key="frame" x="15" y="16" width="345" height="98"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -687,6 +687,54 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="commentTextView" destination="UHj-0F-XKf" id="ObQ-JT-Ojj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SkeletonCellDark" rowHeight="115" id="DB6-xT-T4E" userLabel="Skeleton Cell Dark" customClass="CommentTableViewCell" customModule="YC__News" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="451" width="375" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DB6-xT-T4E" id="0Lz-pm-Q5e">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fn-V1-FfC">
+                                                    <rect key="frame" x="15" y="16" width="345" height="98"/>
+                                                    <gestureRecognizers/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="DB6-xT-T4E" id="dbo-ZL-8KG"/>
+                                                    </connections>
+                                                </textView>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yn-G4-R0g" userLabel="Seperator View">
+                                                    <rect key="frame" x="15" y="114" width="360" height="1"/>
+                                                    <color key="backgroundColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.5" id="dbg-Em-IMa"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <gestureRecognizers/>
+                                            <constraints>
+                                                <constraint firstItem="8yn-G4-R0g" firstAttribute="top" secondItem="0fn-V1-FfC" secondAttribute="bottom" id="48F-1j-lnB"/>
+                                                <constraint firstItem="0fn-V1-FfC" firstAttribute="leading" secondItem="0Lz-pm-Q5e" secondAttribute="leadingMargin" id="7UT-4w-LfJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="8yn-G4-R0g" secondAttribute="trailing" id="hg4-W9-9oG"/>
+                                                <constraint firstItem="0fn-V1-FfC" firstAttribute="trailing" secondItem="0Lz-pm-Q5e" secondAttribute="trailingMargin" id="j0e-Yf-Yw9"/>
+                                                <constraint firstItem="0fn-V1-FfC" firstAttribute="top" secondItem="0Lz-pm-Q5e" secondAttribute="topMargin" constant="5" id="lxK-im-1wi"/>
+                                                <constraint firstAttribute="bottom" secondItem="8yn-G4-R0g" secondAttribute="bottom" id="wVp-XS-SpN"/>
+                                                <constraint firstItem="8yn-G4-R0g" firstAttribute="leading" secondItem="0Lz-pm-Q5e" secondAttribute="leading" constant="15" id="zgo-ht-KFU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="commentTextView" destination="0fn-V1-FfC" id="OI2-fI-yih"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

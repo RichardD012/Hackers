@@ -38,7 +38,7 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
                     titleString = "\(title) ";
                 }
             }
-             attributedTitle.append(NSAttributedString(string: titleString, attributes: [NSAttributedStringKey.foregroundColor: titleColor]))
+            attributedTitle.append(NSAttributedString(string: titleString, attributes: [NSAttributedStringKey.foregroundColor: titleColor]))
             let domainAttrs = [
                 NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12),
                 NSAttributedStringKey.foregroundColor: Theme.postTitleDomainColor
@@ -46,8 +46,8 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
             let attrStr = NSMutableAttributedString(string: "(\(domainString))", attributes: domainAttrs)
             attributedTitle.append(attrStr)
             titleLabel.attributedText = attributedTitle
-
             metadataLabel.attributedText = metadataText(for: post)
+
         }
     }
     
@@ -77,27 +77,22 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
     
     fileprivate func metadataText(for post: HNPost) -> NSAttributedString {
         let string = NSMutableAttributedString()
-        //let pointsIconAttachment = textAttachment(for: "PointsIcon")
-        //let pointsIconAttributedString = NSAttributedString(attachment: pointsIconAttachment)
-       //let commentsIconAttachment = textAttachment(for: "CommentsIcon")
-       // let commentsIconAttributedString = NSAttributedString(attachment: commentsIconAttachment)
-        //string.append(NSAttributedString(string: "\(post.points)"))
-        //string.append(pointsIconAttributedString)
-        //string.append(NSAttributedString(string: "• \(post.commentCount)"))
-        //string.append(commentsIconAttributedString)
-        string.append(NSAttributedString(string: "\(post.points) points"))
+        let baseAttrs = [
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12),
+            NSAttributedStringKey.foregroundColor: Theme.metaDataColor
+        ]
+        string.append(NSAttributedString(string: "\(post.points) points", attributes: baseAttrs))
         if let name = post.username {
             if(name.isEmpty==false){
-                string.append(NSAttributedString(string: " by \(name)"))
+                string.append(NSAttributedString(string: " by \(name)", attributes: baseAttrs))
             }
             
         }
         if let date = post.timeCreatedString {
             if(date.isEmpty == false){
-                string.append(NSAttributedString(string: " \(date)"))
+                string.append(NSAttributedString(string: " \(date)", attributes: baseAttrs))
             }
         }
-        //string.append(NSAttributedString(string: " • \(domainLabelText(for: post))"))
         
         return string
     }

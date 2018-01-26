@@ -12,6 +12,26 @@ import UIKit
 public class ColoredHairlineTabBar: UITabBar {
     private var hairline : UIView?
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
+
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
+
+    }
+    
+    @objc private func themeChanged(_ notification: Notification) {
+        hairline?.backgroundColor = Theme.tabBarHairlineColor
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .themeChanged, object: nil)
+    }
+    
     public override func layoutSubviews() {
         super.layoutSubviews()
         

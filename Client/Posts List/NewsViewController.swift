@@ -31,18 +31,21 @@ class NewsViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.superview?.backgroundColor = UIColor.red
         registerForPreviewing(with: self, sourceView: tableView)
         let refreshControl = UIRefreshControl()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
         refreshControl.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
         tableView.refreshControl = refreshControl
         splitViewController!.delegate = self
-        
+        self.view.backgroundColor = UIColor.yellow
         NotificationCenter.default.addObserver(self, selector: #selector(NewsViewController.viewDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        
-        view.showAnimatedSkeleton()
+        view.showAnimatedSkeleton(usingColor: Theme.skeletonBaseColor)
         loadPosts()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .themeChanged, object: nil)
     }
     
     override func awakeFromNib() {
@@ -58,8 +61,8 @@ class NewsViewController : UIViewController {
         navigationItem.largeTitleDisplayMode = .always
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    @objc private func themeChanged(_ notification: Notification) {
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -232,6 +235,7 @@ extension NewsViewController: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
     }
+    
 }
 
 extension NewsViewController: UIViewControllerPreviewingDelegate, SFSafariViewControllerPreviewActionItemsDelegate {

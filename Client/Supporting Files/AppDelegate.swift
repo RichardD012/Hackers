@@ -15,6 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         HNManager.shared().startSession()
+        let isAutoTheme = DataPersistenceManager.isAutoTheme()
+        let isDarkTheme = DataPersistenceManager.isDarkTheme()
+        if(isAutoTheme == false && isDarkTheme )//or AutoTheme is on and below threshold
+        {
+            Theme.isDarkMode = true
+        }
         self.window?.backgroundColor = Theme.navigationBarBackgroundColor
         Theme.setupUIColors()
         

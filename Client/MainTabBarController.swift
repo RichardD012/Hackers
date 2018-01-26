@@ -40,7 +40,6 @@ class MainTabBarController: UITabBarController {
             navController.tabBarItem.title = ""
             navController.tabBarItem.imageInsets = UIEdgeInsets(top: 8, left: 0, bottom: -8, right: 0)
             navController.tabBarItem.image = UIImage(named: iconName!)
-            //Theme.setupNavigationBar(navController.navigationBar)
             if let newsVC = navController.viewControllers.first as? NewsViewController {
                 var viewTitle: String?
                 var postType: PostFilterType?
@@ -68,7 +67,7 @@ class MainTabBarController: UITabBarController {
         if(firstLaunch)
         {
             firstLaunch=false
-            self.selectedIndex = 2 //default is 2/Top
+            self.selectedIndex = 4 //default is 2/Top
         }
     }
 }

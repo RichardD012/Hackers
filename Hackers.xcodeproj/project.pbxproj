@@ -11,6 +11,7 @@
 		021CDD6E201A72A90086532F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021CDD6D201A72A90086532F /* SettingsViewController.swift */; };
 		0239FFC1201A3DAD002084FA /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239FFC0201A3DAD002084FA /* DataPersistenceManager.swift */; };
 		0250DE182017B8A300CA8F2E /* ColoredHairlineTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250DE172017B8A300CA8F2E /* ColoredHairlineTabBar.swift */; };
+		02F51954201B91FA0001BFB2 /* NotificationsName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F51953201B91FA0001BFB2 /* NotificationsName+Extensions.swift */; };
 		240C5BE018D267C70011177A /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 240C5BDF18D267C70011177A /* Icons.xcassets */; };
 		24191F8D1944C991003C0D98 /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24191F8C1944C991003C0D98 /* CommentsController.swift */; };
 		241E8DAA1944AF870004F457 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241E8DA91944AF870004F457 /* CommentModel.swift */; };
@@ -44,6 +45,7 @@
 		021CDD6D201A72A90086532F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0239FFC0201A3DAD002084FA /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		0250DE172017B8A300CA8F2E /* ColoredHairlineTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColoredHairlineTabBar.swift; path = Client/ColoredHairlineTabBar.swift; sourceTree = SOURCE_ROOT; };
+		02F51953201B91FA0001BFB2 /* NotificationsName+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationsName+Extensions.swift"; sourceTree = "<group>"; };
 		240C5BDF18D267C70011177A /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		241387A51945A6E100D71220 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		24191F8C1944C991003C0D98 /* CommentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				243271941F95EDA9008196DB /* StringExtensions.swift */,
 				24D811A41FF90A58000951C3 /* TouchableTextView.swift */,
 				0239FFC0201A3DAD002084FA /* DataPersistenceManager.swift */,
+				02F51953201B91FA0001BFB2 /* NotificationsName+Extensions.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				24E4F26119B4DA9900574B52 /* CommentDelegate.swift in Sources */,
 				2454B9041F655426005A98C7 /* EmptyViewController.swift in Sources */,
 				24D811A51FF90A58000951C3 /* TouchableTextView.swift in Sources */,
+				02F51954201B91FA0001BFB2 /* NotificationsName+Extensions.swift in Sources */,
 				0250DE182017B8A300CA8F2E /* ColoredHairlineTabBar.swift in Sources */,
 				24CEAA9B1F8916970050DEDF /* UIView+Extensions.swift in Sources */,
 				24D6B8CA1C1EDBFC00618422 /* Theme.swift in Sources */,

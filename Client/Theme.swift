@@ -12,18 +12,17 @@ import UIKit
 struct Theme {
     static var isDarkMode = false
     static let primaryOrangeColor = UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1)//#ff6600
-    
+    static let primaryDarkModeText = UIColor(red: 204/255.0, green: 204/255.0, blue: 204/255.0, alpha: 1)
     
     static var metaDataColor: UIColor {
         get {
             if(isDarkMode)
             {
-                return UIColor.blue
+                return UIColor(red: 151/255.0, green: 151/255.0, blue: 151/255.0, alpha: 1)
             }
             else{
-                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1)
             }
-            
         }
     }
     
@@ -31,10 +30,10 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor.green
+                return UIColor(red: 115/255.0, green: 115/255.0, blue: 115/255.0, alpha: 1)
             }
             else{
-                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1)
             }
             
         }
@@ -44,7 +43,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor.white
+                return primaryDarkModeText
             }
             else{
                 return UIColor.black
@@ -59,7 +58,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor.red
+                return UIColor(red: 115/255.0, green: 115/255.0, blue: 115/255.0, alpha: 1)
             }
             else{
                 return UIColor(red: 170/255.0, green: 170/255.0, blue: 170/255.0, alpha: 1)
@@ -72,7 +71,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return primaryOrangeColor
+                return UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
             }
             else{
                 return primaryOrangeColor
@@ -86,7 +85,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor.black
+                return primaryDarkModeText
             }
             else{
                 return UIColor.black
@@ -99,7 +98,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor.lightGray
+                return UIColor.black
             }
             else{
                 return UIColor.lightGray
@@ -113,7 +112,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor.black
+                return UIColor(red: 38/255.0, green: 38/255.0, blue: 38/255.0, alpha: 1)
             }
             else{
                 return UIColor(red: 246/255.0, green: 246/255.0, blue: 239/255.0, alpha: 1)
@@ -126,10 +125,23 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
+                return primaryDarkModeText
             }
             else{
                 return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1) //#828282
+            }
+            
+        }
+    }
+    
+    static var skeletonBaseColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor(red: 115/255.0, green: 115/255.0, blue: 115/255.0, alpha: 1)//primaryDarkModeText
+            }
+            else{
+                return UIColor.lightGray
             }
             
         }
@@ -153,7 +165,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor.lightGray
+                return  UIColor.black
             }
             else{
                 return UIColor.lightGray
@@ -162,11 +174,36 @@ struct Theme {
         }
     }
     
+    static var commentAuthorTextColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return primaryDarkModeText
+            }
+            else{
+                return UIColor.darkGray
+            }
+            
+        }
+    }
+    
+    static var commentTimeTextColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor(red: 151/255.0, green: 151/255.0, blue: 151/255.0, alpha: 1)
+            }
+            else{
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1)
+            }
+        }
+    }
+    
     static var commentsTextColor: UIColor {
         get {
             if(isDarkMode)
             {
-                return UIColor.darkGray
+                return primaryDarkModeText
             }
             else{
                 return UIColor.darkGray
@@ -180,7 +217,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor.red
+                return primaryOrangeColor
             }
             else{
                 return primaryOrangeColor
@@ -193,7 +230,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor.red
+                return UIColor(red: 60/255.0, green: 60/255.0, blue: 60/255.0, alpha: 1)
             }
             else{
                 return UIColor(red: 230/255.0, green: 230/255.0, blue: 230/255.0, alpha: 1)
@@ -206,7 +243,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor.red
+                return UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
             }
             else{
                 return UIColor(red: 245/255.0, green: 245/255.0, blue: 242/255.0, alpha: 1)
@@ -219,7 +256,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor.black
+                return UIColor(red: 38/255.0, green: 38/255.0, blue: 38/255.0, alpha: 1)
             }
             else{
                 return UIColor.white
@@ -233,10 +270,23 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor(red: 250/255.0, green: 250/255.0, blue: 250/255.0, alpha: 1)
+                return UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
             }
             else{
                 return UIColor(red: 250/255.0, green: 250/255.0, blue: 250/255.0, alpha: 1)
+            }
+            
+        }
+    }
+    
+    static var tableSeparatorColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor(red: 56/255.0, green: 56/255.0, blue: 56/255.0, alpha: 1)
+            }
+            else{
+                return UIColor.darkGray //???
             }
             
         }
@@ -361,6 +411,32 @@ struct Theme {
         }
     }
     
+    static var darkViewSwitchTintColor: UIColor? {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor(red: 50/255.0, green: 50/255.0, blue: 50/255.0, alpha: 1)
+            }
+            else{
+                return nil
+            }
+            
+        }
+    }
+    
+    static var darkViewSwitchThumbTintColor: UIColor? {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor(red: 147/255.0, green: 147/255.0, blue: 147/255.0, alpha: 1)
+            }
+            else{
+                return nil
+            }
+            
+        }
+    }
+    
     static var settingsTextColor: UIColor {
         get {
             if(isDarkMode)
@@ -389,10 +465,40 @@ struct Theme {
         UINavigationBar.appearance().backgroundColor = Theme.navigationBarBackgroundColor
         UINavigationBar.appearance().barTintColor = Theme.navigationBarBackgroundColor
         UINavigationBar.appearance().tintColor = Theme.navigationBarTextColor
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.navigationBarTextColor]
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.navigationBarTextColor]
+        
         UIRefreshControl.appearance().tintColor = Theme.navigationBarTextColor
         
         UITableView.appearance().backgroundColor = Theme.tableBackgroundColor
+        UITableView.appearance().separatorColor = Theme.tableSeparatorColor
+        
+    }
+    
+    static func setupUIColors(tableView: UITableView) {
+        tableView.backgroundColor = Theme.tableBackgroundColor
+        tableView.separatorColor = Theme.tableSeparatorColor
+        
+    }
+    
+    static func setupUIColors(navigationBar: UINavigationBar, tabBar: UITabBar) {
+        
+        
+        tabBar.tintColor = Theme.tabBarSelectedTextColor
+        tabBar.isTranslucent = false
+        tabBar.isOpaque = true
+        tabBar.barTintColor = Theme.tabBarBackgroundColor
+        tabBar.unselectedItemTintColor = Theme.tabBarTextColor
+
+        
+        navigationBar.isTranslucent = false
+        navigationBar.isOpaque = true
+        navigationBar.backgroundColor = Theme.navigationBarBackgroundColor
+        navigationBar.barTintColor = Theme.navigationBarBackgroundColor
+        navigationBar.tintColor = Theme.navigationBarTextColor
+        navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.navigationBarTextColor]
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.navigationBarTextColor]
+        
         
     }
 }
