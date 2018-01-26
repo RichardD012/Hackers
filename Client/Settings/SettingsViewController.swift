@@ -68,8 +68,8 @@ class SettingsViewController : UITableViewController {
     }
     
     func setupTheme(){
-        self.darkModeSlider.setMinimumTrackImage( UIImage(named: Theme.settingsMinimumSliderImage), for: UIControlState.normal)
-        self.darkModeSlider.setMaximumTrackImage( UIImage(named: Theme.settingsMaximumSliderImage), for: UIControlState.normal)
+        //self.darkModeSlider.setMinimumTrackImage( UIImage(named: Theme.settingsMinimumSliderImage), for: UIControlState.normal)
+        //self.darkModeSlider.setMaximumTrackImage( UIImage(named: Theme.settingsMaximumSliderImage), for: UIControlState.normal)
         self.lightCellLabel.textColor = Theme.settingsTextColor
         self.darkCellLabel.textColor = Theme.settingsTextColor
         self.autoThemeLabel.textColor = Theme.settingsTextColor

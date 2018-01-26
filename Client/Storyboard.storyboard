@@ -114,9 +114,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" minimumValueImage="Moon" maximumValueImage="Sun" translatesAutoresizingMaskIntoConstraints="NO" id="8Zp-sz-VCk">
-                                                    <rect key="frame" x="18" y="21" width="339" height="31"/>
-                                                    <color key="minimumTrackTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <slider contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="Moon" maximumValueImage="Sun" translatesAutoresizingMaskIntoConstraints="NO" id="8Zp-sz-VCk">
+                                                    <rect key="frame" x="18" y="20" width="339" height="31"/>
+                                                    <color key="minimumTrackTintColor" red="0.99821966890000002" green="0.3983421922" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="darkModeSliderChanged:" destination="ACC-mi-0F9" eventType="valueChanged" id="roB-VW-nfL"/>
                                                     </connections>
@@ -124,7 +124,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="8Zp-sz-VCk" firstAttribute="centerY" secondItem="Lgr-F9-fDZ" secondAttribute="centerY" id="7XQ-g2-5Oy"/>
+                                            <constraint firstItem="8Zp-sz-VCk" firstAttribute="centerY" secondItem="Lgr-F9-fDZ" secondAttribute="centerY" id="aDv-ER-o8b"/>
                                             <constraint firstAttribute="trailing" secondItem="8Zp-sz-VCk" secondAttribute="trailing" constant="20" id="o6A-8t-EWj"/>
                                             <constraint firstItem="8Zp-sz-VCk" firstAttribute="leading" secondItem="Lgr-F9-fDZ" secondAttribute="leading" constant="20" id="rfb-og-cWk"/>
                                         </constraints>
