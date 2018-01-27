@@ -504,7 +504,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OpenCommentCell" rowHeight="144" id="Ku3-Ww-ybh" userLabel="Open Comment Cell" customClass="CommentTableViewCell" customModule="YC__News" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OpenCommentCell" rowHeight="144" id="Ku3-Ww-ybh" userLabel="Open Comment Cell" customClass="CommentTableViewCell" customModule="YC__News" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="148" width="375" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ku3-Ww-ybh" id="oE5-2d-406">

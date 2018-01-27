@@ -33,10 +33,11 @@ class CommentsViewController : UIViewController {
         
         tableView.backgroundView = nil
         tableView.backgroundColor = Theme.tableBackgroundColor
+        postContainerView.backgroundColor = Theme.commentsViewPostBackgroundColor
         NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
 
         navigationItem.largeTitleDisplayMode = .never
-        postContainerView.backgroundColor = Theme.unselectedCellBackgroundColor
+        
         
         view.showAnimatedSkeleton(usingColor: Theme.skeletonBaseColor)
         loadComments()
@@ -57,7 +58,7 @@ class CommentsViewController : UIViewController {
         {
             Theme.setupUIColors(tabBar: self.tabBarController!.tabBar)
         }
-        postContainerView.backgroundColor = Theme.unselectedCellBackgroundColor
+        postContainerView.backgroundColor = Theme.commentsViewPostBackgroundColor
         postTitleView.post = post //this will redraw the postTitleView
         hairline?.backgroundColor = Theme.commentsViewPostSeparatorColor
         Theme.setupUIColors(tableView:tableView)
@@ -110,7 +111,6 @@ class CommentsViewController : UIViewController {
     
     func setupPostTitleView() {
         guard let post = post else { return }
-        
         postTitleView.post = post
         postTitleView.delegate = self
         postTitleView.isTitleTapEnabled = true

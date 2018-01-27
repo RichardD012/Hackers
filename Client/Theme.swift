@@ -19,6 +19,7 @@ struct Theme {
         get { return _isDarkMode }
     }
     static let primaryOrangeColor = UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1)
+    static let primaryDarkModeHeaderColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
     static let primaryDarkModeText = UIColor(red: 204/255.0, green: 204/255.0, blue: 204/255.0, alpha: 1)
     
     static var metaDataColor: UIColor {
@@ -78,7 +79,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
+                return primaryDarkModeHeaderColor
             }
             else{
                 return primaryOrangeColor
@@ -168,14 +169,27 @@ struct Theme {
         }
     }
     
+    static var commentsViewPostBackgroundColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return  UIColor(red: 38/255.0, green: 38/255.0, blue: 38/255.0, alpha: 1)
+            }
+            else{
+                return UIColor(red: 234/255.0, green: 234/255.0, blue: 234/255.0, alpha: 1)
+            }
+            
+        }
+    }
+    
     static var commentsViewPostSeparatorColor: UIColor {
         get {
             if(isDarkMode)
             {
-                return  UIColor.black
+                return UIColor(red: 56/255.0, green: 56/255.0, blue: 56/255.0, alpha: 1)
             }
             else{
-                return UIColor(red: 234/255.0, green: 234/255.0, blue: 234/255.0, alpha: 1)
+                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1)
             }
             
         }
@@ -263,7 +277,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
+                return primaryDarkModeHeaderColor
             }
             else{
                 return UIColor(red: 245/255.0, green: 245/255.0, blue: 242/255.0, alpha: 1)
@@ -290,7 +304,7 @@ struct Theme {
         get {
             if(isDarkMode)
             {
-                return UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
+                return UIColor(red: 43/255.0, green: 43/255.0, blue: 43/255.0, alpha: 1)
             }
             else{
                 return UIColor(red: 250/255.0, green: 250/255.0, blue: 250/255.0, alpha: 1)

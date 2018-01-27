@@ -61,15 +61,18 @@ class CommentTableViewCell : UITableViewCell {
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
+        
         highlighted ? setSelectedBackground() : setUnselectedBackground()
     }
     
     func setSelectedBackground() {
         backgroundColor = Theme.selectedCellBackgroundColor
+        commentTextView?.backgroundColor = Theme.selectedCellBackgroundColor
     }
     
     func setUnselectedBackground() {
         backgroundColor = Theme.unselectedCellBackgroundColor
+        commentTextView?.backgroundColor = Theme.unselectedCellBackgroundColor
     }
     
     func updateIndentPadding() {

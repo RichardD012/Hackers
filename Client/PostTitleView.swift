@@ -15,10 +15,7 @@ protocol PostTitleViewDelegate {
 
 class PostTitleView: UIView, UIGestureRecognizerDelegate {
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var metadataLabel: UILabel!
-    private var hairline : UIView?
-    var isHairlineEnabled = false
-    
+    @IBOutlet var metadataLabel: UILabel!   
     var isTitleTapEnabled = false
     
     var delegate: PostTitleViewDelegate?
