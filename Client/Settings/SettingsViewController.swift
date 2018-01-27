@@ -164,7 +164,7 @@ class SettingsViewController : UITableViewController {
         if(autoTheme)
         {
             let currentBrightness = Float(UIScreen.main.brightness)
-            if(darkModeSlider.value <= currentBrightness)
+            if(currentBrightness <= darkModeSlider.value )
             {
                 if(Theme.isDarkMode == false)
                 {

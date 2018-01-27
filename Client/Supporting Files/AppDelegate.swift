@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             let currentBrightness = Float(UIScreen.main.brightness)
             let sliderValue = DataPersistenceManager.autoThemeThreshold()
-            if(sliderValue <= currentBrightness)
+            if(currentBrightness <= sliderValue)
             {
                 Theme.isDarkMode = true
             }else{
