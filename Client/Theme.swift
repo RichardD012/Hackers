@@ -206,6 +206,19 @@ struct Theme {
         }
     }
     
+    static var commentsLinkColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1)
+            }
+            else{
+                return UIColor.black
+            }
+            
+        }
+    }
+    
     static var commentsTextColor: UIColor {
         get {
             if(isDarkMode)

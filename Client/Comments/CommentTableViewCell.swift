@@ -31,13 +31,45 @@ class CommentTableViewCell : UITableViewCell {
     @IBOutlet var datePostedLabel : UILabel!
     @IBOutlet var leftPaddingConstraint : NSLayoutConstraint!
     
+    
     override func awakeFromNib() {
         contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CommentTableViewCell.cellTapped)))
+         NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .themeChanged, object: nil)
     }
     
     @objc func cellTapped() {
         delegate?.commentTapped(self)
         setSelected(!isSelected, animated: false)
+    }
+    
+    @objc private func themeChanged(_ notification: Notification) {
+        if(comment != nil)
+        {
+            updateCommentContent(with: comment!)
+        }
+        
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        selected ? setSelectedBackground() : setUnselectedBackground()
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        highlighted ? setSelectedBackground() : setUnselectedBackground()
+    }
+    
+    func setSelectedBackground() {
+        backgroundColor = Theme.selectedCellBackgroundColor
+    }
+    
+    func setUnselectedBackground() {
+        backgroundColor = Theme.unselectedCellBackgroundColor
     }
     
     func updateIndentPadding() {
@@ -54,6 +86,7 @@ class CommentTableViewCell : UITableViewCell {
         authorLabel.text = comment.authorUsername
         authorLabel?.textColor = Theme.commentAuthorTextColor
         commentTextView?.backgroundColor = Theme.unselectedCellBackgroundColor
+        commentTextView?.tintColor = Theme.commentsLinkColor
         separatorView.backgroundColor = Theme.tableSeparatorColor
         if let commentTextView = commentTextView {
             // only for expanded comments

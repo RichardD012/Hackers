@@ -85,6 +85,7 @@ class NewsViewController : UITableViewController {
         {
             Theme.setupUIColors(tabBar: self.tabBarController!.tabBar)
         }
+        Theme.setupUIColors(tableView:tableView)
         self.view.backgroundColor = Theme.navigationBarBackgroundColor
         tableView.refreshControl?.tintColor = Theme.navigationBarTextColor
         tableView.reloadData()

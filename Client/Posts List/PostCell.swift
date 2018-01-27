@@ -52,7 +52,6 @@ class PostCell : UITableViewCell {
     }
         
     @objc func didTapThumbnail(_ sender: Any) {
-        //NSLog("Tapped comments")
         delegate?.didTapComment(sender)
         
     }
