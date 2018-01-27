@@ -175,7 +175,7 @@ struct Theme {
                 return  UIColor.black
             }
             else{
-                return UIColor.lightGray
+                return UIColor(red: 234/255.0, green: 234/255.0, blue: 234/255.0, alpha: 1)
             }
             
         }
@@ -293,7 +293,7 @@ struct Theme {
                 return UIColor(red: 56/255.0, green: 56/255.0, blue: 56/255.0, alpha: 1)
             }
             else{
-                return UIColor.darkGray //???
+                return UIColor(red: 234/255.0, green: 234/255.0, blue: 234/255.0, alpha: 1)
             }
             
         }
