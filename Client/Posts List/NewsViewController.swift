@@ -14,12 +14,11 @@ import PromiseKit
 import SkeletonView
 import Kingfisher
 
-class NewsViewController : UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+class NewsViewController : UITableViewController {
     
     var posts: [HNPost] = [HNPost]()
     var postType: PostFilterType! = .top
-    
+    var firstLoad = true
     private var collapseDetailViewController = true
     private var peekedIndexPath: IndexPath?
     private var thumbnailProcessedUrls = [String]()
@@ -33,25 +32,28 @@ class NewsViewController : UIViewController {
         super.viewDidLoad()
         registerForPreviewing(with: self, sourceView: tableView)
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
-        tableView.refreshControl = refreshControl
-        
         splitViewController!.delegate = self
         
         self.view.backgroundColor = Theme.navigationBarBackgroundColor
         
         NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(NewsViewController.viewDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        self.extendedLayoutIncludesOpaqueBars = true
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
+        tableView.refreshControl = refreshControl
         
         view.showAnimatedSkeleton(usingColor: Theme.skeletonBaseColor)
+        
         loadPosts()
     }
+    
     
     deinit {
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.removeObserver(self, name: .themeChanged, object: nil)
     }
+    
     
     override func awakeFromNib() {
         /*
@@ -59,14 +61,30 @@ class NewsViewController : UIViewController {
          it never shrinks with scroll. When fixed, remove from code and set in storyboard.
         */
         navigationController?.navigationBar.prefersLargeTitles = true
+
     }
+
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if(tableView.refreshControl == nil)
+        {
+            let refreshControl = UIRefreshControl()
+            refreshControl.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
+            tableView.refreshControl = refreshControl
+        }
         navigationItem.largeTitleDisplayMode = .always
     }
     
     @objc private func themeChanged(_ notification: Notification) {
+        if(self.navigationController != nil)
+        {
+            Theme.setupUIColors(navigationBar: self.navigationController!.navigationBar)
+        }
+        if(self.tabBarController != nil)
+        {
+            Theme.setupUIColors(tabBar: self.tabBarController!.tabBar)
+        }
         self.view.backgroundColor = Theme.navigationBarBackgroundColor
         tableView.refreshControl?.tintColor = Theme.navigationBarTextColor
         tableView.reloadData()
@@ -74,12 +92,18 @@ class NewsViewController : UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if(firstLoad)
+        {
+            firstLoad = false
+            tableView.setContentOffset(_:CGPoint(x: 0.0, y: -145), animated: true)//tableView.contentInset.top
+        }
         rz_smoothlyDeselectRows(tableView: tableView)
     }
 
     func getSafariViewController(_ url: URL) -> SFSafariViewController {
         let safariViewController = SFSafariViewController(url: url)
         safariViewController.previewActionItemsDelegate = self
+        safariViewController.delegate = self
         return safariViewController
     }
     
@@ -189,12 +213,34 @@ extension NewsViewController { // post fetching
     }
 }
 
-extension NewsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension NewsViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let postCell = tableView.cellForRow(at: indexPath) as? PostCell else {return }
+        collapseDetailViewController = false
+        posts[indexPath.row].hasVisited = true
+        DataPersistenceManager.setVisited(post: posts[indexPath.row])
+        postCell.postTitleView.post = posts[indexPath.row]
+        didPressLinkButton(posts[indexPath.row])
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == posts.count - 5 {
+            loadMorePosts()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? PostCell {
+            cell.cancelThumbnailTask?()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         cell.delegate = self
         
@@ -210,29 +256,6 @@ extension NewsViewController: UITableViewDataSource {
     }
 }
 
-extension NewsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let postCell = tableView.cellForRow(at: indexPath) as? PostCell else {return }
-        collapseDetailViewController = false
-        posts[indexPath.row].hasVisited = true
-        DataPersistenceManager.setVisited(post: posts[indexPath.row])
-        postCell.postTitleView.post = posts[indexPath.row]
-        didPressLinkButton(posts[indexPath.row])
-        
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == posts.count - 5 {
-            loadMorePosts()
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let cell = cell as? PostCell {
-            cell.cancelThumbnailTask?()
-        }
-    }
-}
 
 extension NewsViewController: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
@@ -243,6 +266,13 @@ extension NewsViewController: SkeletonTableViewDataSource {
         return 20
     }
     
+}
+
+extension NewsViewController: SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController)
+    {
+        Theme.setStatusBarColors()
+    }
 }
 
 extension NewsViewController: UIViewControllerPreviewingDelegate, SFSafariViewControllerPreviewActionItemsDelegate {
@@ -285,6 +315,7 @@ extension NewsViewController: PostTitleViewDelegate {
     func didPressLinkButton(_ post: HNPost) {
         guard verifyLink(post.urlString) else { return }
         if let url = URL(string: post.urlString) {
+            UIApplication.shared.statusBarStyle = .default
             self.navigationController?.present(getSafariViewController(url), animated: true, completion: nil)
         }
     }

@@ -10,7 +10,14 @@ import Foundation
 import UIKit
 
 struct Theme {
-    static var isDarkMode = false
+    private static var _isDarkMode = false
+    static var isDarkMode : Bool{
+        set {
+            _isDarkMode = newValue
+            NotificationCenter.default.post(name: .themeChanged, object: nil)
+        }
+        get { return _isDarkMode }
+    }
     static let primaryOrangeColor = UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1)
     static let primaryDarkModeText = UIColor(red: 204/255.0, green: 204/255.0, blue: 204/255.0, alpha: 1)
     
@@ -453,22 +460,15 @@ struct Theme {
     
     static func setupUIColors() {
 
-        if(isDarkMode)
-        {
-            UIApplication.shared.statusBarStyle = .lightContent
-        }
-        else
-        {
-            UIApplication.shared.statusBarStyle = .default
-        }
+        setStatusBarColors()
         UITabBar.appearance().tintColor = Theme.tabBarSelectedTextColor
         UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().isOpaque = true
         UITabBar.appearance().barTintColor = Theme.tabBarBackgroundColor
         UITabBar.appearance().unselectedItemTintColor = Theme.tabBarTextColor
         
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().isOpaque = true
+        //UINavigationBar.appearance().isTranslucent = false
+       // UINavigationBar.appearance().isOpaque = true
         
         UINavigationBar.appearance().backgroundColor = Theme.navigationBarBackgroundColor
         UINavigationBar.appearance().barTintColor = Theme.navigationBarBackgroundColor
@@ -490,8 +490,31 @@ struct Theme {
         
     }
     
-    static func setupUIColors(navigationBar: UINavigationBar, tabBar: UITabBar) {
+    static func setupUIColors(tabBar: UITabBar) {
         
+        
+        tabBar.tintColor = Theme.tabBarSelectedTextColor
+        tabBar.isTranslucent = false
+        tabBar.isOpaque = true
+        tabBar.barTintColor = Theme.tabBarBackgroundColor
+        tabBar.unselectedItemTintColor = Theme.tabBarTextColor
+    }
+    
+    
+    static func setupUIColors(navigationBar: UINavigationBar) {
+        
+        setStatusBarColors()
+        navigationBar.isTranslucent = false
+        navigationBar.isOpaque = true
+        navigationBar.backgroundColor = Theme.navigationBarBackgroundColor
+        navigationBar.barTintColor = Theme.navigationBarBackgroundColor
+        navigationBar.tintColor = Theme.navigationBarTextColor
+        navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.navigationBarTextColor]
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.navigationBarTextColor]
+    }
+    
+    static func setStatusBarColors()
+    {
         if(isDarkMode)
         {
             UIApplication.shared.statusBarStyle = .lightContent
@@ -500,21 +523,5 @@ struct Theme {
         {
             UIApplication.shared.statusBarStyle = .default
         }
-        tabBar.tintColor = Theme.tabBarSelectedTextColor
-        tabBar.isTranslucent = false
-        tabBar.isOpaque = true
-        tabBar.barTintColor = Theme.tabBarBackgroundColor
-        tabBar.unselectedItemTintColor = Theme.tabBarTextColor
-
-        
-        navigationBar.isTranslucent = false
-        navigationBar.isOpaque = true
-        navigationBar.backgroundColor = Theme.navigationBarBackgroundColor
-        navigationBar.barTintColor = Theme.navigationBarBackgroundColor
-        navigationBar.tintColor = Theme.navigationBarTextColor
-        navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.navigationBarTextColor]
-        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Theme.navigationBarTextColor]
-        
-        
     }
 }

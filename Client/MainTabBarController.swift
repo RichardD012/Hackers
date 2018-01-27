@@ -13,7 +13,8 @@ class MainTabBarController: UITabBarController {
     var firstLaunch = true
     override func viewDidLoad() {
         super.viewDidLoad()
-      NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(brightnessChanged(_:)), name: .UIScreenBrightnessDidChange, object: nil)
         guard let viewControllers = self.viewControllers else { return }
         self.view.backgroundColor = Theme.navigationBarBackgroundColor
         for (index, viewController) in viewControllers.enumerated() {
@@ -73,9 +74,32 @@ class MainTabBarController: UITabBarController {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .themeChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIScreenBrightnessDidChange, object: nil)
+    }
+    
+    @objc private func brightnessChanged(_ notification: Notification) {
+        
+        let isAutoTheme = DataPersistenceManager.isAutoTheme()
+        if(isAutoTheme)
+        {
+            let currentBrightness = Float(UIScreen.main.brightness)
+            let sliderValue = DataPersistenceManager.autoThemeThreshold()
+            if(currentBrightness <= sliderValue)
+            {
+                if(Theme.isDarkMode == false){
+                    Theme.isDarkMode = true
+                }
+            }else{
+                if(Theme.isDarkMode == true){
+                    Theme.isDarkMode = false
+                }
+            }
+        }
+        
     }
     
     @objc private func themeChanged(_ notification: Notification) {
+        Theme.setupUIColors()
         self.view.backgroundColor = Theme.navigationBarBackgroundColor
     }
 }

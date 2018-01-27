@@ -49,6 +49,14 @@ class CommentsViewController : UIViewController {
     
     @objc private func themeChanged(_ notification: Notification) {
         guard let post = post else { return }
+        if(self.navigationController != nil)
+        {
+            Theme.setupUIColors(navigationBar: self.navigationController!.navigationBar)
+        }
+        if(self.tabBarController != nil)
+        {
+            Theme.setupUIColors(tabBar: self.tabBarController!.tabBar)
+        }
         postContainerView.backgroundColor = Theme.unselectedCellBackgroundColor
         postTitleView.post = post //this will redraw the postTitleView
         hairline?.backgroundColor = Theme.commentsViewPostSeparatorColor

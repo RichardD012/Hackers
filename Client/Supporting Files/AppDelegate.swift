@@ -20,8 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if(isAutoTheme == false && isDarkTheme )//or AutoTheme is on and below threshold
         {
             Theme.isDarkMode = true
+        }else if (isAutoTheme)
+        {
+            let currentBrightness = Float(UIScreen.main.brightness)
+            let sliderValue = DataPersistenceManager.autoThemeThreshold()
+            if(sliderValue <= currentBrightness)
+            {
+                Theme.isDarkMode = true
+            }else{
+                Theme.isDarkMode = false
+            }
         }
-        self.window?.backgroundColor = UIColor.red
         Theme.setupUIColors()
         
     }
