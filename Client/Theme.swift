@@ -189,7 +189,7 @@ struct Theme {
                 return UIColor(red: 56/255.0, green: 56/255.0, blue: 56/255.0, alpha: 1)
             }
             else{
-                return UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1)
+                return UIColor(red: 234/255.0, green: 234/255.0, blue: 234/255.0, alpha: 1)
             }
             
         }

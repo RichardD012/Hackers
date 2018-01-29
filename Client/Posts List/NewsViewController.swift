@@ -37,7 +37,9 @@ class NewsViewController : UITableViewController {
         self.view.backgroundColor = Theme.navigationBarBackgroundColor
         
         NotificationCenter.default.addObserver(self, selector: #selector(themeChanged(_:)), name: .themeChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(postVisited(_:)), name: .postVisited, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(NewsViewController.viewDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
         self.extendedLayoutIncludesOpaqueBars = true
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
@@ -52,6 +54,7 @@ class NewsViewController : UITableViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.removeObserver(self, name: .themeChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .postVisited, object: nil)
     }
     
     
@@ -74,6 +77,22 @@ class NewsViewController : UITableViewController {
             tableView.refreshControl = refreshControl
         }
         navigationItem.largeTitleDisplayMode = .always
+    }
+    
+    @objc private func postVisited(_ notification: Notification) {
+        
+        if let post = notification.userInfo?["post"] as? HNPost {
+            var redraw = false
+            // check if we have the post, if so redraw the table
+            for currentPost in posts {
+                if(currentPost.postId == post.postId){
+                    redraw = true
+                }
+            }
+            if(redraw){
+                 tableView.reloadData()
+            }
+        }
     }
     
     @objc private func themeChanged(_ notification: Notification) {
@@ -194,10 +213,15 @@ extension NewsViewController { // post fetching
         HNManager.shared().loadPosts(withUrlAddition: nextPageIdentifier) { posts, nextPageIdentifier in
             if let downcastedArray = posts as? [HNPost] {
                 self.nextPageIdentifier = nextPageIdentifier
-                self.posts.append(contentsOf: downcastedArray)
+                let filteredArray = downcastedArray.filter { self.containsPost($0) == false }
+                self.posts.append(contentsOf: filteredArray)
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func containsPost(_ post: HNPost) -> Bool{
+        return self.posts.filter{ $0.postId == post.postId }.count > 0
     }
     
     func didPressCommentButton(_ post: HNPost) {
@@ -219,7 +243,7 @@ extension NewsViewController {
         guard let postCell = tableView.cellForRow(at: indexPath) as? PostCell else {return }
         collapseDetailViewController = false
         posts[indexPath.row].hasVisited = true
-        DataPersistenceManager.setVisited(post: posts[indexPath.row])
+        
         postCell.postTitleView.post = posts[indexPath.row]
         didPressLinkButton(posts[indexPath.row])
         
@@ -317,6 +341,7 @@ extension NewsViewController: PostTitleViewDelegate {
         guard verifyLink(post.urlString) else { return }
         if let url = URL(string: post.urlString) {
             UIApplication.shared.statusBarStyle = .default
+            DataPersistenceManager.setVisited(post: post)
             self.navigationController?.present(getSafariViewController(url), animated: true, completion: nil)
         }
     }

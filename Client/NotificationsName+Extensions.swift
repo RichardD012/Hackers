@@ -10,4 +10,5 @@ import Foundation
 
 extension Notification.Name {
     static let themeChanged = Notification.Name("com.r7development.HNNews.notifications.themeChanged")
+    static let postVisited = Notification.Name("com.r7development.HNNews.notifications.postVisited")
 }

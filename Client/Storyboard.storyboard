@@ -495,7 +495,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </stackView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <constraints>
                                         <constraint firstItem="t7J-jh-8Aa" firstAttribute="leading" secondItem="ApK-ej-h7a" secondAttribute="leadingMargin" constant="8" id="35D-Gb-BxM"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="t7J-jh-8Aa" secondAttribute="trailing" constant="8" id="Rt1-OU-5MX"/>

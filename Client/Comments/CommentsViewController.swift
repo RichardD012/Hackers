@@ -131,14 +131,22 @@ extension CommentsViewController: PostTitleViewDelegate {
     func didPressLinkButton(_ post: HNPost) {
         if verifyLink(post.urlString), let url = URL(string: post.urlString) {
             // animate background colour for tap
-            self.tableView.tableHeaderView?.backgroundColor = Theme.selectedCellBackgroundColor
+            post.hasVisited = true
+            self.postTitleView.post = post //triggers a redraw
+            self.postTitleView.backgroundColor = Theme.unselectedCellBackgroundColor
+            //self.tableView.tableHeaderView?.backgroundColor = Theme.selectedCellBackgroundColor
             UIView.animate(withDuration: 0.3, animations: {
-                self.tableView.tableHeaderView?.backgroundColor = .white
+                self.postTitleView.backgroundColor = Theme.unselectedCellBackgroundColor
+                //self.tableView.tableHeaderView?.backgroundColor = Theme.selectedCellBackgroundColor
             })
             
             // show link
             let safariViewController = SFSafariViewController(url: url)
             self.present(safariViewController, animated: true, completion: nil)
+            let postDataDictionary:[String: HNPost] = ["post": post]
+            //set in data persistence
+            DataPersistenceManager.setVisited(post: post)
+            NotificationCenter.default.post(name: .postVisited, object: nil, userInfo: postDataDictionary)
         }
     }
     

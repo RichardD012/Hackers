@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         HNManager.shared().startSession()
+        DataPersistenceManager.initializePosts() 
         let isAutoTheme = DataPersistenceManager.isAutoTheme()
         let isDarkTheme = DataPersistenceManager.isDarkTheme()
         if(isAutoTheme == false && isDarkTheme )//or AutoTheme is on and below threshold
@@ -33,6 +34,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Theme.setupUIColors()
         
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        let isAutoTheme = DataPersistenceManager.isAutoTheme()
+        let currentBrightness = Float(UIScreen.main.brightness)
+        let sliderValue = DataPersistenceManager.autoThemeThreshold()
+        if(isAutoTheme)
+        {
+            if(currentBrightness <= sliderValue)
+            {
+                if(Theme.isDarkMode == false){
+                    Theme.isDarkMode = true
+                }
+                
+            }else{
+                if(Theme.isDarkMode == true){
+                    Theme.isDarkMode = false
+                }
+                
+            }
+        }        
     }
     
     /*func getImageWithColor(color: UIColor) -> UIImage

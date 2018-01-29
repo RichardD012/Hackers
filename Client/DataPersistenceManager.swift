@@ -11,13 +11,53 @@ import libHN
 
 class DataPersistenceManager {
     static let userDefaults = UserDefaults.standard
+    static var hasLoaded = false
+    static var postDictionary:[String:Date] = [String: Date]()
+    
+    static func initializePosts() {
+        if(hasLoaded == false)
+        {
+            //load it
+            hasLoaded = true
+            /*let storedDictionary = UserDefaults.standard.value(forKey: "post-data") as? [String: Date]
+            if(storedDictionary == nil)
+            {
+               postDictionary = [String: Date]()
+            }else{
+                postDictionary = storedDictionary!
+            }*/
+            guard let storedDictionary = UserDefaults.standard.value(forKey: "post-data") as? [String: Date] else {
+                postDictionary = [String: Date]()
+                return
+            }
+            postDictionary = storedDictionary
+            let cutoff = Date().addingTimeInterval((-60*60*24*30)) //30 days
+            var updates = false
+            for (postId, date) in postDictionary {
+                if(date<cutoff)
+                {
+                    updates = true
+                    postDictionary.removeValue(forKey: postId)
+                }
+            }
+            if(updates){
+                userDefaults.set(postDictionary, forKey: "post-data")
+                userDefaults.synchronize()
+            }
+        }
+    }
+    
     static func hasVisited( post: HNPost ) -> Bool {
-        return userDefaults.object(forKey: "post-\(post.postId)" ) != nil
+        initializePosts()
+        return postDictionary[post.postId!] != nil
     }
     
     static func setVisited( post: HNPost ) {
+        initializePosts()
         let date = Date()
-        userDefaults.set(date, forKey: "post-\(post.postId)" )
+        postDictionary[post.postId!] = date
+        //userDefaults.set(date, forKey: "post-\(post.postId)" )
+        userDefaults.set(postDictionary, forKey: "post-data")
         userDefaults.synchronize()
     }
     
