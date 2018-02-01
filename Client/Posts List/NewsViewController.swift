@@ -124,6 +124,7 @@ class NewsViewController : UITableViewController {
     func getSafariViewController(_ url: URL) -> SFSafariViewController {
         let safariViewController = SFSafariViewController(url: url)
         safariViewController.previewActionItemsDelegate = self
+        
         safariViewController.delegate = self
         return safariViewController
     }
@@ -289,7 +290,7 @@ extension NewsViewController {
 
 extension NewsViewController: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return "PostCell"
+        return "SkeletonCell"
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {

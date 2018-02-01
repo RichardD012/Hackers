@@ -38,8 +38,8 @@ class CommentsViewController : UIViewController {
 
         navigationItem.largeTitleDisplayMode = .never
         
-        
-        view.showAnimatedSkeleton(usingColor: Theme.skeletonBaseColor)
+        view.showSkeleton(usingColor: Theme.skeletonBaseColor);
+        //view.showAnimatedSkeleton(usingColor: Theme.skeletonBaseColor)
         loadComments()
         
     }
