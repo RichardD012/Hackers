@@ -225,6 +225,9 @@
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="lastLineFillPercent">
+                                                                            <integer key="value" value="100"/>
+                                                                        </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1 point" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epi-Pl-eHH">
@@ -234,9 +237,18 @@
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="lastLineFillPercent">
+                                                                            <integer key="value" value="50"/>
+                                                                        </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Epi-Pl-eHH" firstAttribute="top" secondItem="bNB-uo-x4B" secondAttribute="bottom" constant="5" id="sGZ-yA-6oS"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -246,6 +258,9 @@
                                                         <constraint firstItem="ikR-j2-Axb" firstAttribute="top" secondItem="zCw-er-bwq" secondAttribute="top" id="X3y-Da-txB"/>
                                                         <constraint firstItem="ikR-j2-Axb" firstAttribute="leading" secondItem="zCw-er-bwq" secondAttribute="leading" id="cG5-RX-I6K"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <outlet property="metadataLabel" destination="Epi-Pl-eHH" id="bK8-XN-fqb"/>
                                                         <outlet property="titleLabel" destination="bNB-uo-x4B" id="5HR-Ay-i4B"/>
@@ -260,12 +275,18 @@
                                                                 <constraint firstAttribute="width" secondItem="g7x-dd-iQ4" secondAttribute="height" multiplier="1:1" id="93y-N7-nR8"/>
                                                                 <constraint firstAttribute="width" constant="32" id="vHl-vQ-uGz" userLabel="width = 35"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RYh-vj-Jm9" userLabel="CommentCount">
                                                             <rect key="frame" x="12" y="15.5" width="26" height="13.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -277,14 +298,21 @@
                                                         <constraint firstItem="g7x-dd-iQ4" firstAttribute="centerY" secondItem="LoU-Fh-SRY" secondAttribute="centerY" id="jIm-vB-8as"/>
                                                         <constraint firstItem="RYh-vj-Jm9" firstAttribute="centerX" secondItem="LoU-Fh-SRY" secondAttribute="centerX" id="mSo-4g-e4O"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="LoU-Fh-SRY" firstAttribute="top" secondItem="Zxd-5Z-sU8" secondAttribute="top" id="5lP-BH-MhC"/>
                                                 <constraint firstItem="LoU-Fh-SRY" firstAttribute="centerY" secondItem="Zxd-5Z-sU8" secondAttribute="centerY" id="jAp-fZ-avl"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </stackView>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Zxd-5Z-sU8" secondAttribute="trailing" constant="15" id="IM0-eT-AQX"/>
                                         <constraint firstItem="Zxd-5Z-sU8" firstAttribute="top" secondItem="hFr-in-WZH" secondAttribute="top" constant="8" id="Qrc-Tv-BcO"/>
@@ -296,6 +324,7 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <userDefinedRuntimeAttributes>
@@ -343,6 +372,9 @@
                                 </userDefinedRuntimeAttributes>
                             </tableViewCell>
                         </prototypes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="ay2-Rn-bdC" id="sp5-ZV-j4V"/>
                             <outlet property="delegate" destination="ay2-Rn-bdC" id="vzr-0g-nhL"/>

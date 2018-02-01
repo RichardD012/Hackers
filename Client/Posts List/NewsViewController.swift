@@ -45,9 +45,10 @@ class NewsViewController : UITableViewController {
         refreshControl.addTarget(self, action: #selector(NewsViewController.loadPosts), for: UIControlEvents.valueChanged)
         tableView.refreshControl = refreshControl
         
-        view.showAnimatedSkeleton(usingColor: Theme.skeletonBaseColor)
+        view.showSkeleton(usingColor: Theme.skeletonBaseColor);
+        //view.showAnimatedSkeleton(usingColor: Theme.skeletonBaseColor)
         
-        loadPosts()
+        //loadPosts()
     }
     
     
@@ -241,6 +242,10 @@ extension NewsViewController { // post fetching
 extension NewsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let postCell = tableView.cellForRow(at: indexPath) as? PostCell else {return }
+        if(indexPath.row >= posts.count)
+        {
+            return;
+        }
         collapseDetailViewController = false
         posts[indexPath.row].hasVisited = true
         
@@ -284,7 +289,7 @@ extension NewsViewController {
 
 extension NewsViewController: SkeletonTableViewDataSource {
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return "SkeletonCell"
+        return "PostCell"
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
