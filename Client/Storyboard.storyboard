@@ -312,7 +312,6 @@
                                             </userDefinedRuntimeAttributes>
                                         </stackView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Zxd-5Z-sU8" secondAttribute="trailing" constant="15" id="IM0-eT-AQX"/>
                                         <constraint firstItem="Zxd-5Z-sU8" firstAttribute="top" secondItem="hFr-in-WZH" secondAttribute="top" constant="8" id="Qrc-Tv-BcO"/>

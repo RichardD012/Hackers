@@ -48,7 +48,7 @@ class NewsViewController : UITableViewController {
         view.showSkeleton(usingColor: Theme.skeletonBaseColor);
         //view.showAnimatedSkeleton(usingColor: Theme.skeletonBaseColor)
         
-        //loadPosts()
+        loadPosts()
     }
     
     
@@ -119,14 +119,6 @@ class NewsViewController : UITableViewController {
             tableView.setContentOffset(_:CGPoint(x: 0.0, y: -145), animated: true)//tableView.contentInset.top
         }
         rz_smoothlyDeselectRows(tableView: tableView)
-    }
-
-    func getSafariViewController(_ url: URL) -> SFSafariViewController {
-        let safariViewController = SFSafariViewController(url: url)
-        safariViewController.previewActionItemsDelegate = self
-        
-        safariViewController.delegate = self
-        return safariViewController
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -243,15 +235,9 @@ extension NewsViewController { // post fetching
 extension NewsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let postCell = tableView.cellForRow(at: indexPath) as? PostCell else {return }
-        if(indexPath.row >= posts.count)
-        {
-            return;
-        }
+        postCell.backgroundColor = UIColor.red
         collapseDetailViewController = false
-        posts[indexPath.row].hasVisited = true
-        
-        postCell.postTitleView.post = posts[indexPath.row]
-        didPressLinkButton(posts[indexPath.row])
+        didPressLinkButton(posts[indexPath.row], view: postCell.postTitleView)
         
     }
     
@@ -283,8 +269,20 @@ extension NewsViewController {
         cell.postCommentsCount.textColor = Theme.commentIconTextColor
         cell.postCommentsImage.tintColor = Theme.commentIconImageColor
         cell.postTitleView.delegate = self
+        cell.postTitleView.isTitleTapEnabled = true
         return cell
     }
+    
+    /*override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        selected ? setSelectedBackground() : setUnselectedBackground()
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        
+        highlighted ? setSelectedBackground() : setUnselectedBackground()
+    }*/
 }
 
 
@@ -299,13 +297,6 @@ extension NewsViewController: SkeletonTableViewDataSource {
     
 }
 
-extension NewsViewController: SFSafariViewControllerDelegate {
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController)
-    {
-        Theme.setStatusBarColors()
-    }
-}
-
 extension NewsViewController: UIViewControllerPreviewingDelegate, SFSafariViewControllerPreviewActionItemsDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = tableView.indexPathForRow(at: location), posts.count > indexPath.row else { return nil }
@@ -313,7 +304,7 @@ extension NewsViewController: UIViewControllerPreviewingDelegate, SFSafariViewCo
         if let url = URL(string: post.urlString), verifyLink(post.urlString) {
             peekedIndexPath = indexPath
             previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
-            return getSafariViewController(url)
+            return Utils.getSafariViewController(url)
         }
         return nil
     }
@@ -343,12 +334,11 @@ extension NewsViewController: UISplitViewControllerDelegate {
 }
 
 extension NewsViewController: PostTitleViewDelegate {
-    func didPressLinkButton(_ post: HNPost) {
+    func didPressLinkButton(_ post: HNPost, view: PostTitleView) {
         guard verifyLink(post.urlString) else { return }
         if let url = URL(string: post.urlString) {
-            UIApplication.shared.statusBarStyle = .default
-            DataPersistenceManager.setVisited(post: post)
-            self.navigationController?.present(getSafariViewController(url), animated: true, completion: nil)
+            view.setVisited(post)
+            self.navigationController?.present(Utils.getSafariViewController(url,previewDelegate: self), animated: true, completion: nil)
         }
     }
     
@@ -368,4 +358,5 @@ extension NewsViewController: PostCellDelegate {
             didPressCommentButton(post)
         }
     }
+
 }

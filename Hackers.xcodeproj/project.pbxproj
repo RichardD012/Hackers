@@ -37,6 +37,7 @@
 		24F39F8D18AFB1150055F8DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F39F8C18AFB1150055F8DC /* UIKit.framework */; };
 		24F39F9B18AFB1150055F8DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F39F9A18AFB1150055F8DC /* Images.xcassets */; };
 		24F39FB818AFB2AF0055F8DC /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F39FB718AFB2AF0055F8DC /* Storyboard.storyboard */; };
+		BD5EA81D2024BFFB0018E23B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5EA81C2024BFFB0018E23B /* Utils.swift */; };
 		DF68752992A90A126C292CD9 /* Pods_Hackers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0376FCAAF4C3EBA38572A82 /* Pods_Hackers.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		24F39FB718AFB2AF0055F8DC /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		5B9C6ECB6751D2AF6D93515D /* Pods-Hackers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackers/Pods-Hackers.debug.xcconfig"; sourceTree = "<group>"; };
 		9D41F6A856DA1B6671301AAD /* Pods-Hackers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackers.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackers/Pods-Hackers.release.xcconfig"; sourceTree = "<group>"; };
+		BD5EA81C2024BFFB0018E23B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		F0376FCAAF4C3EBA38572A82 /* Pods_Hackers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hackers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -204,6 +206,7 @@
 				24CE5FEF19434DCB009D2677 /* Comments */,
 				24F39F8F18AFB1150055F8DC /* Supporting Files */,
 				24D6B8C91C1EDBFC00618422 /* Theme.swift */,
+				BD5EA81C2024BFFB0018E23B /* Utils.swift */,
 				0250DE172017B8A300CA8F2E /* ColoredHairlineTabBar.swift */,
 				245DCAAF1CD4DA2A00152AA3 /* SFSafariViewController+PreviewActionItems.swift */,
 				24CEAA9A1F8916970050DEDF /* UIView+Extensions.swift */,
@@ -410,6 +413,7 @@
 				021CDD6C201A6B0A0086532F /* ProfileViewController.swift in Sources */,
 				2454B9021F654DB2005A98C7 /* MainTabBarController.swift in Sources */,
 				243271951F95EDA9008196DB /* StringExtensions.swift in Sources */,
+				BD5EA81D2024BFFB0018E23B /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

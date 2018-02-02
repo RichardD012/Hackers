@@ -10,7 +10,7 @@ import UIKit
 import libHN
 
 protocol PostTitleViewDelegate {
-    func didPressLinkButton(_ post: HNPost)
+    func didPressLinkButton(_ post: HNPost, view: PostTitleView)
 }
 
 class PostTitleView: UIView, UIGestureRecognizerDelegate {
@@ -56,8 +56,15 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
     
     @objc func didPressTitleText(_ sender: UITapGestureRecognizer) {
         if isTitleTapEnabled, let delegate = delegate {
-            delegate.didPressLinkButton(post!)
+            delegate.didPressLinkButton(post!, view: self)
         }
+    }
+    
+    func setVisited(_ post: HNPost)
+    {
+        post.hasVisited = true
+        self.post = post //triggers a redraw
+        DataPersistenceManager.setVisited(post: post)
     }
     
     fileprivate func domainLabelText(for post: HNPost) -> String {

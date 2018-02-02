@@ -59,6 +59,7 @@ class CommentsViewController : UIViewController {
             Theme.setupUIColors(tabBar: self.tabBarController!.tabBar)
         }
         postContainerView.backgroundColor = Theme.commentsViewPostBackgroundColor
+        postTitleView.backgroundColor = Theme.commentsViewPostBackgroundColor
         postTitleView.post = post //this will redraw the postTitleView
         hairline?.backgroundColor = Theme.commentsViewPostSeparatorColor
         Theme.setupUIColors(tableView:tableView)
@@ -117,7 +118,7 @@ class CommentsViewController : UIViewController {
     }
     
     @IBAction func didTapThumbnail(_ sender: Any) {
-        didPressLinkButton(post!)
+        didPressLinkButton(post!, view: self.postTitleView)
     }
     
     @IBAction func shareTapped(_ sender: AnyObject) {
@@ -128,11 +129,11 @@ class CommentsViewController : UIViewController {
 }
 
 extension CommentsViewController: PostTitleViewDelegate {
-    func didPressLinkButton(_ post: HNPost) {
+    func didPressLinkButton(_ post: HNPost, view: PostTitleView) {
         if verifyLink(post.urlString), let url = URL(string: post.urlString) {
             // animate background colour for tap
-            post.hasVisited = true
-            self.postTitleView.post = post //triggers a redraw
+            view.setVisited(post)
+            
             self.postTitleView.backgroundColor = Theme.unselectedCellBackgroundColor
             //self.tableView.tableHeaderView?.backgroundColor = Theme.selectedCellBackgroundColor
             UIView.animate(withDuration: 0.3, animations: {
@@ -141,11 +142,10 @@ extension CommentsViewController: PostTitleViewDelegate {
             })
             
             // show link
-            let safariViewController = SFSafariViewController(url: url)
+            let safariViewController = Utils.getSafariViewController(url)
             self.present(safariViewController, animated: true, completion: nil)
             let postDataDictionary:[String: HNPost] = ["post": post]
             //set in data persistence
-            DataPersistenceManager.setVisited(post: post)
             NotificationCenter.default.post(name: .postVisited, object: nil, userInfo: postDataDictionary)
         }
     }
@@ -214,7 +214,7 @@ extension CommentsViewController: CommentDelegate {
                 }
             }
         }else{
-            let safariViewController = SFSafariViewController(url: URL)
+            let safariViewController = Utils.getSafariViewController(URL)
             self.present(safariViewController, animated: true, completion: nil)
         }
     }

@@ -47,6 +47,18 @@ struct Theme {
         }
     }
     
+    static var safariTintColor: UIColor {
+        get {
+            if(isDarkMode)
+            {
+                return UIColor.black
+            }
+            else{
+                return UIColor.white
+            }
+        }
+    }
+    
     static var unvisitedLinkColor: UIColor {
         get {
             if(isDarkMode)

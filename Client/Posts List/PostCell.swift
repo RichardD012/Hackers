@@ -29,7 +29,7 @@ class PostCell : UITableViewCell {
     }
     
     private func setupCommentGesture() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapThumbnail(_:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapComment(_:)))
         commentView?.addGestureRecognizer(tapGestureRecognizer)
     }
     
@@ -51,8 +51,9 @@ class PostCell : UITableViewCell {
         backgroundColor = Theme.unselectedCellBackgroundColor
     }
         
-    @objc func didTapThumbnail(_ sender: Any) {
+    @objc func didTapComment(_ sender: Any) {
         delegate?.didTapComment(sender)
         
     }
+    
 }
