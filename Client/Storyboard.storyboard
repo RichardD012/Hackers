@@ -781,7 +781,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.042454821990000002" green="0.033874347409999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QBD-8Q-H2S" firstAttribute="top" secondItem="x2d-ID-isb" secondAttribute="top" id="9oE-vC-aJ0"/>
                             <constraint firstItem="QBD-8Q-H2S" firstAttribute="leading" secondItem="x2d-ID-isb" secondAttribute="leading" id="FSo-0t-ypF"/>
@@ -825,7 +824,6 @@
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="MCt-Nd-rPQ">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.31631141901016235" green="0.0" blue="0.89039719104766846" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </toolbar>
                     <connections>
                         <segue destination="gkj-Tg-B9Y" kind="relationship" relationship="rootViewController" id="p12-QV-X8u"/>

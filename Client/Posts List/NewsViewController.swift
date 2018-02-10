@@ -136,8 +136,10 @@ class NewsViewController : UITableViewController {
 
 extension NewsViewController { // post fetching
     @objc func loadPosts() {
+        NSLog("Fetching Posts")
         if(isProcessing)
         {
+            NSLog("Already fetching, returning")
             return
         }
     
@@ -153,6 +155,7 @@ extension NewsViewController { // post fetching
         let (fetchPromise, cancel) = fetch()
         fetchPromise
             .then { (posts, nextPageIdentifier) -> Void in
+                NSLog("Fetch complete")
                 self.cancelFetch = nil
                 self.posts = posts ?? [HNPost]()
                 //check if any of the new posts have been read already
@@ -164,15 +167,19 @@ extension NewsViewController { // post fetching
                 }
                 self.nextPageIdentifier = nextPageIdentifier
                 self.view.hideSkeleton()
+                NSLog("Setting up table row data")
                 self.tableView.rowHeight = UITableViewAutomaticDimension
                 self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
                 self.tableView.reloadData()
+                NSLog("Ending Fetch Complete")
                 
             }
             .always {
+                NSLog("Entering fetch processing 'always'")
                 self.view.hideSkeleton()
                 self.isProcessing = false
                 self.tableView.refreshControl?.endRefreshing()
+                NSLog("Fetch processing 'always' complete")
         }
         
         cancelFetch = cancel
@@ -181,12 +188,14 @@ extension NewsViewController { // post fetching
     func fetch() -> (Promise<([HNPost]?, String?)>, cancel: () -> Void) {
         var cancelMe = false
         var cancel: () -> Void = { }
-        
+        NSLog("Beginning fetch function")
         let promise = Promise<([HNPost]?, String?)> { fulfill, reject in
             cancel = {
                 cancelMe = true
+                NSLog("Cancelling error called")
                 reject(NSError.cancelledError())
             }
+            NSLog("Calling HNManager")
             HNManager.shared().loadPosts(with: postType) { posts, nextPageIdentifier in
                 guard !cancelMe else {
                     reject(NSError.cancelledError())
@@ -235,7 +244,6 @@ extension NewsViewController { // post fetching
 extension NewsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let postCell = tableView.cellForRow(at: indexPath) as? PostCell else {return }
-        postCell.backgroundColor = UIColor.red
         collapseDetailViewController = false
         didPressLinkButton(posts[indexPath.row], view: postCell.postTitleView)
         
@@ -247,11 +255,6 @@ extension NewsViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let cell = cell as? PostCell {
-            cell.cancelThumbnailTask?()
-        }
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count

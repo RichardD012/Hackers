@@ -21,7 +21,6 @@ class PostCell : UITableViewCell {
     @IBOutlet weak var postCommentsImage: UIImageView!
     @IBOutlet weak var commentView: UIView!
     
-    var cancelThumbnailTask: (() -> Void)?
     
     override func layoutSubviews() {
         super.layoutSubviews()
