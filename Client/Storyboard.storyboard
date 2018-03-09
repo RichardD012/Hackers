@@ -696,7 +696,7 @@
                                                 </textView>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjG-Gq-9pc" userLabel="Seperator View">
                                                     <rect key="frame" x="15" y="114" width="360" height="1"/>
-                                                    <color key="backgroundColor" red="0.785933514" green="0.785933514" blue="0.785933514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="0.5" id="c3K-LB-VzJ"/>
                                                     </constraints>
