@@ -152,9 +152,10 @@ extension NewsViewController { // post fetching
         }
         
         // fetch new posts
+        // fetch new posts
         let (fetchPromise, cancel) = fetch()
-        fetchPromise
-            .then { (posts, nextPageIdentifier) -> Void in
+        fetchPromise.then {
+            (posts, nextPageIdentifier) -> Void in
                 NSLog("Fetch complete")
                 self.cancelFetch = nil
                 self.posts = posts ?? [HNPost]()
@@ -290,7 +291,7 @@ extension NewsViewController {
 
 
 extension NewsViewController: SkeletonTableViewDataSource {
-    func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return "SkeletonCell"
     }
     
@@ -335,13 +336,37 @@ extension NewsViewController: UISplitViewControllerDelegate {
         return collapseDetailViewController
     }
 }
-
+//TODO: Make this universal with the comments
 extension NewsViewController: PostTitleViewDelegate {
     func didPressLinkButton(_ post: HNPost, view: PostTitleView) {
         guard verifyLink(post.urlString) else { return }
         if let url = URL(string: post.urlString) {
             view.setVisited(post)
-            self.navigationController?.present(Utils.getSafariViewController(url,previewDelegate: self), animated: true, completion: nil)
+            if url.absoluteString.range(of:"news.ycombinator.com/item?id=") != nil {
+                let absoluteURL = url.absoluteString
+                HNManager.shared().loadPost(withPostUrl:absoluteURL) { post, comments in
+                if post != nil{
+                    guard let navController = self.storyboard?.instantiateViewController(withIdentifier: "PostViewNavigationController") as? UINavigationController else { return }
+                    guard let commentsViewController = navController.viewControllers.first as? CommentsViewController else { return }
+                    commentsViewController.post = post
+                    if let downcastedArray = comments as? [HNComment] {
+                        let mappedComments = downcastedArray.map { CommentModel(source: $0) }
+                        commentsViewController.comments = mappedComments
+                    } else {
+                        commentsViewController.comments = [CommentModel]()
+                    }
+                    if UIDevice.current.userInterfaceIdiom == .phone {
+                        // for iPhone we want to push the view controller instead of presenting it as the detail
+                        self.navigationController?.pushViewController(commentsViewController, animated: true)
+                    } else {
+                        self.showDetailViewController(navController, sender: self)
+                    }
+                }
+            }
+            }else{
+                //let safariViewController = Utils.getSafariViewController(url)
+                self.navigationController?.present(Utils.getSafariViewController(url,previewDelegate: self), animated: true, completion: nil)
+            }
         }
     }
     

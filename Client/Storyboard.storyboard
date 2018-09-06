@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qCu-jm-yAB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qCu-jm-yAB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -193,7 +194,7 @@
             <objects>
                 <tableViewController id="ay2-Rn-bdC" customClass="NewsViewController" customModule="YC__News" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cf0-uf-BeP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="qLf-TT-c8n">
@@ -392,6 +393,7 @@
                             <outlet property="delegate" destination="ay2-Rn-bdC" id="vzr-0g-nhL"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="dYS-lO-LrV"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wT-Gc-Mf1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -499,22 +501,22 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="t7J-jh-8Aa">
-                                            <rect key="frame" x="16" y="8" width="375" height="104"/>
+                                            <rect key="frame" x="16" y="8" width="343" height="104"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Riz-Wu-ppP" customClass="PostTitleView" customModule="YC__News" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="30.5" width="375" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="30.5" width="343" height="43.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="o2r-N1-LLh">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" contentMode="left" text="Title Text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Y8-mk-BA0">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="21.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="21.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1 point" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHJ-1r-QLX">
-                                                                    <rect key="frame" x="0.0" y="26.5" width="375" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="26.5" width="343" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>

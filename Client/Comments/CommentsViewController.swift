@@ -249,7 +249,7 @@ extension CommentsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
 }
 
 extension CommentsViewController: SkeletonTableViewDataSource {
-    func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         if(Theme.isDarkMode)
         {
             return "SkeletonCellDark"
