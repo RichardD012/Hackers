@@ -27,27 +27,28 @@ class ThemesViewController: UITableViewController {
 
     private func updateTheme() {
         let settingsStore = SettingsStore()
+        let appTheme = AppThemeProvider.shared.currentTheme
         let theme = settingsStore.theme
         switch theme {
         case (.darkClassic):
             darkClassicCell.accessoryType = .checkmark
-            darkClassicCell.tintColor = AppTheme.darkClassic.appTintColor
+            darkClassicCell.tintColor = appTheme.appTintColor
             disableRows(cells: lightClassicCell, darkCell, lightCell)
         case (.lightClassic):
             lightClassicCell.accessoryType = .checkmark
-            lightClassicCell.tintColor = AppTheme.lightClassic.appTintColor
+            lightClassicCell.tintColor = appTheme.appTintColor
             disableRows(cells: darkClassicCell, darkCell, lightCell)
         case (.dark):
             darkCell.accessoryType = .checkmark
-            darkCell.tintColor = AppTheme.dark.appTintColor
+            darkCell.tintColor = appTheme.appTintColor
             disableRows(cells: lightClassicCell, darkClassicCell, lightCell)
         case (.light):
             lightCell.accessoryType = .checkmark
-            lightCell.tintColor = AppTheme.light.appTintColor
+            lightCell.tintColor = appTheme.appTintColor
             disableRows(cells: lightClassicCell, darkClassicCell, darkCell)
         default:
             lightCell.accessoryType = .checkmark
-            lightCell.tintColor = AppTheme.light.appTintColor
+            lightCell.tintColor = appTheme.appTintColor
             disableRows(cells: lightClassicCell, darkClassicCell, darkCell)
         }
     }

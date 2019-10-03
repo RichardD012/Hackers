@@ -36,20 +36,8 @@ class IconViewController: UITableViewController {
     }
 
     private func updateIconAccessory(cell: UITableViewCell?) {
-        let settingsStore = SettingsStore()
-        let theme = settingsStore.theme
-        switch theme {
-        case (.darkClassic):
-           cell?.tintColor = AppTheme.darkClassic.appTintColor
-        case (.lightClassic):
-           cell?.tintColor = AppTheme.lightClassic.appTintColor
-        case (.dark):
-           cell?.tintColor = AppTheme.dark.appTintColor
-        case (.light):
-           cell?.tintColor = AppTheme.light.appTintColor
-        default:
-           cell?.tintColor = AppTheme.light.appTintColor
-        }
+        let theme = AppThemeProvider.shared.currentTheme
+        cell?.tintColor = theme.appTintColor
     }
 
     @IBAction private func didPressDone(_ sender: Any) {
@@ -89,7 +77,6 @@ extension IconViewController {
             classicCell.accessoryType = .none
             iconName = nil
         }
-        //TODO: clean this up for changing the accessory
         if UIApplication.shared.supportsAlternateIcons {
             updateIconAccessory(cell: currentCell)
             UIApplication.shared.setAlternateIconName(iconName)

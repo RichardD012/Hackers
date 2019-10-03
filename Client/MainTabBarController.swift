@@ -15,17 +15,23 @@ class MainTabBarController: UITabBarController {
         setupTheming()
 
         guard let viewControllers = viewControllers else { return }
-
+        let theme = AppThemeProvider.shared.currentTheme
         for (index, viewController) in viewControllers.enumerated() {
             guard let splitViewController = viewController as? UISplitViewController,
                 let navigationController = splitViewController.viewControllers.first as? UINavigationController,
                 let newsViewController = navigationController.viewControllers.first as? NewsViewController
                 else { return }
-
-            if let tabItem = self.tabItem(for: index) {
+            //TODO: Update this after a theme change
+            if let tabItem = self.tabItem(for: index, theme: theme) {
                 newsViewController.postType = tabItem.postType
-                splitViewController.tabBarItem.title = tabItem.typeName
-                splitViewController.tabBarItem.image = UIImage(systemName: tabItem.iconName)
+                if theme.hideMenuText == false {
+                    splitViewController.tabBarItem.title = tabItem.typeName
+                    splitViewController.tabBarItem.image = UIImage(systemName: tabItem.iconName)
+                } else {
+                    splitViewController.tabBarItem.title = ""
+                    splitViewController.tabBarItem.imageInsets = UIEdgeInsets(top: 8, left: 0, bottom: -8, right: 0)
+                    splitViewController.tabBarItem.image = UIImage(named: tabItem.iconName)
+                }
             }
         }
 
@@ -39,19 +45,40 @@ class MainTabBarController: UITabBarController {
         }
     }
 
-    private func tabItem(for index: Int) -> TabItem? {
+    private func tabItem(for index: Int, theme: AppTheme) -> TabItem? {
+        if theme.alternateIcons {
+            return altTabItem(for: index)
+        } else {
+           return tabItem(for: index)
+        }
+    }
+    private func altTabItem(for index: Int) -> TabItem? {
         switch index {
         case 0:
-            return TabItem(postType: .news, typeName: "Top", iconName: "globe")
+            return TabItem(postType: .news, typeName: "Top", iconName: "TopIcon")
         case 1:
-            return TabItem(postType: .asks, typeName: "Ask", iconName: "questionmark.circle")
+            return TabItem(postType: .asks, typeName: "Ask", iconName: "AskIcon")
         case 2:
-            return TabItem(postType: .jobs, typeName: "Jobs", iconName: "briefcase")
+            return TabItem(postType: .jobs, typeName: "Jobs", iconName: "ProfileIcon") //TODO: Update This icon
         case 3:
-            return TabItem(postType: .new, typeName: "New", iconName: "clock")
+            return TabItem(postType: .new, typeName: "New", iconName: "NewIcon")
         default:
             return nil
         }
+    }
+    private func tabItem(for index: Int) -> TabItem? {
+        switch index {
+        case 0:
+           return TabItem(postType: .news, typeName: "Top", iconName: "globe")
+        case 1:
+           return TabItem(postType: .asks, typeName: "Ask", iconName: "questionmark.circle")
+        case 2:
+           return TabItem(postType: .jobs, typeName: "Jobs", iconName: "briefcase")
+        case 3:
+           return TabItem(postType: .new, typeName: "New", iconName: "clock")
+        default:
+           return nil
+       }
     }
 
     struct TabItem {
@@ -64,5 +91,6 @@ class MainTabBarController: UITabBarController {
 extension MainTabBarController: Themed {
     func applyTheme(_ theme: AppTheme) {
         overrideUserInterfaceStyle = theme.userInterfaceStyle
+        //TODO: Update the tab bar when the theme changes
     }
 }

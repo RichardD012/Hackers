@@ -154,6 +154,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
+                        <outlet property="settingsIcon" destination="onC-T5-IAt" id="cQ2-lU-V45"/>
                         <segue destination="PXZ-r3-pvU" kind="showDetail" identifier="ShowCommentsSegue" id="iEZ-lA-QBx"/>
                     </connections>
                 </tableViewController>

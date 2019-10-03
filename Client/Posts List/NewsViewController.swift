@@ -27,6 +27,7 @@ class NewsViewController: UITableViewController {
     private var peekedIndexPath: IndexPath?
     private var nextPageIdentifier: String?
 
+    @IBOutlet weak var settingsIcon: UIBarButtonItem!
     private var notificationToken: NotificationToken?
 
     override func viewDidLoad() {
@@ -188,6 +189,11 @@ extension NewsViewController: Themed {
         tableView.separatorColor = theme.separatorColor
         tableView.refreshControl?.tintColor = theme.appTintColor
         tableView.setNeedsUpdateConstraints()
+        if theme.alternateIcons {
+            settingsIcon.image = UIImage(named: "SettingsIcon")
+        } else {
+            settingsIcon.image = UIImage(systemName: "gear")
+        }
     }
 }
 
