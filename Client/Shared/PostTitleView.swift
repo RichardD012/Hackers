@@ -24,7 +24,8 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
     public var post: HNPost? {
         didSet {
             guard let post = post else { return }
-            titleLabel.text = post.title
+            //titleLabel.text = post.title
+            titleLabel.attributedText = titleLabelText(for: post, theme: themeProvider.currentTheme)
             metadataLabel.attributedText = metadataText(for: post, theme: themeProvider.currentTheme)
         }
     }
@@ -58,29 +59,69 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
         return host
     }
 
-    private func metadataText(for post: HNPost, theme: AppTheme) -> NSAttributedString {
-        let defaultAttributes = [NSAttributedString.Key.foregroundColor: theme.metaDataTextColor]
-        var pointsAttributes = defaultAttributes
-        var pointsTintColor: UIColor?
-
-        if post.upvoted {
-            pointsAttributes = [NSAttributedString.Key.foregroundColor: theme.upvotedColor]
-            pointsTintColor = theme.upvotedColor
+    private func titleLabelText(for post: HNPost, theme: AppTheme) -> NSAttributedString {
+        if theme.alternatePostCellLayout {
+            let defaultAttributes = [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .semibold),
+                NSAttributedString.Key.foregroundColor: theme.titleTextColor
+            ]
+            let domainAttrs = [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
+                NSAttributedString.Key.foregroundColor: theme.postTitleDomainColor
+            ]
+            let string = NSMutableAttributedString()
+            string.append(NSAttributedString(string: "\(post.title) ", attributes: defaultAttributes))
+            string.append(NSAttributedString(string: "(\(domainLabelText(for: post)))", attributes: domainAttrs))
+            return string
+        } else {
+            let defaultAttributes = [NSAttributedString.Key.foregroundColor: theme.titleTextColor]
+            let string = NSMutableAttributedString()
+            string.append(NSAttributedString(string: "\(post.title)", attributes: defaultAttributes))
+            return string
         }
+    }
 
-        let pointsIconAttachment = textAttachment(for: "PointsIcon", tintColor: pointsTintColor)
-        let pointsIconAttributedString = NSAttributedString(attachment: pointsIconAttachment)
+    private func metadataText(for post: HNPost, theme: AppTheme) -> NSAttributedString {
+        if theme.alternatePostCellLayout {
+            let string = NSMutableAttributedString()
+            let baseAttrs = [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
+                NSAttributedString.Key.foregroundColor: theme.metaDataTextColor
+            ]
+            string.append(NSAttributedString(string: "\(post.points) points", attributes: baseAttrs))
+            let name = post.username
+            if name.isEmpty==false {
+               string.append(NSAttributedString(string: " by \(name)", attributes: baseAttrs))
+            }
+            let date = post.time
+            if date.isEmpty == false {
+               string.append(NSAttributedString(string: " \(date)", attributes: baseAttrs))
+            }
+            return string
+        } else {
+            let defaultAttributes = [NSAttributedString.Key.foregroundColor: theme.metaDataTextColor]
+            var pointsAttributes = defaultAttributes
+            var pointsTintColor: UIColor?
 
-        let commentsIconAttachment = textAttachment(for: "CommentsIcon", tintColor: theme.textColor)
-        let commentsIconAttributedString = NSAttributedString(attachment: commentsIconAttachment)
+            if post.upvoted {
+                pointsAttributes = [NSAttributedString.Key.foregroundColor: theme.upvotedColor]
+                pointsTintColor = theme.upvotedColor
+            }
 
-        let string = NSMutableAttributedString()
-        string.append(NSAttributedString(string: "\(post.points)", attributes: pointsAttributes))
-        string.append(pointsIconAttributedString)
-        string.append(NSAttributedString(string: "• \(post.commentCount) ", attributes: defaultAttributes))
-        string.append(commentsIconAttributedString)
-        string.append(NSAttributedString(string: " • \(domainLabelText(for: post))", attributes: defaultAttributes))
-        return string
+            let pointsIconAttachment = textAttachment(for: "PointsIcon", tintColor: pointsTintColor)
+            let pointsIconAttributedString = NSAttributedString(attachment: pointsIconAttachment)
+
+            let commentsIconAttachment = textAttachment(for: "CommentsIcon", tintColor: theme.metaDataTextColor)
+            let commentsIconAttributedString = NSAttributedString(attachment: commentsIconAttachment)
+
+            let string = NSMutableAttributedString()
+            string.append(NSAttributedString(string: "\(post.points)", attributes: pointsAttributes))
+            string.append(pointsIconAttributedString)
+            string.append(NSAttributedString(string: "• \(post.commentCount) ", attributes: defaultAttributes))
+            string.append(commentsIconAttributedString)
+            string.append(NSAttributedString(string: " • \(domainLabelText(for: post))", attributes: defaultAttributes))
+            return string
+        }
     }
 
     private func templateImage(named: String, tintColor: UIColor? = nil) -> UIImage? {
@@ -103,8 +144,8 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
 
 extension PostTitleView: Themed {
     func applyTheme(_ theme: AppTheme) {
-        titleLabel.textColor = theme.titleTextColor
         if let post = post {
+            titleLabel.attributedText = titleLabelText(for: post, theme: theme)
             metadataLabel.attributedText = metadataText(for: post, theme: theme)
         }
     }

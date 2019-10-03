@@ -17,8 +17,10 @@ struct AppTheme {
     var iconHidden: Bool
     var alternateIcons: Bool
     var hideMenuText: Bool
+    var alternatePostCellLayout: Bool
 
     var titleTextColor: UIColor
+    var postTitleDomainColor: UIColor
     var textColor: UIColor
     var metaDataTextColor: UIColor
     var lightTextColor: UIColor
@@ -49,7 +51,9 @@ extension AppTheme {
         iconHidden: false,
         alternateIcons: false,
         hideMenuText: false,
+        alternatePostCellLayout: false,
         titleTextColor: .black,
+        postTitleDomainColor: .black,
         textColor: UIColor(rgb: 0x555555),
         metaDataTextColor: UIColor(rgb: 0x555555),
         lightTextColor: UIColor(rgb: 0xAAAAAA),
@@ -75,7 +79,9 @@ extension AppTheme {
         iconHidden: false,
         alternateIcons: false,
         hideMenuText: false,
+        alternatePostCellLayout: false,
         titleTextColor: UIColor(rgb: 0xDDDDDD),
+        postTitleDomainColor: UIColor(rgb: 0xDDDDDD),
         textColor: UIColor(rgb: 0xAAAAAA),
         metaDataTextColor: UIColor(rgb: 0xAAAAAA),
         lightTextColor: UIColor(rgb: 0x555555),
@@ -102,7 +108,9 @@ extension AppTheme {
         iconHidden: true,
         alternateIcons: false,
         hideMenuText: false,
+        alternatePostCellLayout: true,
         titleTextColor: .black,
+        postTitleDomainColor: .black,
         textColor: UIColor(rgb: 0x555555),
         metaDataTextColor: UIColor(rgb: 0x555555),
         lightTextColor: UIColor(rgb: 0xAAAAAA),
@@ -128,7 +136,9 @@ extension AppTheme {
         iconHidden: true,
         alternateIcons: true,
         hideMenuText: true,
+        alternatePostCellLayout: true,
         titleTextColor: UIColor(red: 204/255.0, green: 204/255.0, blue: 204/255.0, alpha: 1),
+        postTitleDomainColor: UIColor(red: 115/255.0, green: 115/255.0, blue: 115/255.0, alpha: 1),
         textColor: UIColor(rgb: 0xAAAAAA),
         metaDataTextColor: UIColor(red: 151/255.0, green: 151/255.0, blue: 151/255.0, alpha: 1),
         lightTextColor: UIColor(rgb: 0x555555),

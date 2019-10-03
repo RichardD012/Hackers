@@ -19,18 +19,23 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var safariReaderModeSwitch: UISwitch!
+    @IBOutlet weak var iconLabel: UILabel!
 
     private var usernameNotificaiton: NotificationToken?
-    private var themeNotification: NotificationToken?
+    private var iconNotification: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTheming()
+        updateIcon()
         safariReaderModeSwitch.isOn = UserDefaults.standard.safariReaderModeEnabled
         updateUsername()
         usernameNotificaiton = NotificationCenter.default
             .observe(name: AuthenticationUIService.Notifications.AuthenticationDidChangeNotification,
                      object: nil, queue: .main) { _ in self.updateUsername() }
+        iconNotification = NotificationCenter.default
+                  .observe(name: IconViewController.Notifications.IconDidChangeNotification,
+                           object: nil, queue: .main) { _ in self.updateIcon() }
     }
 
     private func updateUsername() {
@@ -58,6 +63,14 @@ class SettingsViewController: UITableViewController {
         }
     }
 
+    private func updateIcon() {
+        if UIApplication.shared.alternateIconName != nil {
+            iconLabel.text = "Classic"
+        } else {
+            iconLabel.text = "Hackers"
+        }
+    }
+
     @IBAction func safariReaderModelValueChanged(_ sender: UISwitch) {
         UserDefaults.standard.setSafariReaderMode(sender.isOn)
     }
@@ -77,6 +90,22 @@ extension SettingsViewController {
         case (0, 0):
             // login
             authenticationUIService?.showAuthentication()
+        /*case (1, 1):
+            if UIApplication.shared.supportsAlternateIcons {
+                if let alternateIconName = UIApplication.shared.alternateIconName {
+                    print("current icon is \(alternateIconName), change to primary icon")
+                    UIApplication.shared.setAlternateIconName(nil)
+                } else {
+                    print("current icon is primary icon, change to alternative icon")
+                    UIApplication.shared.setAlternateIconName("ClassicIcon"){ error in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            print("Done!")
+                        }
+                    }
+                }
+            }*/
         case (3, 0):
             // what's new
             if let viewController = OnboardingService.onboardingViewController(forceShow: true) {
