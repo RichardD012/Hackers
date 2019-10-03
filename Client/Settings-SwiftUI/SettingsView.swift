@@ -28,6 +28,8 @@ struct SettingsView: View {
                         Text("System").tag(SettingsStore.ThemeType.system)
                         Text("Light").tag(SettingsStore.ThemeType.light)
                         Text("Dark").tag(SettingsStore.ThemeType.dark)
+                        Text("Classic Dark").tag(SettingsStore.ThemeType.darkClassic)
+                        Text("Classic Light").tag(SettingsStore.ThemeType.lightClassic)
                     }
 
                     Toggle(isOn: $settings.safariReaderMode) {

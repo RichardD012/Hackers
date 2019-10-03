@@ -19,6 +19,7 @@ class PostCell: SwipeTableViewCell {
     public weak var postDelegate: PostCellDelegate?
     private var downloadTask: DownloadTask?
 
+    @IBOutlet weak var cellStackView: UIStackView!
     @IBOutlet weak var postTitleView: PostTitleView!
     @IBOutlet weak var thumbnailImageView: ThumbnailImageView!
     @IBOutlet weak var separatorView: UIView!
@@ -68,8 +69,18 @@ class PostCell: SwipeTableViewCell {
 
 extension PostCell: Themed {
     func applyTheme(_ theme: AppTheme) {
-        backgroundColor = theme.backgroundColor
+        backgroundColor = theme.cellBackgroundColor
+        thumbnailImageView?.isHidden = theme.iconHidden
+        if theme.iconHidden {
+            separatorInset = .zero
+        } else {
+            separatorInset = UIEdgeInsets(top: 0,
+                                                    left: 88, //const?
+                                                    bottom: 0,
+                                                    right: 0)
+        }
         separatorView?.backgroundColor = theme.separatorColor
         thumbnailImageView.backgroundColor = theme.groupedTableViewBackgroundColor
+        cellStackView?.layoutIfNeeded()
     }
 }

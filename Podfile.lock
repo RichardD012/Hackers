@@ -26,7 +26,7 @@ DEPENDENCIES:
   - WhatsNewKit
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - BulletinBoard
     - DeviceKit
     - Kingfisher
@@ -61,6 +61,6 @@ SPEC CHECKSUMS:
   SwipeCellKit: cfcdcbfb739734e494c9d3832a7b6e6f9411e1fd
   WhatsNewKit: 7ec83c4ab2240605c3af63e302ede1310ab366be
 
-PODFILE CHECKSUM: ff0bb34eb1ead360aae2ed1c33bf1cef676f053b
+PODFILE CHECKSUM: d70f074b2d24b1a621743d5403c8ccc041288902
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.1

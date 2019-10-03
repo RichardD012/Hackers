@@ -59,7 +59,7 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
     }
 
     private func metadataText(for post: HNPost, theme: AppTheme) -> NSAttributedString {
-        let defaultAttributes = [NSAttributedString.Key.foregroundColor: theme.textColor]
+        let defaultAttributes = [NSAttributedString.Key.foregroundColor: theme.metaDataTextColor]
         var pointsAttributes = defaultAttributes
         var pointsTintColor: UIColor?
 

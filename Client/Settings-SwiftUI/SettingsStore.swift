@@ -40,6 +40,8 @@ class SettingsStore: ObservableObject {
         case system
         case dark
         case light
+        case darkClassic
+        case lightClassic
     }
 
     var theme: ThemeType {

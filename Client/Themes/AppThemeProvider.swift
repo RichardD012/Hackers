@@ -12,7 +12,7 @@ final class AppThemeProvider: ThemeProvider {
     static let shared: AppThemeProvider = .init()
 
     private var theme: SubscribableValue<AppTheme>
-    private var availableThemes: [AppTheme] = [.light, .dark]
+    private var availableThemes: [AppTheme] = [.light, .dark, .darkClassic, .lightClassic]
 
     var currentTheme: AppTheme {
         get {

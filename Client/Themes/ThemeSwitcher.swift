@@ -12,8 +12,11 @@ enum ThemeSwitcher {
     public static func switchTheme() {
         let settingsStore = SettingsStore()
         let theme = settingsStore.theme
-
         switch (theme, UITraitCollection.current.userInterfaceStyle) {
+        case (.darkClassic, _):
+            AppThemeProvider.shared.currentTheme = .darkClassic
+        case (.lightClassic, _):
+            AppThemeProvider.shared.currentTheme = .lightClassic
         case (.dark, _), (.system, .dark):
             AppThemeProvider.shared.currentTheme = .dark
         case (.light, _), (.system, .light):

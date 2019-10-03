@@ -15,20 +15,20 @@ class SettingsViewController: UITableViewController {
     public var sessionService: SessionService?
     public var authenticationUIService: AuthenticationUIService?
 
+    @IBOutlet weak var themeLabel: UILabel!
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var safariReaderModeSwitch: UISwitch!
 
-    private var notificationToken: NotificationToken?
+    private var usernameNotificaiton: NotificationToken?
+    private var themeNotification: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTheming()
-        darkModeSwitch.isOn = UserDefaults.standard.darkModeEnabled
         safariReaderModeSwitch.isOn = UserDefaults.standard.safariReaderModeEnabled
         updateUsername()
-        notificationToken = NotificationCenter.default
+        usernameNotificaiton = NotificationCenter.default
             .observe(name: AuthenticationUIService.Notifications.AuthenticationDidChangeNotification,
                      object: nil, queue: .main) { _ in self.updateUsername() }
     }
@@ -41,9 +41,21 @@ class SettingsViewController: UITableViewController {
         }
     }
 
-    @IBAction private func darkModeValueChanged(_ sender: UISwitch) {
-        UserDefaults.standard.setDarkMode(sender.isOn)
-        AppThemeProvider.shared.currentTheme = sender.isOn ? .dark : .light
+    private func updateTheme() {
+        let settingsStore = SettingsStore()
+        let theme = settingsStore.theme
+        switch theme {
+        case (.darkClassic):
+            themeLabel.text = "Dark Classic"
+        case (.lightClassic):
+            themeLabel.text = "Light Classic"
+        case (.dark):
+            themeLabel.text = "Dark"
+        case (.light):
+            themeLabel.text = "Light"
+        default:
+            themeLabel.text = "Light"
+        }
     }
 
     @IBAction func safariReaderModelValueChanged(_ sender: UISwitch) {
@@ -80,6 +92,7 @@ extension SettingsViewController {
 
 extension SettingsViewController: Themed {
     func applyTheme(_ theme: AppTheme) {
+        updateTheme()
         view.backgroundColor = theme.groupedTableViewBackgroundColor
     }
 }
