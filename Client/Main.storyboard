@@ -42,19 +42,19 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNt-dt-R2Y" customClass="PostTitleView" customModule="Hackers" customModuleProvider="target">
-                                                    <rect key="frame" x="72" y="10" width="273" height="41.5"/>
+                                                    <rect key="frame" x="72" y="10" width="201" height="41.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="u9g-AO-wgl">
-                                                            <rect key="frame" x="0.0" y="0.0" width="273" height="41.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="201" height="41.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Title Text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUp-Yn-NeV">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="201" height="20.5"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1 point" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzm-bv-9Fd">
-                                                                    <rect key="frame" x="0.0" y="25.5" width="273" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="25.5" width="201" height="16"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                     <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -74,7 +74,18 @@
                                                         <outlet property="titleLabel" destination="gUp-Yn-NeV" id="fnB-7X-qO5"/>
                                                     </connections>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCK-JZ-WtA">
+                                                    <rect key="frame" x="285" y="0.0" width="60" height="61"/>
+                                                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="6va-hI-5J6"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CCK-JZ-WtA" firstAttribute="top" secondItem="Hqt-ay-B4F" secondAttribute="top" id="LJ4-qN-Q0p"/>
+                                                <constraint firstAttribute="bottom" secondItem="CCK-JZ-WtA" secondAttribute="bottom" id="khA-gq-3dr"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
