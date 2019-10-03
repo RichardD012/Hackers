@@ -22,12 +22,33 @@ class IconViewController: UITableViewController {
     }
 
     private func updateIcon() {
+        let currentCell: UITableViewCell?
         if UIApplication.shared.alternateIconName != nil {
+            currentCell = classicCell
             hackersCell.accessoryType = .none
             classicCell.accessoryType = .checkmark
         } else {
             hackersCell.accessoryType = .checkmark
+            currentCell = hackersCell
             classicCell.accessoryType = .none
+        }
+        updateIconAccessory(cell: currentCell)
+    }
+
+    private func updateIconAccessory(cell: UITableViewCell?) {
+        let settingsStore = SettingsStore()
+        let theme = settingsStore.theme
+        switch theme {
+        case (.darkClassic):
+           cell?.tintColor = AppTheme.darkClassic.appTintColor
+        case (.lightClassic):
+           cell?.tintColor = AppTheme.lightClassic.appTintColor
+        case (.dark):
+           cell?.tintColor = AppTheme.dark.appTintColor
+        case (.light):
+           cell?.tintColor = AppTheme.light.appTintColor
+        default:
+           cell?.tintColor = AppTheme.light.appTintColor
         }
     }
 
@@ -48,23 +69,29 @@ class IconViewController: UITableViewController {
 extension IconViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let iconName: String?
+        let currentCell: UITableViewCell?
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
             // hackers
             hackersCell.accessoryType = .checkmark
+            currentCell = hackersCell
             classicCell.accessoryType = .none
             iconName = nil
         case (0, 1):
             // classic
             hackersCell.accessoryType = .none
             classicCell.accessoryType = .checkmark
+            currentCell = classicCell
             iconName = "ClassicIcon"
         default:
             hackersCell.accessoryType = .checkmark
+            currentCell = hackersCell
             classicCell.accessoryType = .none
             iconName = nil
         }
+        //TODO: clean this up for changing the accessory
         if UIApplication.shared.supportsAlternateIcons {
+            updateIconAccessory(cell: currentCell)
             UIApplication.shared.setAlternateIconName(iconName)
             sendIconDidChangeNotification()
         }

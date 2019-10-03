@@ -19,7 +19,7 @@ class ThemesViewController: UITableViewController {
     @IBOutlet weak var darkCell: UITableViewCell!
     @IBOutlet weak var lightClassicCell: UITableViewCell!
     @IBOutlet weak var darkClassicCell: UITableViewCell!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateTheme()
@@ -31,23 +31,28 @@ class ThemesViewController: UITableViewController {
         switch theme {
         case (.darkClassic):
             darkClassicCell.accessoryType = .checkmark
+            darkClassicCell.tintColor = AppTheme.darkClassic.appTintColor
             disableRows(cells: lightClassicCell, darkCell, lightCell)
         case (.lightClassic):
             lightClassicCell.accessoryType = .checkmark
+            lightClassicCell.tintColor = AppTheme.lightClassic.appTintColor
             disableRows(cells: darkClassicCell, darkCell, lightCell)
         case (.dark):
             darkCell.accessoryType = .checkmark
+            darkCell.tintColor = AppTheme.dark.appTintColor
             disableRows(cells: lightClassicCell, darkClassicCell, lightCell)
         case (.light):
             lightCell.accessoryType = .checkmark
+            lightCell.tintColor = AppTheme.light.appTintColor
             disableRows(cells: lightClassicCell, darkClassicCell, darkCell)
         default:
             lightCell.accessoryType = .checkmark
+            lightCell.tintColor = AppTheme.light.appTintColor
             disableRows(cells: lightClassicCell, darkClassicCell, darkCell)
         }
     }
 
-    private func disableRows(cells: UITableViewCell...){
+    private func disableRows(cells: UITableViewCell...) {
         for cell in cells {
             cell.accessoryType = .none
         }
@@ -99,5 +104,9 @@ extension ThemesViewController {
 extension ThemesViewController: Themed {
     func applyTheme(_ theme: AppTheme) {
         view.backgroundColor = theme.groupedTableViewBackgroundColor
+        lightCell.tintColor = theme.appTintColor
+        darkCell.tintColor = theme.appTintColor
+        lightClassicCell.tintColor = theme.appTintColor
+        darkClassicCell.tintColor = theme.appTintColor
     }
 }

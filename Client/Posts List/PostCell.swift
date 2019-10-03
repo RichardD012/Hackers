@@ -23,6 +23,9 @@ class PostCell: SwipeTableViewCell {
     @IBOutlet weak var postTitleView: PostTitleView!
     @IBOutlet weak var thumbnailImageView: ThumbnailImageView!
     @IBOutlet weak var separatorView: UIView!
+    @IBOutlet weak var commentIcon: UIImageView!
+    @IBOutlet weak var commentIconView: UIView!
+    @IBOutlet weak var commentIconCount: UILabel!
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -71,14 +74,17 @@ extension PostCell: Themed {
     func applyTheme(_ theme: AppTheme) {
         backgroundColor = theme.cellBackgroundColor
         thumbnailImageView?.isHidden = theme.iconHidden
+        commentIconView?.isHidden = theme.alternatePostCellLayout == false
         if theme.iconHidden {
             separatorInset = .zero
         } else {
             separatorInset = UIEdgeInsets(top: 0,
-                                                    left: 88, //const?
+                                                    left: 88, //TODO: const?
                                                     bottom: 0,
                                                     right: 0)
         }
+        commentIconCount?.textColor = theme.appTintColor
+        commentIcon?.tintColor = theme.largeCommentTintColor //TODO: Update this to be separate?
         separatorView?.backgroundColor = theme.separatorColor
         thumbnailImageView.backgroundColor = theme.groupedTableViewBackgroundColor
         cellStackView?.layoutIfNeeded()

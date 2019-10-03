@@ -28,6 +28,7 @@ struct AppTheme {
     var cellHighlightColor: UIColor
     var cellBackgroundColor: UIColor
     var separatorColor: UIColor
+    var largeCommentTintColor: UIColor
 
     var groupedTableViewBackgroundColor: UIColor
     var groupedTableViewCellBackgroundColor: UIColor
@@ -61,6 +62,7 @@ extension AppTheme {
         cellHighlightColor: UIColor(rgb: 0xF4D1F2),
         cellBackgroundColor: .white,
         separatorColor: UIColor(rgb: 0xCACACA),
+        largeCommentTintColor: .black,
 
         groupedTableViewBackgroundColor: UIColor(rgb: 0xF2F2F7),
         groupedTableViewCellBackgroundColor: .white,
@@ -89,6 +91,7 @@ extension AppTheme {
         cellHighlightColor: UIColor(rgb: 0x34363D),
         cellBackgroundColor: .black,
         separatorColor: UIColor(rgb: 0x757575),
+        largeCommentTintColor: UIColor(rgb: 0xDDDDDD),
 
         // these are colours for a presented VC
         groupedTableViewBackgroundColor: UIColor(rgb: 0x1c1c1e),
@@ -118,6 +121,7 @@ extension AppTheme {
         cellHighlightColor: UIColor(rgb: 0xF4D1F2),
         cellBackgroundColor: .white,
         separatorColor: UIColor(rgb: 0xCACACA),
+        largeCommentTintColor: .black,
 
         groupedTableViewBackgroundColor: UIColor(rgb: 0xF2F2F7),
         groupedTableViewCellBackgroundColor: .white,
@@ -145,6 +149,7 @@ extension AppTheme {
         cellHighlightColor: UIColor(rgb: 0x34363D),
         cellBackgroundColor: UIColor(red: 38/255.0, green: 38/255.0, blue: 38/255.0, alpha: 1),
         separatorColor: UIColor(red: 56/255.0, green: 56/255.0, blue: 56/255.0, alpha: 1),
+        largeCommentTintColor: UIColor(red: 70/255.0, green: 70/255.0, blue: 70/255.0, alpha: 1),
 
         // these are colours for a presented VC
         groupedTableViewBackgroundColor: UIColor(rgb: 0x1c1c1e),

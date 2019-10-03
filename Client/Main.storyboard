@@ -42,19 +42,19 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNt-dt-R2Y" customClass="PostTitleView" customModule="Hackers" customModuleProvider="target">
-                                                    <rect key="frame" x="72" y="10" width="201" height="41.5"/>
+                                                    <rect key="frame" x="72" y="10" width="206" height="41.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="u9g-AO-wgl">
-                                                            <rect key="frame" x="0.0" y="0.0" width="201" height="41.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="206" height="41.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Title Text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUp-Yn-NeV">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="201" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="206" height="20.5"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1 point" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzm-bv-9Fd">
-                                                                    <rect key="frame" x="0.0" y="25.5" width="201" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="25.5" width="206" height="16"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                     <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -75,10 +75,31 @@
                                                     </connections>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCK-JZ-WtA">
-                                                    <rect key="frame" x="285" y="0.0" width="60" height="61"/>
-                                                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="290" y="0.0" width="55" height="61"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CommentBig" translatesAutoresizingMaskIntoConstraints="NO" id="gqC-9C-2ik">
+                                                            <rect key="frame" x="-2.5" y="14.5" width="60" height="32"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="gqC-9C-2ik" secondAttribute="height" multiplier="15:8" id="eRh-Sh-3hY"/>
+                                                                <constraint firstAttribute="width" constant="60" id="f2v-kU-DC5"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BTh-tP-CtH">
+                                                            <rect key="frame" x="17.5" y="22.5" width="20" height="12"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="QVW-1f-Qc8"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="6va-hI-5J6"/>
+                                                        <constraint firstAttribute="width" constant="55" id="6va-hI-5J6"/>
+                                                        <constraint firstItem="BTh-tP-CtH" firstAttribute="centerX" secondItem="gqC-9C-2ik" secondAttribute="centerX" id="VMM-a9-RsM"/>
+                                                        <constraint firstItem="BTh-tP-CtH" firstAttribute="top" secondItem="gqC-9C-2ik" secondAttribute="top" constant="8" id="Xsy-3L-fOd"/>
+                                                        <constraint firstItem="gqC-9C-2ik" firstAttribute="centerY" secondItem="CCK-JZ-WtA" secondAttribute="centerY" id="oSZ-1N-prE"/>
+                                                        <constraint firstItem="gqC-9C-2ik" firstAttribute="centerX" secondItem="CCK-JZ-WtA" secondAttribute="centerX" id="ogr-TQ-oa5"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -101,6 +122,9 @@
                                 <inset key="separatorInset" minX="88" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="cellStackView" destination="u9g-AO-wgl" id="Zpc-9V-aL6"/>
+                                    <outlet property="commentIcon" destination="gqC-9C-2ik" id="iIq-VO-P86"/>
+                                    <outlet property="commentIconCount" destination="BTh-tP-CtH" id="3sc-Kb-mUn"/>
+                                    <outlet property="commentIconView" destination="CCK-JZ-WtA" id="fIr-kS-DvA"/>
                                     <outlet property="postTitleView" destination="fNt-dt-R2Y" id="Xg6-38-hok"/>
                                     <outlet property="thumbnailImageView" destination="OFG-KR-Pd0" id="i8s-bN-Xew"/>
                                 </connections>
@@ -714,6 +738,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="jyX-xK-I64" rowHeight="45" style="IBUITableViewCellStyleDefault" id="l9r-Vh-WXG">
                                         <rect key="frame" x="16" y="63" width="343" height="45"/>
@@ -766,8 +791,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -831,14 +858,14 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Hackers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BXc-Ce-usb">
                                                     <rect key="frame" x="15" y="0.0" width="281" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="BHY-Ll-Xj5" style="IBUITableViewCellStyleDefault" id="AFO-m6-tDs">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="BHY-Ll-Xj5" imageView="3ac-oS-Ttj" style="IBUITableViewCellStyleDefault" id="AFO-m6-tDs">
                                         <rect key="frame" x="16" y="61.5" width="343" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AFO-m6-tDs" id="E79-qk-58Q">
@@ -852,6 +879,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3ac-oS-Ttj">
+                                                    <rect key="frame" x="15" y="0.0" width="44" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -897,6 +934,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CommentBig" width="35" height="35"/>
         <image name="PointsIcon" width="14" height="14"/>
         <image name="gear" catalog="system" width="64" height="60"/>
         <image name="safari" catalog="system" width="64" height="62"/>

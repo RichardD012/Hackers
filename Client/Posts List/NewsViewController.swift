@@ -126,6 +126,11 @@ extension NewsViewController {
 
         let post = posts?[indexPath.row]
         cell.postTitleView.post = post
+        if let commentCount = post?.commentCount {
+            cell.commentIconCount?.text =  String(commentCount)
+        } else {
+            cell.commentIconCount?.text = "0"
+        }
         cell.postTitleView.delegate = self
         cell.setImageWithPlaceholder(url: post?.url)
 
