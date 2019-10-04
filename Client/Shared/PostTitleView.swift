@@ -16,9 +16,7 @@ protocol PostTitleViewDelegate: class {
 class PostTitleView: UIView, UIGestureRecognizerDelegate {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var metadataLabel: UILabel!
-
     public var isTitleTapEnabled = false
-
     public weak var delegate: PostTitleViewDelegate?
 
     public var post: HNPost? {
@@ -33,7 +31,6 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
     override open func layoutSubviews() {
         super.layoutSubviews()
         setupTheming()
-
         let titleTapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                                action: #selector(didPressTitleText(_:)))
         titleLabel.addGestureRecognizer(titleTapGestureRecognizer)
@@ -63,7 +60,8 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
         if theme.alternatePostCellLayout {
             let defaultAttributes = [
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .semibold),
-                NSAttributedString.Key.foregroundColor: theme.titleTextColor
+                NSAttributedString.Key.foregroundColor: visitedPost(for: post) ?
+                    theme.visitedTitleTextColor : theme.titleTextColor
             ]
             let domainAttrs = [
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
@@ -79,6 +77,11 @@ class PostTitleView: UIView, UIGestureRecognizerDelegate {
             string.append(NSAttributedString(string: "\(post.title)", attributes: defaultAttributes))
             return string
         }
+    }
+
+    private func visitedPost(for post: HNPost) -> Bool {
+        let settingsStore = SettingsStore()
+        return settingsStore.visited(post: post)
     }
 
     private func metadataText(for post: HNPost, theme: AppTheme) -> NSAttributedString {

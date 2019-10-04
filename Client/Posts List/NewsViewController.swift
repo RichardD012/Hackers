@@ -24,6 +24,7 @@ class NewsViewController: UITableViewController {
     private var posts: [HNPost]?
     public var postType: HNScraper.PostListPageName! = .news
 
+
     private var peekedIndexPath: IndexPath?
     private var nextPageIdentifier: String?
 
@@ -148,11 +149,19 @@ extension NewsViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let post = posts?[indexPath.row] else { return }
-        if postType == .jobs {
+        if post.type == .askHN {
+            navigateToComments(for: post)
+        } else if postType == .jobs || AppThemeProvider.shared.currentTheme.alternatePostCellLayout {
+            setTitleVisited(for: tableView, indexPath: indexPath)
             didPressLinkButton(post)
         } else {
             navigateToComments(for: post)
         }
+    }
+
+    func setTitleVisited(for tableView: UITableView, indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? PostCell else { return }
+        cell.postTitleView.setNeedsLayout()
     }
 }
 
@@ -238,6 +247,8 @@ extension NewsViewController: UIViewControllerPreviewingDelegate, SFSafariViewCo
 
 extension NewsViewController: PostTitleViewDelegate, PostCellDelegate {
     func didPressLinkButton(_ post: HNPost) {
+        let settingsStore = SettingsStore()
+        settingsStore.setVisited(post: post)
         if let url = post.url,
             let safariViewController = SFSafariViewController.instance(for: url, previewActionItemsDelegate: self) {
             navigationController?.present(safariViewController, animated: true)
@@ -248,7 +259,19 @@ extension NewsViewController: PostTitleViewDelegate, PostCellDelegate {
         guard let tapGestureRecognizer = sender as? UITapGestureRecognizer else { return }
         let point = tapGestureRecognizer.location(in: tableView)
         if let indexPath = tableView.indexPathForRow(at: point), let post = posts?[indexPath.row] {
+            setTitleVisited(for: tableView, indexPath: indexPath)
             didPressLinkButton(post)
+        }
+    }
+
+    func didTapComments(_ sender: Any) {
+        guard let tapGestureRecognizer = sender as? UITapGestureRecognizer else { return }
+        let point = tapGestureRecognizer.location(in: tableView)
+        if let indexPath = tableView.indexPathForRow(at: point), let post = posts?[indexPath.row] {
+            self.tableView.selectRow(at: indexPath,
+                                     animated: true,
+                                     scrollPosition: .none) //this is a sort of hacky solution
+            navigateToComments(for: post)
         }
     }
 }

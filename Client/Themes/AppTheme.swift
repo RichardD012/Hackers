@@ -20,6 +20,7 @@ struct AppTheme {
     var alternatePostCellLayout: Bool
 
     var titleTextColor: UIColor
+    var visitedTitleTextColor: UIColor
     var postTitleDomainColor: UIColor
     var textColor: UIColor
     var metaDataTextColor: UIColor
@@ -54,6 +55,7 @@ extension AppTheme {
         hideMenuText: false,
         alternatePostCellLayout: false,
         titleTextColor: .black,
+        visitedTitleTextColor: .black,
         postTitleDomainColor: .black,
         textColor: UIColor(rgb: 0x555555),
         metaDataTextColor: UIColor(rgb: 0x555555),
@@ -83,6 +85,7 @@ extension AppTheme {
         hideMenuText: false,
         alternatePostCellLayout: false,
         titleTextColor: UIColor(rgb: 0xDDDDDD),
+        visitedTitleTextColor: UIColor(rgb: 0xDDDDDD),
         postTitleDomainColor: UIColor(rgb: 0xDDDDDD),
         textColor: UIColor(rgb: 0xAAAAAA),
         metaDataTextColor: UIColor(rgb: 0xAAAAAA),
@@ -113,7 +116,8 @@ extension AppTheme {
         hideMenuText: false,
         alternatePostCellLayout: true,
         titleTextColor: .black,
-        postTitleDomainColor: .black,
+        visitedTitleTextColor: UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1),
+        postTitleDomainColor: UIColor(red: 170/255.0, green: 170/255.0, blue: 170/255.0, alpha: 1),
         textColor: UIColor(rgb: 0x555555),
         metaDataTextColor: UIColor(rgb: 0x555555),
         lightTextColor: UIColor(rgb: 0xAAAAAA),
@@ -142,6 +146,7 @@ extension AppTheme {
         hideMenuText: true,
         alternatePostCellLayout: true,
         titleTextColor: UIColor(red: 204/255.0, green: 204/255.0, blue: 204/255.0, alpha: 1),
+        visitedTitleTextColor: UIColor(red: 115/255.0, green: 115/255.0, blue: 115/255.0, alpha: 1),
         postTitleDomainColor: UIColor(red: 115/255.0, green: 115/255.0, blue: 115/255.0, alpha: 1),
         textColor: UIColor(rgb: 0xAAAAAA),
         metaDataTextColor: UIColor(red: 151/255.0, green: 151/255.0, blue: 151/255.0, alpha: 1),

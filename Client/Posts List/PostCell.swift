@@ -13,6 +13,7 @@ import Kingfisher
 
 protocol PostCellDelegate: class {
     func didTapThumbnail(_ sender: Any)
+    func didTapComments(_ sender: Any)
 }
 
 class PostCell: SwipeTableViewCell {
@@ -31,11 +32,16 @@ class PostCell: SwipeTableViewCell {
         super.layoutSubviews()
         setupTheming()
         setupThumbnailGesture()
+        setupCommentGesture()
     }
 
     private func setupThumbnailGesture() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapThumbnail(_:)))
         thumbnailImageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    private func setupCommentGesture() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapComments(_:)))
+        commentIconView?.addGestureRecognizer(tapGestureRecognizer)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -53,11 +59,15 @@ class PostCell: SwipeTableViewCell {
     }
 
     private func setUnselectedBackground() {
-        backgroundColor = AppThemeProvider.shared.currentTheme.backgroundColor
+        backgroundColor = AppThemeProvider.shared.currentTheme.cellBackgroundColor
     }
 
     @objc private func didTapThumbnail(_ sender: Any) {
         postDelegate?.didTapThumbnail(sender)
+    }
+
+    @objc private func didTapComments(_ sender: Any) {
+        postDelegate?.didTapComments(sender)
     }
 
     public func setImageWithPlaceholder(url: URL?) {
