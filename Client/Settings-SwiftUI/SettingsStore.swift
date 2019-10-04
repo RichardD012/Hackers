@@ -73,7 +73,7 @@ class SettingsStore: ObservableObject {
     var theme: ThemeType {
         set {
             defaults.set(newValue.rawValue, forKey: Keys.theme)
-            ThemeSwitcher.switchTheme()
+            ThemeSwitcher.switchTheme(for: newValue)
         }
         get { return defaults.string(forKey: Keys.theme)
             .flatMap { ThemeType(rawValue: $0) } ?? .system

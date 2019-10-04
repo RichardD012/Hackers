@@ -39,6 +39,9 @@ class CommentsViewController: UITableViewController {
         setupTheming()
         loadComments()
         tableView.backgroundView = TableViewBackgroundView.loadingBackgroundView()
+        if navigationController != nil {
+            navigationController!.navigationBar.isTranslucent = false
+        }
         notificationToken = NotificationCenter.default
             .observe(name: AuthenticationUIService.Notifications.AuthenticationDidChangeNotification,
                      object: nil, queue: .main) { _ in self.loadComments() }

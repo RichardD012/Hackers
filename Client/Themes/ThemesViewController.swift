@@ -105,6 +105,9 @@ extension ThemesViewController {
 extension ThemesViewController: Themed {
     func applyTheme(_ theme: AppTheme) {
         view.backgroundColor = theme.groupedTableViewBackgroundColor
+        if navigationController != nil {
+            navigationController!.navigationBar.tintColor = theme.navBarTintColor
+        }
         lightCell.tintColor = theme.appTintColor
         darkCell.tintColor = theme.appTintColor
         lightClassicCell.tintColor = theme.appTintColor

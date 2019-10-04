@@ -40,6 +40,11 @@ class NewsViewController: UITableViewController {
         notificationToken = NotificationCenter.default
             .observe(name: AuthenticationUIService.Notifications.AuthenticationDidChangeNotification,
                                            object: nil, queue: .main) { _ in self.loadPosts() }
+        //only do this on load, if you do it during theme change it causes a mutual access exception
+        if navigationController != nil {
+            navigationController!.navigationBar.isTranslucent = AppThemeProvider.shared.currentTheme.navBarTranslucent
+            navigationController!.navigationBar.isOpaque = AppThemeProvider.shared.currentTheme.navBarOpaque
+        }
         setupTheming()
         loadPosts()
     }
@@ -193,8 +198,18 @@ extension NewsViewController: SwipeTableViewCellDelegate {
 
 extension NewsViewController: Themed {
     func applyTheme(_ theme: AppTheme) {
-        view.backgroundColor = theme.backgroundColor
-        tableView.backgroundColor = .green
+        view.backgroundColor = theme.navBarBackgroundColor
+        /*if self.navigationController != nil {
+            AppThemeProvider.setupUIColors(navigationBar: self.navigationController!.navigationBar, for: theme)
+        }*/
+        self.navigationController!.navigationBar.backgroundColor = theme.navBarBackgroundColor
+        self.navigationController!.navigationBar.barTintColor = theme.navBarBackgroundColor
+        self.navigationController!.navigationBar.tintColor = theme.navBarTintColor
+        if self.tabBarController != nil {
+            AppThemeProvider.setupUIColors(tabBar: self.tabBarController!.tabBar, for: theme)
+        }
+        //tableView.clipsToBounds = true
+        tableView.backgroundColor = .clear
         tableView.separatorColor = theme.separatorColor
         tableView.refreshControl?.tintColor = theme.appTintColor
         tableView.setNeedsUpdateConstraints()

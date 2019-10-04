@@ -122,6 +122,9 @@ extension SettingsViewController {
 extension SettingsViewController: Themed {
     func applyTheme(_ theme: AppTheme) {
         updateTheme()
+        if navigationController != nil {
+            navigationController!.navigationBar.tintColor = theme.navBarTintColor
+        }
         view.backgroundColor = theme.groupedTableViewBackgroundColor
     }
 }

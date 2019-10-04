@@ -9,13 +9,17 @@
 import UIKit
 
 struct AppTheme {
-    var appTintColor: UIColor
-    var tabBarTintColor: UIColor
+    var appTintColor: UIColor //overall app tint overlay color
+    var tabBarTintColor: UIColor //tint/overlay for tab bar
     var statusBarStyle: UIStatusBarStyle
 
-    var backgroundColor: UIColor
-    var tabBarBackgroundColor: UIColor
-    var navBarTintColor: UIColor
+    var backgroundColor: UIColor //main table background color
+    var tabBarBackgroundColor: UIColor //tab bar background color
+    var tabBarOpaque: Bool
+    var navBarBackgroundColor: UIColor //nav bar background color
+    var navBarTintColor: UIColor //tint/overlay for nav bar
+    var navBarTranslucent: Bool
+    var navBarOpaque: Bool
     var iconHidden: Bool
     var alternateIcons: Bool
     var hideMenuText: Bool
@@ -53,7 +57,11 @@ extension AppTheme {
 
         backgroundColor: .white,
         tabBarBackgroundColor: .white,
-        navBarTintColor: .white,
+        tabBarOpaque: false,
+        navBarBackgroundColor: .white,
+        navBarTintColor: appTintColorLight,
+        navBarTranslucent: true,
+        navBarOpaque: false,
         iconHidden: false,
         alternateIcons: false,
         hideMenuText: false,
@@ -85,7 +93,11 @@ extension AppTheme {
 
         backgroundColor: .black,
         tabBarBackgroundColor: .black,
-        navBarTintColor: .black,
+        tabBarOpaque: false,
+        navBarBackgroundColor: .black,
+        navBarTintColor: appTintColorDark,
+        navBarTranslucent: true,
+        navBarOpaque: false,
         iconHidden: false,
         alternateIcons: false,
         hideMenuText: false,
@@ -114,11 +126,15 @@ extension AppTheme {
     static let lightClassic = AppTheme(
         appTintColor: .black,
         tabBarTintColor: UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1),
-        
+
         statusBarStyle: .darkContent,
-        backgroundColor: UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1),
+        backgroundColor: .white,
         tabBarBackgroundColor: UIColor(red: 246/255.0, green: 246/255.0, blue: 239/255.0, alpha: 1),
-        navBarTintColor: UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1),
+        tabBarOpaque: true,
+        navBarBackgroundColor: UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1),
+        navBarTintColor: .black,
+        navBarTranslucent: false,
+        navBarOpaque: true,
         iconHidden: true,
         alternateIcons: true,
         hideMenuText: true,
@@ -130,7 +146,7 @@ extension AppTheme {
         metaDataTextColor: UIColor(rgb: 0x555555),
         lightTextColor: UIColor(rgb: 0xAAAAAA),
 
-        cellHighlightColor: UIColor(rgb: 0xF4D1F2),
+        cellHighlightColor: UIColor(red: 245/255.0, green: 245/255.0, blue: 242/255.0, alpha: 1),
         cellBackgroundColor: .white,
         separatorColor: UIColor(rgb: 0xCACACA),
         largeCommentTintColor: .black,
@@ -148,9 +164,13 @@ extension AppTheme {
         tabBarTintColor: appTintColorDarkClassic,
         statusBarStyle: .lightContent,
 
-        backgroundColor: UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1),
+        backgroundColor: UIColor(red: 38/255.0, green: 38/255.0, blue: 38/255.0, alpha: 1),
         tabBarBackgroundColor: UIColor(red: 38/255.0, green: 38/255.0, blue: 38/255.0, alpha: 1),
-        navBarTintColor: UIColor(red: 38/255.0, green: 38/255.0, blue: 38/255.0, alpha: 1),
+        tabBarOpaque: false,
+        navBarBackgroundColor: UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1),
+        navBarTintColor: appTintColorDarkClassic,
+        navBarTranslucent: false,
+        navBarOpaque: true,
         iconHidden: true,
         alternateIcons: true,
         hideMenuText: true,

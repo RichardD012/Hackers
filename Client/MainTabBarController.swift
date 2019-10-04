@@ -21,7 +21,7 @@ class MainTabBarController: UITabBarController {
                 let navigationController = splitViewController.viewControllers.first as? UINavigationController,
                 let newsViewController = navigationController.viewControllers.first as? NewsViewController
                 else { return }
-            //TODO: Update this after a theme change
+            
             if let tabItem = self.tabItem(for: index, theme: theme) {
                 newsViewController.postType = tabItem.postType
                 if theme.hideMenuText == false {
@@ -91,6 +91,9 @@ class MainTabBarController: UITabBarController {
 extension MainTabBarController: Themed {
     func applyTheme(_ theme: AppTheme) {
         overrideUserInterfaceStyle = theme.userInterfaceStyle
-        //TODO: Update the tab bar when the theme changes
+        self.view.backgroundColor = theme.navBarBackgroundColor
+        if self.tabBarController != nil {
+            AppThemeProvider.setupUIColors(tabBar: self.tabBarController!.tabBar, for: theme)
+        }
     }
 }

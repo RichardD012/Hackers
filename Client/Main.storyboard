@@ -248,7 +248,7 @@
         <scene sceneID="xDu-IX-6YL">
             <objects>
                 <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="evu-Yh-MGy" customClass="CommentsViewController" customModule="Hackers" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="60" sectionFooterHeight="28" id="TkO-Pr-orw">
+                    <tableView key="view" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="60" sectionFooterHeight="28" id="TkO-Pr-orw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -574,7 +574,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <connections>
-                                            <segue destination="rdf-4y-FNX" kind="presentation" id="0Wm-Re-4aE"/>
+                                            <segue destination="rdf-4y-FNX" kind="showDetail" id="hG5-TW-34g"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="i4Y-gV-fMM" detailTextLabel="0ph-vF-Hbq" style="IBUITableViewCellStyleValue1" id="Mgt-In-T1A" customClass="SettingsTableViewCell" customModule="Hackers" customModuleProvider="target">
@@ -805,8 +805,8 @@
                             <outlet property="delegate" destination="lyD-0D-ip0" id="ZIl-fH-6Gv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Theme" id="fx5-2x-XoB">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="2Hl-oS-vBo" userLabel="Done">
+                    <navigationItem key="navigationItem" title="Theme" largeTitleDisplayMode="always" id="fx5-2x-XoB">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="2Hl-oS-vBo" userLabel="Done">
                             <connections>
                                 <action selector="didPressDone:" destination="lyD-0D-ip0" id="Kha-1e-Jds"/>
                             </connections>
@@ -902,7 +902,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Icon" id="bM1-Gn-qye">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="hvZ-QY-S4r">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="hvZ-QY-S4r">
                             <connections>
                                 <action selector="didPressDone:" destination="3C2-DT-tx7" id="pxY-TA-Y7A"/>
                             </connections>
