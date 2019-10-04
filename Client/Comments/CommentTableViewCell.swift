@@ -112,13 +112,13 @@ extension CommentTableViewCell {
     }
 
     private func setUnselectedBackground() {
-        backgroundColor = AppThemeProvider.shared.currentTheme.backgroundColor
+        backgroundColor = AppThemeProvider.shared.currentTheme.cellBackgroundColor
     }
 }
 
 extension CommentTableViewCell: Themed {
     func applyTheme(_ theme: AppTheme) {
-        backgroundColor = theme.backgroundColor
+        backgroundColor = theme.cellBackgroundColor
         if commentTextView != nil {
             commentTextView.tintColor = theme.appTintColor
         }

@@ -194,7 +194,7 @@ extension NewsViewController: SwipeTableViewCellDelegate {
 extension NewsViewController: Themed {
     func applyTheme(_ theme: AppTheme) {
         view.backgroundColor = theme.backgroundColor
-        tableView.backgroundColor = theme.backgroundColor
+        tableView.backgroundColor = .green
         tableView.separatorColor = theme.separatorColor
         tableView.refreshControl?.tintColor = theme.appTintColor
         tableView.setNeedsUpdateConstraints()

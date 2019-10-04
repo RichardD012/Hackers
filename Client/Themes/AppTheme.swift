@@ -10,10 +10,12 @@ import UIKit
 
 struct AppTheme {
     var appTintColor: UIColor
-
+    var tabBarTintColor: UIColor
     var statusBarStyle: UIStatusBarStyle
 
     var backgroundColor: UIColor
+    var tabBarBackgroundColor: UIColor
+    var navBarTintColor: UIColor
     var iconHidden: Bool
     var alternateIcons: Bool
     var hideMenuText: Bool
@@ -46,10 +48,12 @@ extension AppTheme {
 
     static let light = AppTheme(
         appTintColor: appTintColorLight,
-
+        tabBarTintColor: appTintColorLight,
         statusBarStyle: .darkContent,
 
         backgroundColor: .white,
+        tabBarBackgroundColor: .white,
+        navBarTintColor: .white,
         iconHidden: false,
         alternateIcons: false,
         hideMenuText: false,
@@ -76,10 +80,12 @@ extension AppTheme {
 
     static let dark = AppTheme(
         appTintColor: appTintColorDark,
-
+        tabBarTintColor: appTintColorDark,
         statusBarStyle: .lightContent,
 
         backgroundColor: .black,
+        tabBarBackgroundColor: .black,
+        navBarTintColor: .black,
         iconHidden: false,
         alternateIcons: false,
         hideMenuText: false,
@@ -106,14 +112,16 @@ extension AppTheme {
     )
 
     static let lightClassic = AppTheme(
-        appTintColor: appTintColorLight,
-
+        appTintColor: .black,
+        tabBarTintColor: UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1),
+        
         statusBarStyle: .darkContent,
-
-        backgroundColor: .white,
+        backgroundColor: UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1),
+        tabBarBackgroundColor: UIColor(red: 246/255.0, green: 246/255.0, blue: 239/255.0, alpha: 1),
+        navBarTintColor: UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1),
         iconHidden: true,
-        alternateIcons: false,
-        hideMenuText: false,
+        alternateIcons: true,
+        hideMenuText: true,
         alternatePostCellLayout: true,
         titleTextColor: .black,
         visitedTitleTextColor: UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1),
@@ -137,10 +145,12 @@ extension AppTheme {
 
     static let darkClassic = AppTheme(
         appTintColor: appTintColorDarkClassic,
-
+        tabBarTintColor: appTintColorDarkClassic,
         statusBarStyle: .lightContent,
 
         backgroundColor: UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1),
+        tabBarBackgroundColor: UIColor(red: 38/255.0, green: 38/255.0, blue: 38/255.0, alpha: 1),
+        navBarTintColor: UIColor(red: 38/255.0, green: 38/255.0, blue: 38/255.0, alpha: 1),
         iconHidden: true,
         alternateIcons: true,
         hideMenuText: true,
