@@ -89,12 +89,12 @@ extension PostCell: Themed {
             separatorInset = .zero
         } else {
             separatorInset = UIEdgeInsets(top: 0,
-                                                    left: 88, //TODO: const?
+                                                    left: 88,
                                                     bottom: 0,
                                                     right: 0)
         }
-        commentIconCount?.textColor = theme.appTintColor
-        commentIcon?.tintColor = theme.largeCommentTintColor //TODO: Update this to be separate?
+        commentIconCount?.textColor = theme.commentLabelTintColor
+        commentIcon?.tintColor = theme.largeCommentTintColor
         separatorView?.backgroundColor = theme.separatorColor
         thumbnailImageView.backgroundColor = theme.groupedTableViewBackgroundColor
         cellStackView?.layoutIfNeeded()

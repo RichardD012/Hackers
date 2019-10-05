@@ -67,6 +67,7 @@
 		BD11CCE323464E3C00E04019 /* ClassicIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD11CCE123464E3C00E04019 /* ClassicIcon@3x.png */; };
 		BD11CCE423464E3C00E04019 /* ClassicIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD11CCE223464E3C00E04019 /* ClassicIcon@2x.png */; };
 		BD5BD728234650E1004D99D1 /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5BD727234650E1004D99D1 /* IconViewController.swift */; };
+		BDC3E32623490B4A00F87057 /* ColoredHairlineTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC3E32523490B4A00F87057 /* ColoredHairlineTabBar.swift */; };
 		BDD1270823452B9E0097F085 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD1270723452B9E0097F085 /* ThemesViewController.swift */; };
 		DF68752992A90A126C292CD9 /* Pods_Hackers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0376FCAAF4C3EBA38572A82 /* Pods_Hackers.framework */; };
 /* End PBXBuildFile section */
@@ -155,6 +156,7 @@
 		BD11CCE123464E3C00E04019 /* ClassicIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ClassicIcon@3x.png"; sourceTree = "<group>"; };
 		BD11CCE223464E3C00E04019 /* ClassicIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ClassicIcon@2x.png"; sourceTree = "<group>"; };
 		BD5BD727234650E1004D99D1 /* IconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
+		BDC3E32523490B4A00F87057 /* ColoredHairlineTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredHairlineTabBar.swift; sourceTree = "<group>"; };
 		BDD1270723452B9E0097F085 /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		F0376FCAAF4C3EBA38572A82 /* Pods_Hackers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hackers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -232,6 +234,7 @@
 				249B8F8422A2A519002A9EC5 /* NotificationCenterExtensions.swift */,
 				241E8DA91944AF870004F457 /* HNCommentExtensions.swift */,
 				24FFFF5923362C7800D009EF /* HNPostExtensions.swift */,
+				BDC3E32523490B4A00F87057 /* ColoredHairlineTabBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				2464D21F209E27FE00C7F8FC /* UserDefaultsExtensions.swift in Sources */,
 				BDD1270823452B9E0097F085 /* ThemesViewController.swift in Sources */,
 				24CE5FF819435A90009D2677 /* PostCell.swift in Sources */,
+				BDC3E32623490B4A00F87057 /* ColoredHairlineTabBar.swift in Sources */,
 				24B982DF22BE65FF000D8913 /* SettingsStore.swift in Sources */,
 				24628BAD21E6897700BDEEF9 /* AppFont.swift in Sources */,
 				2464D21B209E1FA100C7F8FC /* SettingsViewController.swift in Sources */,

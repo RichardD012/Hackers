@@ -39,11 +39,8 @@ extension MainSplitViewController: Themed {
         UITextView.appearance().tintColor = theme.appTintColor
         UITabBar.appearance().backgroundColor = theme.tabBarBackgroundColor
         UITabBar.appearance().tintColor = theme.tabBarTintColor
+        UITabBar.appearance().isTranslucent = theme.tabBarTranslucent
         UITabBar.appearance().isOpaque = theme.tabBarOpaque
-        /*UINavigationBar.appearance().backgroundColor = theme.navBarBackgroundColor
-        UINavigationBar.appearance().barTintColor = theme.navBarBackgroundColor*/
         UINavigationBar.appearance().tintColor = theme.navBarTintColor
-        /*UINavigationBar.appearance().isTranslucent = theme.navBarTranslucent
-        UINavigationBar.appearance().isOpaque = theme.navBarOpaque*/
     }
 }

@@ -199,16 +199,16 @@ extension NewsViewController: SwipeTableViewCellDelegate {
 extension NewsViewController: Themed {
     func applyTheme(_ theme: AppTheme) {
         view.backgroundColor = theme.navBarBackgroundColor
-        /*if self.navigationController != nil {
-            AppThemeProvider.setupUIColors(navigationBar: self.navigationController!.navigationBar, for: theme)
-        }*/
         self.navigationController!.navigationBar.backgroundColor = theme.navBarBackgroundColor
         self.navigationController!.navigationBar.barTintColor = theme.navBarBackgroundColor
         self.navigationController!.navigationBar.tintColor = theme.navBarTintColor
         if self.tabBarController != nil {
             AppThemeProvider.setupUIColors(tabBar: self.tabBarController!.tabBar, for: theme)
         }
-        //tableView.clipsToBounds = true
+        if self.tabBarController != nil {
+            AppThemeProvider.setupUIColors(tabBar: self.tabBarController!.tabBar, for: theme)
+        }
+        tableView.clipsToBounds = true
         tableView.backgroundColor = .clear
         tableView.separatorColor = theme.separatorColor
         tableView.refreshControl?.tintColor = theme.appTintColor

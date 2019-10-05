@@ -10,8 +10,8 @@
         <!--Hacker News-->
         <scene sceneID="Jh0-BO-yhM">
             <objects>
-                <tableViewController id="6t9-fC-JrD" customClass="NewsViewController" customModule="Hackers" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="AjT-wK-ps1">
+                <tableViewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="6t9-fC-JrD" customClass="NewsViewController" customModule="Hackers" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" id="AjT-wK-ps1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -90,7 +90,7 @@
                                                                 <constraint firstAttribute="width" constant="20" id="QVW-1f-Qc8"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                            <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -165,12 +165,15 @@
         <!--Item-->
         <scene sceneID="1am-tW-4v5">
             <objects>
-                <navigationController id="2FT-kg-cd5" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="2FT-kg-cd5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="aiG-Km-7Il"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="o2Y-R6-LxE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Aa5-mt-ju7">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="6t9-fC-JrD" kind="relationship" relationship="rootViewController" id="Wxy-EO-kga"/>
                     </connections>
@@ -198,7 +201,7 @@
             <objects>
                 <tabBarController id="jsb-Cl-SCJ" customClass="MainTabBarController" customModule="Hackers" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Hacker News" id="nmK-0d-BKH"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9cz-3d-LaB">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9cz-3d-LaB" customClass="ColoredHairlineTabBar" customModule="Hackers" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -247,7 +250,7 @@
         <!--Comments View Controller-->
         <scene sceneID="xDu-IX-6YL">
             <objects>
-                <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="evu-Yh-MGy" customClass="CommentsViewController" customModule="Hackers" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="evu-Yh-MGy" customClass="CommentsViewController" customModule="Hackers" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="60" sectionFooterHeight="28" id="TkO-Pr-orw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -693,7 +696,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1UW-sd-Ilr">
             <objects>
-                <navigationController storyboardIdentifier="PostViewNavigationController" id="PXZ-r3-pvU" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PostViewNavigationController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="PXZ-r3-pvU" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="nrG-IN-2HV"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zkc-Rr-CEM">
@@ -792,7 +795,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>

@@ -53,13 +53,9 @@ final class AppThemeProvider: ThemeProvider {
 
     public static func setupUIColors(tabBar: UITabBar, for theme: AppTheme) {
         tabBar.backgroundColor = theme.tabBarBackgroundColor
+        tabBar.barTintColor = theme.tabBarBackgroundColor
         tabBar.tintColor = theme.tabBarTintColor
         tabBar.isOpaque = theme.tabBarOpaque
-        //tabBar.tintColor = AppThemeProvider.shared.currentTheme.tabBarTintColor
-        //tabBar.isTranslucent = false
-        //tabBar.isOpaque = true
-        //tabBar.barTintColor = AppThemeProvider.shared.currentTheme.tabBarBackgroundColor
-        //tabBar.unselectedItemTintColor = Theme.tabBarTextColor
     }
     
 }

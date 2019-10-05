@@ -16,6 +16,7 @@ struct AppTheme {
     var backgroundColor: UIColor //main table background color
     var tabBarBackgroundColor: UIColor //tab bar background color
     var tabBarOpaque: Bool
+    var tabBarTranslucent: Bool
     var navBarBackgroundColor: UIColor //nav bar background color
     var navBarTintColor: UIColor //tint/overlay for nav bar
     var navBarTranslucent: Bool
@@ -35,6 +36,7 @@ struct AppTheme {
     var cellHighlightColor: UIColor
     var cellBackgroundColor: UIColor
     var separatorColor: UIColor
+    var commentLabelTintColor: UIColor
     var largeCommentTintColor: UIColor
 
     var groupedTableViewBackgroundColor: UIColor
@@ -43,6 +45,8 @@ struct AppTheme {
     var upvotedColor: UIColor
 
     var userInterfaceStyle: UIUserInterfaceStyle
+    var showHairline: Bool
+    var hairlineColor: UIColor
 }
 
 extension AppTheme {
@@ -57,7 +61,8 @@ extension AppTheme {
 
         backgroundColor: .white,
         tabBarBackgroundColor: .white,
-        tabBarOpaque: false,
+        tabBarOpaque: true,
+        tabBarTranslucent: false,
         navBarBackgroundColor: .white,
         navBarTintColor: appTintColorLight,
         navBarTranslucent: true,
@@ -76,6 +81,7 @@ extension AppTheme {
         cellHighlightColor: UIColor(rgb: 0xF4D1F2),
         cellBackgroundColor: .white,
         separatorColor: UIColor(rgb: 0xCACACA),
+        commentLabelTintColor: .black,
         largeCommentTintColor: .black,
 
         groupedTableViewBackgroundColor: UIColor(rgb: 0xF2F2F7),
@@ -83,7 +89,9 @@ extension AppTheme {
 
         upvotedColor: UIColor(rgb: 0xFF9300),
 
-        userInterfaceStyle: .light
+        userInterfaceStyle: .light,
+        showHairline: false,
+        hairlineColor: .clear
     )
 
     static let dark = AppTheme(
@@ -94,6 +102,7 @@ extension AppTheme {
         backgroundColor: .black,
         tabBarBackgroundColor: .black,
         tabBarOpaque: false,
+        tabBarTranslucent: true,
         navBarBackgroundColor: .black,
         navBarTintColor: appTintColorDark,
         navBarTranslucent: true,
@@ -112,6 +121,7 @@ extension AppTheme {
         cellHighlightColor: UIColor(rgb: 0x34363D),
         cellBackgroundColor: .black,
         separatorColor: UIColor(rgb: 0x757575),
+        commentLabelTintColor: UIColor(rgb: 0xDDDDDD),
         largeCommentTintColor: UIColor(rgb: 0xDDDDDD),
 
         // these are colours for a presented VC
@@ -120,7 +130,9 @@ extension AppTheme {
 
         upvotedColor: UIColor(rgb: 0xFF9300),
 
-        userInterfaceStyle: .dark
+        userInterfaceStyle: .dark,
+        showHairline: false,
+        hairlineColor: .clear
     )
 
     static let lightClassic = AppTheme(
@@ -131,6 +143,7 @@ extension AppTheme {
         backgroundColor: .white,
         tabBarBackgroundColor: UIColor(red: 246/255.0, green: 246/255.0, blue: 239/255.0, alpha: 1),
         tabBarOpaque: true,
+        tabBarTranslucent: false,
         navBarBackgroundColor: UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1),
         navBarTintColor: .black,
         navBarTranslucent: false,
@@ -149,14 +162,17 @@ extension AppTheme {
         cellHighlightColor: UIColor(red: 245/255.0, green: 245/255.0, blue: 242/255.0, alpha: 1),
         cellBackgroundColor: .white,
         separatorColor: UIColor(rgb: 0xCACACA),
-        largeCommentTintColor: .black,
+        commentLabelTintColor: appTintColorDarkClassic,
+        largeCommentTintColor: UIColor(red: 230/255.0, green: 230/255.0, blue: 230/255.0, alpha: 1),
 
         groupedTableViewBackgroundColor: UIColor(rgb: 0xF2F2F7),
         groupedTableViewCellBackgroundColor: .white,
 
         upvotedColor: UIColor(rgb: 0xFF9300),
 
-        userInterfaceStyle: .light
+        userInterfaceStyle: .light,
+        showHairline: true,
+        hairlineColor: .lightGray
     )
 
     static let darkClassic = AppTheme(
@@ -166,7 +182,8 @@ extension AppTheme {
 
         backgroundColor: UIColor(red: 38/255.0, green: 38/255.0, blue: 38/255.0, alpha: 1),
         tabBarBackgroundColor: UIColor(red: 38/255.0, green: 38/255.0, blue: 38/255.0, alpha: 1),
-        tabBarOpaque: false,
+        tabBarOpaque: true,
+        tabBarTranslucent: false,
         navBarBackgroundColor: UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1),
         navBarTintColor: appTintColorDarkClassic,
         navBarTranslucent: false,
@@ -184,7 +201,8 @@ extension AppTheme {
         cellHighlightColor: UIColor(rgb: 0x34363D),
         cellBackgroundColor: UIColor(red: 38/255.0, green: 38/255.0, blue: 38/255.0, alpha: 1),
         separatorColor: UIColor(red: 56/255.0, green: 56/255.0, blue: 56/255.0, alpha: 1),
-        largeCommentTintColor: UIColor(red: 70/255.0, green: 70/255.0, blue: 70/255.0, alpha: 1),
+        commentLabelTintColor: appTintColorDarkClassic,
+        largeCommentTintColor: UIColor(red: 60/255.0, green: 60/255.0, blue: 60/255.0, alpha: 1),
 
         // these are colours for a presented VC
         groupedTableViewBackgroundColor: UIColor(rgb: 0x1c1c1e),
@@ -192,6 +210,8 @@ extension AppTheme {
 
         upvotedColor: UIColor(rgb: 0xFF9300),
 
-        userInterfaceStyle: .dark
+        userInterfaceStyle: .dark,
+        showHairline: true,
+        hairlineColor: .black
     )
 }
