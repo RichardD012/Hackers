@@ -26,7 +26,7 @@ DEPENDENCIES:
   - WhatsNewKit
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - BulletinBoard
     - DeviceKit
     - Kingfisher
@@ -63,4 +63,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d70f074b2d24b1a621743d5403c8ccc041288902
 
-COCOAPODS: 1.8.1
+COCOAPODS: 1.9.3
